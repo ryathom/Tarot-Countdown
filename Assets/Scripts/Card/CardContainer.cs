@@ -45,7 +45,7 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     // -------------------------------------------------------
     public void ShowVisual(bool enabled)
     {
-        // if (enabled) cardVisual.UpdateVisuals();
+        if (enabled) cardVisual.UpdateVisuals();
         
         cardVisual.gameObject.SetActive(enabled);
     }

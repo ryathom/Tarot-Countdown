@@ -18,6 +18,7 @@ public class Zone : MonoBehaviour
     {
         DeregisterContainers();
         card.SetZone(this);
+        card.SetFaceUp(true);
         Cards.Add(card);
         OnContentsChange?.Invoke();
         UpdateVisuals();

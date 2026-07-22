@@ -8,9 +8,17 @@ public class Card
     public CardContainer Container {get; private set;}
     public Zone Zone {get; private set;}
 
+    public bool FaceUp {get; private set;}
+
     public Card(CardSO cardSO)
     {
         this.CardSO = cardSO;
+    }
+
+    public void SetFaceUp(bool faceup)
+    {
+        FaceUp = faceup;
+        Container.ShowVisual(true);
     }
 
     public void SetContainer(CardContainer container)
