@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public PlayArea PlayArea;
     public DiscardPile DiscardPile;
 
+    public int Fate;
+    public int Doom;
+
     [Header("Cards")]
     public CardContainer cardContainerPrefab;
     public CardSO testCard;

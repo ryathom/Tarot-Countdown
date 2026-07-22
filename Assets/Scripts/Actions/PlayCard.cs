@@ -17,6 +17,7 @@ public class PlayCard : IAction
 
         if (Card is MinorArcana minorArcana)
         {
+            GameManager.Actions.AddAction(new GainFate(minorArcana.Number));
             GameManager.Actions.AddAction(new MillCards(minorArcana.Number));
         }
     }
