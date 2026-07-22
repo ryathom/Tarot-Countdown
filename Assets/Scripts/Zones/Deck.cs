@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Deck : Zone
 {
     public override void AddCard(Card card)
@@ -8,6 +10,19 @@ public class Deck : Zone
 
     protected override void ClickCard(Card card)
     {
-        GameManager.Instance.DrawCard(card);
+        GameManager.Instance.DrawCard();
+    }
+
+    public void Shuffle()
+    {
+        for (int i = 0; i < Cards.Count; i++) 
+        {
+            Card temp = Cards[i];
+            int randomIndex = Random.Range(i, Cards.Count);
+            Cards[i] = Cards[randomIndex];
+            Cards[randomIndex] = temp;
+        }
+
+        UpdateVisuals();
     }
 }

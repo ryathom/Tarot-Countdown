@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Card
+public abstract class Card
 {
     public CardSO CardSO {get; private set;}
-    public string Name {get => CardSO.name;}
+    public string Name;
 
     public CardContainer Container {get; private set;}
     public Zone Zone {get; private set;}
@@ -31,3 +31,27 @@ public class Card
         Zone = zone;
     }
 }
+
+public class MinorArcana : Card
+{
+    public int Number;
+    public Suit Suit;
+
+    public MinorArcana(CardSO cardSO, int number, Suit suit) : base(cardSO)
+    {
+        Number = number;
+        Suit = suit;
+        Name = Number + " of " + Suit;
+    }
+
+    
+}
+
+public enum Suit
+{
+    Wands,
+    Swords,
+    Cups,
+    Coins
+}
+

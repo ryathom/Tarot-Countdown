@@ -36,9 +36,6 @@ public class InputManager : MonoBehaviour
         middleClickAction = InputSystem.actions.FindAction("MiddleClick");
         scrollAction = InputSystem.actions.FindAction("ScrollWheel");
         cancelAction = InputSystem.actions.FindAction("Cancel");
-
-        Debug.Log(InputSystem.actions);
-        Debug.Log(pointAction);
     }
 
     private void Update()
@@ -57,7 +54,6 @@ public class InputManager : MonoBehaviour
         if (cancelAction.WasPressedThisFrame())
         {
             OnCancelAction?.Invoke();
-            Debug.Log("Cancel");
         }
     }
 

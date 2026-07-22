@@ -1,3 +1,4 @@
+using PrimeTween;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        PrimeTweenConfig.SetTweensCapacity(1600);
+
         InstantiateCards();
         StartGame();
     }
@@ -42,14 +45,20 @@ public class GameManager : MonoBehaviour
     //------------------------------------------------------------------------------------
     private void InstantiateCards()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 4; i++)
         {
-            CardContainer cardContainer = Instantiate(cardContainerPrefab, Canvas.transform);
-            Card card = new(testCard);
+            for (int j = 1; j < 11; j++)
+            {
+                CardContainer cardContainer = Instantiate(cardContainerPrefab, Canvas.transform);
+                MinorArcana card = new(testCard, j, (Suit)i);
 
-            cardContainer.SetCard(card);
-            Deck.AddCard(card);
+                cardContainer.SetCard(card);
+                Deck.AddCard(card);
+            }            
         }
+
+        Deck.Shuffle();
+        Debug.Log(Deck.Cards.Count);
     }
 
     // Gameplay
@@ -58,12 +67,13 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < startingHandSize; i++)
         {
-            DrawCard(Deck.Cards[0]);
+            DrawCard();
         }
     }
 
-    public void DrawCard(Card card)
+    public void DrawCard()
     {
+        Card card = Deck.Cards[0];
         Deck.RemoveCard(card);
         Hand.AddCard(card);
     }
