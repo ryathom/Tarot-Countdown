@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     public int Fate {get; private set;}
     public int Doom {get; private set;}
+    public int Turn {get; private set;}
 
     private readonly int startingHandSize = 5;
 
@@ -82,6 +83,8 @@ public class GameManager : MonoBehaviour
         {
             Actions.AddAction(new DrawCard());
         }
+
+        Turn = 1;
     }
 
     public void GainFate(int gain)
