@@ -36,6 +36,9 @@ public class InputManager : MonoBehaviour
         middleClickAction = InputSystem.actions.FindAction("MiddleClick");
         scrollAction = InputSystem.actions.FindAction("ScrollWheel");
         cancelAction = InputSystem.actions.FindAction("Cancel");
+
+        Debug.Log(InputSystem.actions);
+        Debug.Log(pointAction);
     }
 
     private void Update()
@@ -43,6 +46,7 @@ public class InputManager : MonoBehaviour
         if (clickAction.WasPressedThisFrame())
         {
             OnClickAction?.Invoke();
+            Debug.Log("Cancel");
         }
 
         if (middleClickAction.WasPressedThisFrame())
@@ -53,14 +57,16 @@ public class InputManager : MonoBehaviour
         if (cancelAction.WasPressedThisFrame())
         {
             OnCancelAction?.Invoke();
+            Debug.Log("Cancel");
         }
-        }
+    }
 
     // Expose inputs
     //---------------------------------------------------------------------------------------------------------
     public Vector2 GetPointInput()
     {
-        return pointAction.ReadValue<Vector2>();
+        // return pointAction.ReadValue<Vector2>();
+        return Mouse.current.position.ReadValue();
     }
 
     public Vector2 GetScrollInput()
