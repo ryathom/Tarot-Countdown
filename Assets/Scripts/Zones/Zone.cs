@@ -39,6 +39,7 @@ public class Zone : MonoBehaviour
         foreach(Card card in Cards)
         {
             card.Container.SetTargetPosition(this.transform.position);
+            card.Container.transform.SetAsLastSibling();
         }
     }
 

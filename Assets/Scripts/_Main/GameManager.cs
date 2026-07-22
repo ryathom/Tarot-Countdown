@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour
         }
 
         Deck.Shuffle();
-        Debug.Log(Deck.Cards.Count);
     }
 
     // Gameplay
