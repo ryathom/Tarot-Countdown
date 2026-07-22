@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public CardSO testCard;
     public CardSO deathCard;
 
+    public readonly int startingHandSize = 3;
+
     // Unity methods
     //------------------------------------------------------------------------------------
     public void Awake()
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         InstantiateCards();
+        StartGame();
     }
 
     // Game setup
@@ -51,6 +54,14 @@ public class GameManager : MonoBehaviour
 
     // Gameplay
     //------------------------------------------------------------------------------------
+    public void StartGame()
+    {
+        for (int i = 0; i < startingHandSize; i++)
+        {
+            DrawCard(Deck.Cards[0]);
+        }
+    }
+
     public void DrawCard(Card card)
     {
         Deck.RemoveCard(card);
