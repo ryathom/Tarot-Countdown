@@ -2,16 +2,16 @@ using System.Collections;
 
 public class GainFate : IAction
 {
-    public int Fate {get; private set;}
+    public int Gain {get; private set;}
 
-    public GainFate(int num)
+    public GainFate(int gain)
     {
-        Fate = num;
+        Gain = gain;
     }
 
     public IEnumerator Execute()
     {
-        GameManager.Instance.Fate += Fate;
+        GameManager.Instance.GainFate(Gain);
 
         return null;
     }

@@ -13,15 +13,15 @@ public class GameManager : MonoBehaviour
     public PlayArea PlayArea;
     public DiscardPile DiscardPile;
 
-    public int Fate;
-    public int Doom;
-
     [Header("Cards")]
     public CardContainer cardContainerPrefab;
     public CardSO testCard;
     public CardSO deathCard;
 
-    public readonly int startingHandSize = 5;
+    public int Fate {get; private set;}
+    public int Doom {get; private set;}
+
+    private readonly int startingHandSize = 5;
 
     // Unity methods
     //------------------------------------------------------------------------------------
@@ -84,9 +84,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DiscardCard(Card card)
+    public void GainFate(int gain)
     {
-        card.Zone.RemoveCard(card);
-        DiscardPile.AddCard(card);
+        Fate += gain;
+    }
+
+    public void GainDoom(int gain)
+    {
+        Doom += gain;
     }
 }

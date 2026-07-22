@@ -2,16 +2,16 @@ using System.Collections;
 
 public class GainDoom : IAction
 {
-    public int Doom {get; private set;}
+    public int Gain {get; private set;}
 
-    public GainDoom(int num)
+    public GainDoom(int gain)
     {
-        Doom = num;
+        Gain = gain;
     }
 
     public IEnumerator Execute()
     {
-        GameManager.Instance.Doom += Doom;
+        GameManager.Instance.GainDoom(Gain);
 
         return null;
     }

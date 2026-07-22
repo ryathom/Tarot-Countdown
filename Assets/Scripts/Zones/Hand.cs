@@ -33,9 +33,4 @@ public class Hand : Zone
     {
         GameManager.Actions.AddAction(new PlayCard(card));
     }
-
-    protected override void RightClickCard(Card card)
-    {
-        GameManager.Instance.DiscardCard(card);
-    }
 }
