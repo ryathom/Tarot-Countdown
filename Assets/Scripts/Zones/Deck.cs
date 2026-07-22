@@ -10,7 +10,7 @@ public class Deck : Zone
 
     protected override void ClickCard(Card card)
     {
-        GameManager.Instance.DrawCard();
+        GameManager.Actions.AddAction(new DrawCard());
     }
 
     public void Shuffle()

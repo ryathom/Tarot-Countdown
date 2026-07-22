@@ -31,7 +31,7 @@ public class Hand : Zone
     //---------------------------------------------------------------------------------------------------------
     protected override void ClickCard(Card card)
     {
-        GameManager.Instance.PlayCard(card);
+        GameManager.Actions.AddAction(new PlayCard(card));
     }
 
     protected override void RightClickCard(Card card)

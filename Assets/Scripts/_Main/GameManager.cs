@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {get; private set;}
+    public static ActionSystem Actions {get; private set;}
 
     [Header("Zones")]
     public Canvas Canvas;
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
     public CardSO testCard;
     public CardSO deathCard;
 
-    public readonly int startingHandSize = 3;
+    public readonly int startingHandSize = 5;
 
     // Unity methods
     //------------------------------------------------------------------------------------
@@ -26,7 +27,6 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         } else
         {
             Destroy(this.gameObject);
@@ -36,9 +36,20 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         PrimeTweenConfig.SetTweensCapacity(1600);
+        Actions = new();
 
         InstantiateCards();
         StartGame();
+    }
+
+    public void Update()
+    {
+        if (Actions == null) return;
+
+        if (Actions.ActionQueue.Count > 0 && !Actions.Busy)
+        {
+            StartCoroutine(Actions.ExecuteNextAction());
+        }
     }
 
     // Game setup
@@ -67,21 +78,8 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < startingHandSize; i++)
         {
-            DrawCard();
+            Actions.AddAction(new DrawCard());
         }
-    }
-
-    public void DrawCard()
-    {
-        Card card = Deck.Cards[0];
-        Deck.RemoveCard(card);
-        Hand.AddCard(card);
-    }
-
-    public void PlayCard(Card card)
-    {
-        Hand.RemoveCard(card);
-        PlayArea.AddCard(card);
     }
 
     public void DiscardCard(Card card)
