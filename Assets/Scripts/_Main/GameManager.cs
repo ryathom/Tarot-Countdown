@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public Canvas Canvas;
     public Deck Deck;
     public Hand Hand;
+    public PlayArea PlayArea;
+    public DiscardPile DiscardPile;
 
     [Header("Cards")]
     public CardContainer cardContainerPrefab;
@@ -28,18 +30,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Start()
     {
-        Debug.Log("Poo");
-
         InstantiateCards();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(InputManager.Instance.GetPointInput());
     }
 
     // Game setup
@@ -56,4 +49,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Gameplay
+    //------------------------------------------------------------------------------------
+    public void DrawCard(Card card)
+    {
+        Deck.RemoveCard(card);
+        Hand.AddCard(card);
+    }
+
+    public void PlayCard(Card card)
+    {
+        Hand.RemoveCard(card);
+        PlayArea.AddCard(card);
+    }
+
+    public void DiscardCard(Card card)
+    {
+        card.Zone.RemoveCard(card);
+        DiscardPile.AddCard(card);
+    }
 }

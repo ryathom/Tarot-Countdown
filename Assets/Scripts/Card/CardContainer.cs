@@ -16,6 +16,7 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public Vector2 ReturnPosition {get; private set;}
 
     public Action<Card> OnClickCard;
+    public Action<Card> OnRightClickCard;
     public Action<CardContainer> OnBeginDragContainer;
     public Action<CardContainer, PointerEventData> OnEndDragContainer;
     public Action<CardContainer> OnEnterContainer;
@@ -96,6 +97,9 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         if (IsDragging == false && eventData.button == PointerEventData.InputButton.Left)
         {
             OnClickCard?.Invoke(Card);
+        } else if (IsDragging == false && eventData.button == PointerEventData.InputButton.Right)
+        {
+            OnRightClickCard?.Invoke(Card);
         }
     }
 
