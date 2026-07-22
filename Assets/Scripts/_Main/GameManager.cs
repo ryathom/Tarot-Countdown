@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Cards")]
     public CardContainer cardContainerPrefab;
+    public CardSO testCard;
+    public CardSO deathCard;
 
     // Unity methods
     //------------------------------------------------------------------------------------
@@ -37,7 +39,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(InputManager.Instance.GetPointInput());
     }
 
     // Game setup
@@ -46,7 +48,11 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            CardContainer card = Instantiate(cardContainerPrefab, Canvas.transform);
+            CardContainer cardContainer = Instantiate(cardContainerPrefab, Canvas.transform);
+            Card card = new(testCard);
+
+            cardContainer.SetCard(card);
+            Deck.AddCard(card);
         }
     }
 
