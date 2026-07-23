@@ -5,6 +5,9 @@ public abstract class Card
     public CardSO CardSO {get; private set;}
     public string Name;
 
+    public int Number;
+    public Suit Suit;
+
     public CardContainer Container {get; private set;}
     public Zone Zone {get; private set;}
 

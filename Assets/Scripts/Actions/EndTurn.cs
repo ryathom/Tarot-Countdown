@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class EndTurn : IAction
 {
@@ -8,10 +9,14 @@ public class EndTurn : IAction
     public IEnumerator Execute()
     {
         PlayArea playArea = GameManager.Instance.PlayArea;
-        HandArea hand = GameManager.Instance.Hand;
+        HandArea handArea = GameManager.Instance.Hand;
 
         if (IsValidHand(playArea.Cards))
         {
+            Hand hand = HandRanker.GetHand(playArea.Cards);
+
+            Debug.Log(hand);
+
             while (playArea.Cards.Count > 0)
             {
                 Card card = playArea.Cards[0];
@@ -26,7 +31,7 @@ public class EndTurn : IAction
 
             GameManager.Instance.DecrementTurn();
 
-            while (hand.Cards.Count < GameManager.Instance.HandSize)
+            while (handArea.Cards.Count < GameManager.Instance.HandSize)
             {
                 yield return GameManager.Actions.ExecuteImmediate(new DrawCard());
             }
