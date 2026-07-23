@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        PrimeTweenConfig.SetTweensCapacity(1600);
+        PrimeTweenConfig.SetTweensCapacity(3200);
         Actions = new();
 
         InstantiateCards();
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            for (int j = 1; j < 11; j++)
+            for (int j = 1; j < 15; j++)
             {
                 CardContainer cardContainer = Instantiate(cardContainerPrefab, Canvas.transform);
                 MinorArcana card = new(testCard, j, (Suit)i);
