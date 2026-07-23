@@ -25,8 +25,7 @@ public class EndTurn : IAction
 
         if (!IsValidRun(playArea.Cards))
         {
-            int score = ScoreRun(playArea.Cards);
-            yield return GameManager.Actions.ExecuteImmediate(new GainFate(score));
+            yield return ScoreRun(playArea);
 
             while (!IsValidRun(playArea.Cards))
             {
@@ -34,8 +33,7 @@ public class EndTurn : IAction
             }
         } else if (!HasValidPlays(playArea.Cards, handArea.Cards))
         {
-            int score = ScoreRun(playArea.Cards);
-            yield return GameManager.Actions.ExecuteImmediate(new GainFate(score));
+            yield return ScoreRun(playArea);
 
             while (playArea.Cards.Count > 0)
             {
@@ -48,7 +46,14 @@ public class EndTurn : IAction
         GameManager.Instance.DecrementTurn();
     }
 
-    public int ScoreRun(List<Card> playArea)
+    public IEnumerator ScoreRun(PlayArea playArea)
+    {
+        int score = CalculateScore(playArea.Cards);
+        yield return GameManager.Actions.ExecuteImmediate(new GainFate(score));
+        yield return GameManager.Actions.ExecuteImmediate(new GainDoom(1));
+    }
+
+    public int CalculateScore(List<Card> playArea)
     {
         List<Card> currentRun = new();
         int score = 0;

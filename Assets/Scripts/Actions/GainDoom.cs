@@ -13,6 +13,10 @@ public class GainDoom : IAction
     {
         GameManager.Instance.GainDoom(Gain);
 
+        Death death = GameManager.Instance.InstantiateDeathCard();
+
+        GameManager.Instance.Deck.InsertCard(death, GameManager.Instance.Deck.Cards.Count);
+
         return null;
     }
 }

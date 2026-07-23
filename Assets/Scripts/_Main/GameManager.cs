@@ -82,11 +82,18 @@ public class GameManager : MonoBehaviour
 
         Deck.Shuffle();
 
+        Death death = InstantiateDeathCard();
+        Deck.InsertCard(death, startingDeathPosition - 1);
+    }
+
+    public Death InstantiateDeathCard()
+    {
         CardContainer deathContainer = Instantiate(cardContainerPrefab, Canvas.transform);
         Death death = new(deathCard);
 
         deathContainer.SetCard(death);
-        Deck.InsertCard(death, startingDeathPosition - 1);
+
+        return death;
     }
 
     private void InstantiateTarotCards()
