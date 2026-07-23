@@ -12,6 +12,11 @@ public class Pair : Hand
         };
     }
 
+    public override int GetScore()
+    {
+        return cards[0].Number + cards[1].Number;
+    }
+
     public static Pair GetPair(List<Card> cards)
     {
         foreach (Card card in cards)

@@ -9,6 +9,11 @@ public class HighCard : Hand
         Card = card;
     }
 
+    public override int GetScore()
+    {
+        return Card.Number;
+    }
+
     public static HighCard GetHighCard(List<Card> cards)
     {
         if (cards.Count == 0) return null;

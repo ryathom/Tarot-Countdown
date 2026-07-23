@@ -12,6 +12,12 @@ public class ThreeOfAKind : Hand
         };
     }
 
+    public override int GetScore()
+    {
+        return cards[0].Number + cards[1].Number + cards[2].Number;
+    }
+
+
     public static ThreeOfAKind GetThreeOfAKind(List<Card> cards)
     {
         foreach (Card card in cards)

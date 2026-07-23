@@ -15,18 +15,14 @@ public class EndTurn : IAction
         {
             Hand hand = HandRanker.GetHand(playArea.Cards);
 
-            Debug.Log(hand);
+            Debug.Log(hand.GetType().Name);
+            Debug.Log(hand.GetScore());
 
             while (playArea.Cards.Count > 0)
             {
                 Card card = playArea.Cards[0];
 
                 yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(card, GameManager.Instance.DiscardPile));
-
-                if (card is MinorArcana minorArcana)
-                {
-                    yield return GameManager.Actions.ExecuteImmediate(new GainFate(minorArcana.Number));
-                }
             }
 
             GameManager.Instance.DecrementTurn();
