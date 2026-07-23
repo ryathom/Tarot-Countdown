@@ -18,6 +18,7 @@ public class PlayArea : Zone
             Vector2 targetPosition = new(x, 0);
 
             Cards[i].Container.transform.SetAsLastSibling();
+            Cards[i].Container.transform.SetParent(this.transform);
             Cards[i].Container.SetTargetPosition(this.transform.position + (Vector3)targetPosition);
             Cards[i].Container.ShowVisual(true);
             Cards[i].Container.ShowPopUp(false);

@@ -56,22 +56,30 @@ public class CardVisual : MonoBehaviour
 
     public void ShowMajorPopUp()
     {
-        Tween.Scale(majorPopUp.transform, Vector2.one, 0.1f);
+        if (majorPopUp.transform.localScale == Vector3.one) return;
+
+        Tween.Scale(majorPopUp.transform, Vector3.one, 0.1f);
     }
 
     public void HideMajorPopUp()
     {
-        Tween.Scale(majorPopUp.transform, Vector2.zero, 0.1f);
+        if (majorPopUp.transform.localScale == Vector3.zero) return;
+
+        Tween.Scale(majorPopUp.transform, Vector3.zero, 0.1f);
     }
 
     public void ShowMinorPopUp()
     {
-        Tween.Scale(minorPopUp.transform, Vector2.one, 0.1f);
+        if (minorPopUp.transform.localScale == Vector3.one) return;
+
+        Tween.Scale(minorPopUp.transform, Vector3.one, 0.1f);
     }
 
     public void HideMinorPopUp()
     {
-        Tween.Scale(minorPopUp.transform, Vector2.zero, 0.1f);
+        if (minorPopUp.transform.localScale == Vector3.zero) return;
+
+        Tween.Scale(minorPopUp.transform, Vector3.zero, 0.1f);
     }
 
     public Sprite SetFrontSprite()

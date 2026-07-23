@@ -14,6 +14,7 @@ public class CardBrowser : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         List<Card> Cards = zone.Cards;
 
         float cardSpacing = 1800 / Cards.Count;
+        cardSpacing = Mathf.Clamp(cardSpacing, 10, 200);
 
         for (int i = Cards.Count - 1; i >= 0; i--)
         {

@@ -24,6 +24,7 @@ public class HandArea : Zone
             Vector2 targetPosition = new(x, y);
 
             Cards[i].Container.transform.SetAsLastSibling();
+            Cards[i].Container.transform.SetParent(this.transform);
             Cards[i].Container.SetTargetPosition(this.transform.position + (Vector3)targetPosition);
             Cards[i].Container.ShowVisual(true);
         }
