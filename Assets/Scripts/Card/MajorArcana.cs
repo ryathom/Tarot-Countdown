@@ -22,7 +22,8 @@ public class Fool : MajorArcana
 
     public override IEnumerator ExecuteEffect()
     {
-        Debug.Log("Played the fool");
+        GameManager.Instance.Deck.Shuffle();
+        GameManager.Instance.Deck.UpdateVisuals();
 
         return null;
     }
