@@ -20,6 +20,7 @@ public class CardVisual : MonoBehaviour
     public void UpdateVisuals()
     {
         cardName.text = card.Name;
+        back.sprite = card.CardSO.CardBack;
         back.enabled = !card.FaceUp;
 
         if (card is MajorArcana majorArcana)

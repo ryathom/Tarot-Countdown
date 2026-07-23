@@ -19,8 +19,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Cards")]
     public CardContainer cardContainerPrefab;
-    public CardSO testCard;
-    public CardSO deathCard;
+    public CardSO minorArcanaSO;
+    public CardSO majorArcanaSO;
+    public CardSO deathCardSO;
 
     public int Fate {get; private set;}
     public int Doom {get; private set;}
@@ -74,7 +75,7 @@ public class GameManager : MonoBehaviour
             for (int j = 1; j < 15; j++)
             {
                 CardContainer cardContainer = Instantiate(cardContainerPrefab, Canvas.transform);
-                MinorArcana card = new(testCard, j, (Suit)i);
+                MinorArcana card = new(minorArcanaSO, j, (Suit)i);
 
                 cardContainer.SetCard(card);
                 Deck.AddCard(card);
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
     public Death InstantiateDeathCard()
     {
         CardContainer deathContainer = Instantiate(cardContainerPrefab, Canvas.transform);
-        Death death = new(deathCard);
+        Death death = new(deathCardSO);
 
         deathContainer.SetCard(death);
 
@@ -101,28 +102,27 @@ public class GameManager : MonoBehaviour
     {
         List<MajorArcana> majorArcana = new()
         {
-            new Fool(testCard),
-            new Devil(testCard),
-            new Star(testCard),
-            new Moon(testCard),
-            new Sun(testCard),
-            new World(testCard),
-            new HangedMan(testCard),
-            new TheEmpress(testCard),
-            new TheLovers(testCard),
-            new TheTower(testCard),
-            new TheHierophant(testCard),
-            new TheHighPriestess(testCard),
-            new Temperance(testCard),
-            new TheEmperor(testCard),
-            new Strength(testCard),
-            new TheHermit(testCard),
-            new Judgement(testCard),
-            new WheelofFortune(testCard),
-            new Magician(testCard),
-            new Justice(testCard),
-            new Chariot(testCard),
-        
+            new Fool(majorArcanaSO),
+            new Devil(majorArcanaSO),
+            new Star(majorArcanaSO),
+            new Moon(majorArcanaSO),
+            new Sun(majorArcanaSO),
+            new World(majorArcanaSO),
+            new HangedMan(majorArcanaSO),
+            new TheEmpress(majorArcanaSO),
+            new TheLovers(majorArcanaSO),
+            new TheTower(majorArcanaSO),
+            new TheHierophant(majorArcanaSO),
+            new TheHighPriestess(majorArcanaSO),
+            new Temperance(majorArcanaSO),
+            new TheEmperor(majorArcanaSO),
+            new Strength(majorArcanaSO),
+            new TheHermit(majorArcanaSO),
+            new Judgement(majorArcanaSO),
+            new WheelofFortune(majorArcanaSO),
+            new Magician(majorArcanaSO),
+            new Justice(majorArcanaSO),
+            new Chariot(majorArcanaSO),
         };
 
         foreach (MajorArcana arcana in majorArcana)

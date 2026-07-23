@@ -2252,8 +2252,9 @@ MonoBehaviour:
   TarotHand: {fileID: 933764636}
   TarotDiscardPile: {fileID: 1841515360}
   cardContainerPrefab: {fileID: 7506245666604779894, guid: 6c0833ada28854f89860aeccc909b760, type: 3}
-  testCard: {fileID: 11400000, guid: 2bc92b38565de43569e619976020871e, type: 2}
-  deathCard: {fileID: 11400000, guid: 87554d6b02669402b8902b46b8e628f4, type: 2}
+  minorArcanaSO: {fileID: 11400000, guid: 2bc92b38565de43569e619976020871e, type: 2}
+  majorArcanaSO: {fileID: 0}
+  deathCardSO: {fileID: 11400000, guid: 87554d6b02669402b8902b46b8e628f4, type: 2}
   HandSize: 5
   TarotHandSize: 3
 --- !u!4 &2040052978
