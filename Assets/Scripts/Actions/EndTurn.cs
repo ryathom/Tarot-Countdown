@@ -18,7 +18,16 @@ public class EndTurn : IAction
             yield return GameManager.Actions.ExecuteImmediate(new DrawCard());
         }
 
-        if (!HasValidPlays(playArea.Cards, handArea.Cards))
+        if (!IsValidRun(playArea.Cards))
+        {
+            int score = ScoreRun(playArea.Cards);
+            yield return GameManager.Actions.ExecuteImmediate(new GainFate(score));
+
+            while (!IsValidRun(playArea.Cards))
+            {
+                yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(playArea.Cards[0], GameManager.Instance.DiscardPile));
+            }
+        } else if (!HasValidPlays(playArea.Cards, handArea.Cards))
         {
             int score = ScoreRun(playArea.Cards);
             yield return GameManager.Actions.ExecuteImmediate(new GainFate(score));
