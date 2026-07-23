@@ -13,6 +13,12 @@ public class Deck : Zone
         GameManager.Actions.AddAction(new DrawCard());
     }
 
+    public override void InsertCard(Card card, int position)
+    {
+        base.InsertCard(card, position);
+        card.SetFaceUp(false);
+    }
+
     public void Shuffle()
     {
         for (int i = 0; i < Cards.Count; i++) 

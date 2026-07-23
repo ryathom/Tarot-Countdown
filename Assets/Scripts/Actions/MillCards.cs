@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine;
 
 public class MillCards : IAction
 {
@@ -20,6 +21,12 @@ public class MillCards : IAction
 
             Card card = deck.Cards[0];
             yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(card, pile));
+
+            if (card is Death)
+            {
+                Debug.Log("Game over");
+                yield break;
+            }
         }
     }
 }

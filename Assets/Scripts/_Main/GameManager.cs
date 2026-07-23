@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public int Turn {get; private set;}
 
     private readonly int startingHandSize = 5;
+    private readonly int startingDeathPosition = 30;
 
     // Unity methods
     //------------------------------------------------------------------------------------
@@ -73,6 +74,12 @@ public class GameManager : MonoBehaviour
         }
 
         Deck.Shuffle();
+
+        CardContainer deathContainer = Instantiate(cardContainerPrefab, Canvas.transform);
+        Death death = new(deathCard);
+
+        deathContainer.SetCard(death);
+        Deck.InsertCard(death, startingDeathPosition - 1);
     }
 
     // Gameplay

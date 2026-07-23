@@ -17,5 +17,10 @@ public class DrawCard : IAction
         Card card = deck.Cards[0];
         
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(card, hand));
+
+        if (card is Death)
+        {
+            Debug.Log("Game over");
+        }
     }
 }

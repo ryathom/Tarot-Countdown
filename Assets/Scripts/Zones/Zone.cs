@@ -25,6 +25,17 @@ public class Zone : MonoBehaviour
         RegisterContainers();
     }
 
+    public virtual void InsertCard(Card card, int position)
+    {
+        DeregisterContainers();
+        card.SetZone(this);
+        card.SetFaceUp(true);
+        Cards.Insert(position, card);
+        OnContentsChange?.Invoke();
+        UpdateVisuals();
+        RegisterContainers();
+    }
+
     public virtual void RemoveCard(Card card)
     {
         DeregisterContainers();

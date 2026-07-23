@@ -14,7 +14,6 @@ public class CardVisual : MonoBehaviour
     {
         this.card = card;
         UpdateVisuals();
-        
     }
 
     public void UpdateVisuals()
