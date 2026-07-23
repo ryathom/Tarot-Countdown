@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class HandArea : Zone
+public class TarotHandArea : Zone
 {
-    private readonly float cardSpacing = 180;
-    private int yScale = 0;
+    private readonly float cardSpacing = 250;
 
     // Methods
     //---------------------------------------------------------------------------------------------------------
@@ -13,13 +12,9 @@ public class HandArea : Zone
         {
             float relativePosition = i - ((Cards.Count - 1f) / 2f);
             
-            float x = relativePosition * cardSpacing;
+            float y = relativePosition * cardSpacing * -1;
 
-            float y = -1 - (relativePosition * relativePosition / (Cards.Count * 2));
-            y *= yScale;
-
-
-            Vector2 targetPosition = new(x, y);
+            Vector2 targetPosition = new(0, y);
 
             Cards[i].Container.transform.SetAsLastSibling();
             Cards[i].Container.SetTargetPosition(this.transform.position + (Vector3)targetPosition);

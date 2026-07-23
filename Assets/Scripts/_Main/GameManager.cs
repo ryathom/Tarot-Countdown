@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [Header("Zones")]
     public Canvas Canvas;
     public Deck Deck;
+    public Deck TarotDeck;
+    public TarotHandArea TarotHand;
     public HandArea Hand;
     public PlayArea PlayArea;
     public DiscardPile DiscardPile;
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
     public int HandSize {get => startingHandSize;}
 
     private readonly int startingHandSize = 5;
+    private readonly int tarotHandSize = 3;
     private readonly int startingDeathPosition = 30;
     private readonly int turnsToSurvive = 20;
 
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
         Actions = new();
 
         InstantiateCards();
+        InstantiateTarotCards();
         StartGame();
     }
 
@@ -84,6 +88,20 @@ public class GameManager : MonoBehaviour
         Deck.InsertCard(death, startingDeathPosition - 1);
     }
 
+    private void InstantiateTarotCards()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            CardContainer cardContainer = Instantiate(cardContainerPrefab, Canvas.transform);
+            MinorArcana card = new(testCard, i, Suit.Coins);
+
+            cardContainer.SetCard(card);
+            TarotDeck.AddCard(card);
+        }
+
+        TarotDeck.Shuffle();
+    }
+
     // Gameplay
     //------------------------------------------------------------------------------------
     public void StartGame()
@@ -91,6 +109,11 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < startingHandSize; i++)
         {
             Actions.AddAction(new DrawCard());
+        }
+
+        for (int i = 0; i < tarotHandSize; i++)
+        {
+            Actions.AddAction(new DrawTarotCard());
         }
 
         Turn = turnsToSurvive;

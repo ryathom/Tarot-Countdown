@@ -24,3 +24,22 @@ public class DrawCard : IAction
         }
     }
 }
+
+public class DrawTarotCard : IAction
+{
+    public DrawTarotCard()
+    {
+    }
+
+    public IEnumerator Execute()
+    {
+        Deck deck = GameManager.Instance.TarotDeck;
+
+        if (deck.Cards.Count <= 0) yield break;
+
+        TarotHandArea hand = GameManager.Instance.TarotHand;
+        Card card = deck.Cards[0];
+        
+        yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(card, hand));
+    }
+}
