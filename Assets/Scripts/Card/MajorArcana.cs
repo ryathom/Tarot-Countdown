@@ -24,17 +24,17 @@ public class Fool : MajorArcana
     {
         while (GameManager.Instance.PlayArea.Cards.Count > 0)
         {
-            yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(GameManager.Instance.PlayArea.Cards[0], GameManager.Instance.Deck));
+            yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(GameManager.Instance.PlayArea.Cards[^1], GameManager.Instance.Deck));
         }
 
         while (GameManager.Instance.DiscardPile.Cards.Count > 0)
         {
-            yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(GameManager.Instance.DiscardPile.Cards[0], GameManager.Instance.Deck));
+            yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(GameManager.Instance.DiscardPile.Cards[^1], GameManager.Instance.Deck));
         }
 
         while (GameManager.Instance.Hand.Cards.Count > 0)
         {
-            yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(GameManager.Instance.Hand.Cards[0], GameManager.Instance.Deck));
+            yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(GameManager.Instance.Hand.Cards[^1], GameManager.Instance.Deck));
         }
 
         GameManager.Instance.Deck.Shuffle();
