@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90516ba6c19e431ca844f5eb8d16d56, type: 3}
+  m_Name: MajorArcanaSO
+  m_EditorClassIdentifier: Assembly-CSharp::MajorArcanaSO
+  CardBack: {fileID: 1209488358134636492, guid: cdbfd67b15db84e5ba210861d02b33f0, type: 3}
+  chariotSprite: {fileID: -4928390996699851710, guid: 0f8be1cfe61ea425ea07a3c04734115a, type: 3}
+  devilSprite: {fileID: -3060537557436302573, guid: 2a156c7f6e7744260b6d54a263d311ed, type: 3}
+  foolSprite: {fileID: -1521225871428237770, guid: cb385a97b08c6444a81bb03018944e74, type: 3}
+  hangedManSprite: {fileID: 7887097127962078914, guid: d57a364ed8d3d402892da9b969440c97, type: 3}
+  judgementSprite: {fileID: 7426768084503407514, guid: b19fe40f2468749a9a2e91cd193f4ba4, type: 3}
+  justiceSprite: {fileID: 7324755070422760389, guid: 5f6904def86144686862a97246cb0755, type: 3}
+  magicianSprite: {fileID: 8797880686734777309, guid: 18936d52a477a4f24b8a43a0c57b3f5b, type: 3}
+  moonSprite: {fileID: -588051080981955412, guid: e97fe954426dc4c9daafd6983fa82452, type: 3}
+  starSprite: {fileID: 2090821515693677107, guid: bc2bff06766a54df08ba2e25bbcec931, type: 3}
+  strengthSprite: {fileID: 8906252579974617657, guid: 95789845be5ec4929920457b970800c9, type: 3}
+  sunSprite: {fileID: 382630332015605427, guid: fceeb8ea823c24ba2863dd5ca45a0514, type: 3}
+  temperanceSprite: {fileID: 7438063669861732550, guid: e659ba1218efa4fbfab54763d3a458cd, type: 3}
+  emperorSprite: {fileID: -1334102143738113048, guid: 34310748f76264ce1bb553320652bc29, type: 3}
+  empressSprite: {fileID: 4111103357687608465, guid: b5e9d272ad48d43cba77c9b07d938cbc, type: 3}
+  hermitSprite: {fileID: 3739945543802206477, guid: 779133c74d9234f61acc54585d942fa1, type: 3}
+  heirophantSprite: {fileID: 831594211969683533, guid: 6b984764951ce404097de80e1051fe46, type: 3}
+  highPriestessSprite: {fileID: -4761644563245650872, guid: 76692a580c2d64dda863553bc7e36dc3, type: 3}
+  loversSprite: {fileID: -1486198490623173698, guid: 76193fa54551a465ca4e3aa506ffa9f0, type: 3}
+  towerSprite: {fileID: -8728489534963454894, guid: 5772e223807344f1495fcd10551db298, type: 3}
+  wheelSprite: {fileID: 1349778614567751124, guid: 581c31666842246a1b477e4f42baffb9, type: 3}
+  worldSprite: {fileID: 519098514081758203, guid: a39e6c04b7a374645a22920dd7d91776, type: 3}

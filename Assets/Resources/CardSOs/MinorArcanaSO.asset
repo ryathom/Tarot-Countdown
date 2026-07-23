@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: MinorArcanaSO
+  m_EditorClassIdentifier: Assembly-CSharp::MinorArcanaSO
+  CardBack: {fileID: 7637622552833134485, guid: a0af20ae0e7ac49dba51526b427af1f9, type: 3}
+  cupSprites:
+  - {fileID: 6448934605999854269, guid: 323ce8c9c9d654aa1a93c27d6d34f62c, type: 3}
+  - {fileID: -8991151456852173598, guid: 42c3046773a8a48ec8d634e6a6aa66cd, type: 3}
+  - {fileID: 5746511502370277194, guid: b498e4eae9f5b4fd0aedebf8e87c7192, type: 3}
+  - {fileID: 6358913145517018583, guid: edc5562a7e3d34fd2896b977185b083a, type: 3}
+  - {fileID: 8125598870923428479, guid: 35decda3a09024045969fda57922e0bf, type: 3}
+  - {fileID: 4734604453315994320, guid: 1b848c61c59224fe2b64e0ca3c9909ec, type: 3}
+  - {fileID: 2954969145252633074, guid: 1bfe3c9feabed45a3b732717fd9a759c, type: 3}
+  - {fileID: -130982908380090873, guid: 18396df61f61c4eaead8c960bbe0a6fa, type: 3}
+  - {fileID: 1188100319569411740, guid: 972fd6017458143a08ad4753978d93db, type: 3}
+  - {fileID: 4909725437419648922, guid: d28a719931d1740dda0ccd16f8903230, type: 3}
+  - {fileID: 7623060838994815850, guid: 0558d312df82b41e6a682bf19f5368ea, type: 3}
+  - {fileID: -8467164996496285441, guid: 8ca6a52419a0d497b9ccbef193f8dd09, type: 3}
+  - {fileID: 7660455346416085701, guid: a579e8200c11c40ab9d10ea236710734, type: 3}
+  - {fileID: 6187119414671412759, guid: 38ca816bd9ab142328926dcac2aaeb37, type: 3}
+  wandSprites:
+  - {fileID: 6247203224880671876, guid: 54d269a0fbb674016a338a05060d7e87, type: 3}
+  - {fileID: -2216828896344614876, guid: 2ce7a864d0c154855a32b6a74c0136ce, type: 3}
+  - {fileID: 8426743629496070919, guid: 7444cda78605e41aca83e51e9925397a, type: 3}
+  - {fileID: -2827233839520546248, guid: 2d02bc97199cd4ed6b5aafb8dea5cbaa, type: 3}
+  - {fileID: 2769583283246148651, guid: ac6936944f96844e0807685aa20ea839, type: 3}
+  - {fileID: -8408292933484916513, guid: c94f1d2b1687349e09e03e2fd1e4f22f, type: 3}
+  - {fileID: -9027875407034506778, guid: 91e2bf5ed724e4f40b84dc7b4d2927f2, type: 3}
+  - {fileID: -2028064278271517156, guid: 3308a5e6f14074243b74b52f2e5233da, type: 3}
+  - {fileID: 3282629017639045477, guid: 94d39eeba5aa84da6877be3ed7d21644, type: 3}
+  - {fileID: 3770326554637028194, guid: e94e281640bdd429e95911eca0c69558, type: 3}
+  - {fileID: -7757889365131420751, guid: 9c96f4146c5c94710bf02ccf14875642, type: 3}
+  - {fileID: 8788640667086137637, guid: 8a7bf566dbb57471ab809d822dbcce48, type: 3}
+  - {fileID: 170552489666212365, guid: 7ab88ef98e823492e92e658668a6eca7, type: 3}
+  - {fileID: -3032109727021305302, guid: 11320444b4e0e4501b041eb85eccdb2e, type: 3}
+  swordSprites:
+  - {fileID: -3366691752920525282, guid: 2b602223e5c664cde9eb9780193d4076, type: 3}
+  - {fileID: -966497696132503136, guid: f78173f3552b843069c42f119251e719, type: 3}
+  - {fileID: -4419643816894277044, guid: da8c7825f0b8040ce9098edda4cf1ac1, type: 3}
+  - {fileID: 9205638712999436842, guid: ac2dd947e2852487b816f24bc7ae0aa2, type: 3}
+  - {fileID: -1192714008913056430, guid: 32a36867beaf2460cae2ec39fdddcc33, type: 3}
+  - {fileID: -174345073910495129, guid: 33ab77e855db14d0eaf008135ef7e40c, type: 3}
+  - {fileID: -4152682591028376270, guid: f3c047336ce5247c58c33b23cc82d5f0, type: 3}
+  - {fileID: 1057856616069224059, guid: 30476d3bcd3224d4ead11ae950078f7a, type: 3}
+  - {fileID: 4079223355255037738, guid: 68dc55b4fa49b426ab2a690a2d669cf4, type: 3}
+  - {fileID: -1451543314961662243, guid: 5cfd23a9b667e4290a8c7ea3ae8e3c1c, type: 3}
+  - {fileID: -5472286882545783958, guid: b1b871b81fd274cc4b75e99f78df0eb4, type: 3}
+  - {fileID: 2544087159339751841, guid: a01c685c7f19b42d58ea712f898c9f7c, type: 3}
+  - {fileID: -4164776895669347949, guid: cbf5e22be1f0d47a4b7ff21a69bd154a, type: 3}
+  - {fileID: 6593117194849008996, guid: 1f5e3d0a7a7324261b11114c80b73240, type: 3}
+  coinSprites:
+  - {fileID: -5212104993025842303, guid: 4cd3c91e7f74d45568ad1346fce60458, type: 3}
+  - {fileID: 111098554429349171, guid: e046425f733a34665b0f3fcd64c50e6e, type: 3}
+  - {fileID: -1794879775678348237, guid: 119d5442c7ffa4e71921bfaa45272ff3, type: 3}
+  - {fileID: 2680579692005809145, guid: 77903786d8a16440298fb0dab0e4defc, type: 3}
+  - {fileID: -9170480496043092957, guid: c7782b03496e146a88d1ec3f93193db3, type: 3}
+  - {fileID: -8921209070143563924, guid: 736aea319cf6b4d9d9416365cb1bfe68, type: 3}
+  - {fileID: -5991961388304114418, guid: e6f5a89433b67488184ce6626df91c80, type: 3}
+  - {fileID: -8928472084440084350, guid: f7f5b51738dd343bf95d6e45d7281f15, type: 3}
+  - {fileID: -4046429482832047673, guid: 005e3a19803e04283bbd72cbcd1294fc, type: 3}
+  - {fileID: -8570830186185553140, guid: 150a8a3b707d9472ab20463c5016ca43, type: 3}
+  - {fileID: 7785633689660696426, guid: cf70558ce0c594e269e3bda4f8f5b160, type: 3}
+  - {fileID: 3008636728712598169, guid: 5e5e20038009c42758209d791495f5fa, type: 3}
+  - {fileID: 4587534405116150053, guid: 223dcbe4ff42941259db6cc88a369720, type: 3}
+  - {fileID: 6030031149370686252, guid: 97cece316387d4d02bc9fc1da43a0cd8, type: 3}
