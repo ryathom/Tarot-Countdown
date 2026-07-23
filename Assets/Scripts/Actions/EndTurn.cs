@@ -8,7 +8,7 @@ public class EndTurn : IAction
     public IEnumerator Execute()
     {
         PlayArea playArea = GameManager.Instance.PlayArea;
-        Hand hand = GameManager.Instance.Hand;
+        HandArea hand = GameManager.Instance.Hand;
 
         if (IsValidHand(playArea.Cards))
         {

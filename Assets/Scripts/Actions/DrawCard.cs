@@ -13,7 +13,7 @@ public class DrawCard : IAction
 
         if (deck.Cards.Count <= 0) yield break;
 
-        Hand hand = GameManager.Instance.Hand;
+        HandArea hand = GameManager.Instance.Hand;
         Card card = deck.Cards[0];
         
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(card, hand));

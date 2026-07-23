@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Hand : Zone
+public class HandArea : Zone
 {
     private readonly float cardSpacing = 180;
     private int yScale = 0;

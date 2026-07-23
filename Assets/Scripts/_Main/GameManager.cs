@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [Header("Zones")]
     public Canvas Canvas;
     public Deck Deck;
-    public Hand Hand;
+    public HandArea Hand;
     public PlayArea PlayArea;
     public DiscardPile DiscardPile;
 

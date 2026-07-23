@@ -28,7 +28,7 @@ public class UnplayCard : IAction
 
     public IEnumerator Execute()
     {
-        Hand hand = GameManager.Instance.Hand;
+        HandArea hand = GameManager.Instance.Hand;
 
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(Card, hand));
     }
