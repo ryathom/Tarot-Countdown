@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateCounters()
     {
-        turnCounter.text = "Turn: " + GameManager.Instance.Turn;
+        turnCounter.text = "Turns Remaining: " + GameManager.Instance.Turn;
         fateCounter.text = "Fate: " + GameManager.Instance.Fate;
         doomCounter.text = "Doom: " + GameManager.Instance.Doom;
         deckCounter.text = "Deck: " + GameManager.Instance.Deck.Cards.Count;

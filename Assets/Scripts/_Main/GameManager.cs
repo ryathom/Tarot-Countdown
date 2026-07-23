@@ -21,9 +21,11 @@ public class GameManager : MonoBehaviour
     public int Fate {get; private set;}
     public int Doom {get; private set;}
     public int Turn {get; private set;}
+    public int HandSize {get => startingHandSize;}
 
-    private readonly int startingHandSize = 5;
+    private readonly int startingHandSize = 7;
     private readonly int startingDeathPosition = 30;
+    private readonly int turnsToSurvive = 20;
 
     // Unity methods
     //------------------------------------------------------------------------------------
@@ -91,7 +93,7 @@ public class GameManager : MonoBehaviour
             Actions.AddAction(new DrawCard());
         }
 
-        Turn = 1;
+        Turn = turnsToSurvive;
     }
 
     public void GainFate(int gain)
@@ -106,6 +108,11 @@ public class GameManager : MonoBehaviour
 
     public void EndTurn()
     {
-        
+        Actions.AddAction(new EndTurn());
+    }
+
+    public void DecrementTurn()
+    {
+        Turn -= 1;
     }
 }

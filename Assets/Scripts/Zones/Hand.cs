@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Hand : Zone
 {
-    private readonly float cardSpacing = 244;
+    private readonly float cardSpacing = 180;
     private int yScale = 0;
 
     // Methods
