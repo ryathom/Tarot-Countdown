@@ -35,7 +35,7 @@ public class SoundFXManager : MonoBehaviour
     {
         if (drawSounds == null || drawSounds.Length == 0)
         {
-            // Debug.LogWarning("No draw sounds assigned.");
+            Debug.LogWarning("No draw sounds assigned.");
             return;
         }
 
