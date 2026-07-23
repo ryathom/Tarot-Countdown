@@ -107,6 +107,22 @@ public class GameManager : MonoBehaviour
             new Moon(testCard),
             new Sun(testCard),
             new World(testCard),
+            new HangedMan(testCard),
+            new TheEmpress(testCard),
+            new TheLovers(testCard),
+            new TheTower(testCard),
+            new TheHierophant(testCard),
+            new TheHighPriestess(testCard),
+            new Temperance(testCard),
+            new TheEmperor(testCard),
+            new Strength(testCard),
+            new TheHermit(testCard),
+            new Judgement(testCard),
+            new WheelofFortune(testCard),
+            new Magician(testCard),
+            new Justice(testCard),
+            new Chariot(testCard),
+        
         };
 
         foreach (MajorArcana arcana in majorArcana)

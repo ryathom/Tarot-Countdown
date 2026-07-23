@@ -7,6 +7,7 @@ public class Devil : MajorArcana
     {
         Name = "The Devil";
         FateCost = 1;
+        Text = "If you have more than 3 Death cards in your deck, reduce that number to 1.";
     }
 
     public override IEnumerator ExecuteEffect()
