@@ -15,8 +15,11 @@ public class DrawCard : IAction
 
         HandArea hand = GameManager.Instance.Hand;
         Card card = deck.Cards[0];
-        
-        yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(card, hand));
+
+        //This is where the SOUND IS
+        SoundFXManager.Instance.PlayDrawSoundClip(GameManager.Instance.transform);
+
+      yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(card, hand));
 
         if (card is Death)
         {
