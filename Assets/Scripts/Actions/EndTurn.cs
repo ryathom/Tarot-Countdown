@@ -18,6 +18,11 @@ public class EndTurn : IAction
             yield return GameManager.Actions.ExecuteImmediate(new DrawCard());
         }
 
+        while (GameManager.Instance.TarotHand.Cards.Count < GameManager.Instance.TarotHandSize)
+        {
+            yield return GameManager.Actions.ExecuteImmediate(new DrawTarotCard());
+        }
+
         if (!IsValidRun(playArea.Cards))
         {
             int score = ScoreRun(playArea.Cards);
@@ -79,6 +84,8 @@ public class EndTurn : IAction
 
     public bool HasValidPlays(List<Card> playArea, List<Card> handArea)
     {
+        if (playArea.Count == 0) return true;
+
         Card lastPlayedCard = playArea[^1];
 
         foreach(Card card in handArea)

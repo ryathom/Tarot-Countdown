@@ -10,7 +10,7 @@ public class Deck : Zone
 
     protected override void ClickCard(Card card)
     {
-        GameManager.Actions.AddAction(new DrawCard());
+        // GameManager.Actions.AddAction(new DrawCard());
     }
 
     public override void InsertCard(Card card, int position)

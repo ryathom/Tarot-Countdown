@@ -9,11 +9,12 @@ public class GameManager : MonoBehaviour
     [Header("Zones")]
     public Canvas Canvas;
     public Deck Deck;
+    public HandArea Hand;
+    public DiscardPile DiscardPile;
+    public PlayArea PlayArea;
     public Deck TarotDeck;
     public TarotHandArea TarotHand;
-    public HandArea Hand;
-    public PlayArea PlayArea;
-    public DiscardPile DiscardPile;
+    public DiscardPile TarotDiscardPile;
 
     [Header("Cards")]
     public CardContainer cardContainerPrefab;
@@ -23,10 +24,10 @@ public class GameManager : MonoBehaviour
     public int Fate {get; private set;}
     public int Doom {get; private set;}
     public int Turn {get; private set;}
-    public int HandSize {get => startingHandSize;}
 
-    private readonly int startingHandSize = 5;
-    private readonly int tarotHandSize = 3;
+    public int HandSize = 5;
+    public int TarotHandSize = 3;
+
     private readonly int startingDeathPosition = 30;
     private readonly int turnsToSurvive = 20;
 
@@ -93,7 +94,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             CardContainer cardContainer = Instantiate(cardContainerPrefab, Canvas.transform);
-            MinorArcana card = new(testCard, i, Suit.Coins);
+            Fool card = new(testCard);
 
             cardContainer.SetCard(card);
             TarotDeck.AddCard(card);
@@ -106,12 +107,12 @@ public class GameManager : MonoBehaviour
     //------------------------------------------------------------------------------------
     public void StartGame()
     {
-        for (int i = 0; i < startingHandSize; i++)
+        for (int i = 0; i < HandSize; i++)
         {
             Actions.AddAction(new DrawCard());
         }
 
-        for (int i = 0; i < tarotHandSize; i++)
+        for (int i = 0; i < TarotHandSize; i++)
         {
             Actions.AddAction(new DrawTarotCard());
         }

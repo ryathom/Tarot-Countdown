@@ -12,6 +12,17 @@ public class PlayCard : IAction
 
     public IEnumerator Execute()
     {
+        if (Card is MinorArcana)
+        {
+            yield return PlayMinorArcana();
+        } else if (Card is MajorArcana majorArcana)
+        {
+            yield return PlayMajorArcana(majorArcana);
+        }
+    }
+
+    public IEnumerator PlayMinorArcana()
+    {
         PlayArea playArea = GameManager.Instance.PlayArea;
 
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(Card, playArea));
@@ -24,13 +35,26 @@ public class PlayCard : IAction
         GameManager.Actions.AddAction(new EndTurn());
     }
 
+    public IEnumerator PlayMajorArcana(MajorArcana arcana)
+    {
+        if (arcana.FateCost > GameManager.Instance.Fate) yield break;
+
+        yield return GameManager.Actions.ExecuteImmediate(new GainFate(-arcana.FateCost));
+
+        yield return arcana.ExecuteEffect();
+
+        yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(arcana, GameManager.Instance.TarotDiscardPile));
+
+        GameManager.Actions.AddAction(new EndTurn());
+    }
+
     public int GetMillCost()
     {
-        if (Card.Number >= 9) return 3;
+        if (Card.Number > 9) return 3;
 
-        if (Card.Number >= 6) return 2;
+        if (Card.Number > 6) return 2;
 
-        if (Card.Number >= 3) return 1;
+        if (Card.Number > 3) return 1;
         
         return 0;
     }
