@@ -9,6 +9,7 @@ public abstract class MajorArcana : Card
     }
 
     public int FateCost;
+    public string Text;
 
     public abstract IEnumerator ExecuteEffect();
 

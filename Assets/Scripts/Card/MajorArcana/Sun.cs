@@ -6,6 +6,7 @@ public class Sun : MajorArcana
     {
         Name = "The Sun";
         FateCost = 4;
+        Text = "Shuffle all Cups from your discard pile back into your deck.";
     }
 
     public override IEnumerator ExecuteEffect()

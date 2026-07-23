@@ -6,6 +6,7 @@ public class Star : MajorArcana
     {
         Name = "The Star";
         FateCost = 4;
+        Text = "Shuffle all Coins from your discard pile back into your deck.";
     }
 
     public override IEnumerator ExecuteEffect()

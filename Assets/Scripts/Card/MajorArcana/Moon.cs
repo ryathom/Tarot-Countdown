@@ -6,6 +6,7 @@ public class Moon : MajorArcana
     {
         Name = "The Moon";
         FateCost = 4;
+        Text = "Shuffle all Wands from your discard pile back into your deck.";
     }
 
     public override IEnumerator ExecuteEffect()

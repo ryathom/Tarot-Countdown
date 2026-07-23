@@ -6,6 +6,7 @@ public class World : MajorArcana
     {
         Name = "The World";
         FateCost = 4;
+        Text = "Shuffle all Swords from your discard pile back into your deck.";
     }
 
     public override IEnumerator ExecuteEffect()
