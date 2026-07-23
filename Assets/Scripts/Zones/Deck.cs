@@ -31,4 +31,17 @@ public class Deck : Zone
 
         UpdateVisuals();
     }
+
+    public int DeathCardPosition()
+    {
+        foreach(Card card in Cards)
+        {
+            if (card is Death)
+            {
+                return Cards.IndexOf(card);
+            }
+        }
+
+        return -1;
+    }
 }
