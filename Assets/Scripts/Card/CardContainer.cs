@@ -129,7 +129,6 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public void OnBeginDrag(PointerEventData eventData)
     {
         OnBeginDragContainer?.Invoke(this);
-        SetDragging(true);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -138,7 +137,6 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        SetDragging(false);
         OnEndDragContainer?.Invoke(this, eventData);
     }
 }

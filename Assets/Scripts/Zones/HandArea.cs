@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class HandArea : Zone
 {
@@ -6,6 +7,9 @@ public class HandArea : Zone
     private int yScale = 0;
 
     private readonly Vector3 hoverScale = new(1.2f, 1.2f, 1f);
+
+    private readonly float minDragThreshold = 300f;
+    private readonly float maxDragThreshold = 700f;
 
     // Methods
     //---------------------------------------------------------------------------------------------------------
@@ -39,13 +43,36 @@ public class HandArea : Zone
 
     protected override void EnterContainer(CardContainer container)
     {
+        if (container.IsDragging) return;
+
         container.SetScale(hoverScale);
         container.ShowPopUp(true);
     }
 
     protected override void ExitContainer(CardContainer container)
     {
+        if (container.IsDragging) return;
+
         container.SetScale(Vector3.one);
         container.ShowPopUp(false);
+    }
+
+    protected override void BeginDragContainer(CardContainer container)
+    {
+        container.SetDragging(true);
+    }
+
+    protected override void EndDragContainer(CardContainer container, PointerEventData eventData)
+    {
+        container.SetDragging(false);
+        Debug.Log(eventData.position);
+        
+        if (eventData.position.y > minDragThreshold && eventData.position.y < maxDragThreshold)
+        {
+            GameManager.Actions.AddAction(new PlayCard(container.Card));
+        } else
+        {
+            UpdateVisuals();
+        }
     }
 }
