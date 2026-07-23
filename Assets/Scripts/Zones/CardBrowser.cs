@@ -15,7 +15,7 @@ public class CardBrowser : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
         float cardSpacing = 1800 / Cards.Count;
 
-        for (int i = 0; i < Cards.Count; i++)
+        for (int i = Cards.Count - 1; i >= 0; i--)
         {
             float relativePosition = i - ((Cards.Count - 1f) / 2f);
             
