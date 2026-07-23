@@ -40,7 +40,7 @@ public class DrawTarotCard : IAction
 
         if (deck.Cards.Count <= 0) yield break;
 
-        TarotHandArea hand = GameManager.Instance.TarotHand;
+        HandArea hand = GameManager.Instance.TarotHand;
         Card card = deck.Cards[0];
         
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(card, hand));

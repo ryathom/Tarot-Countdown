@@ -12,9 +12,9 @@ public class EndTurn : IAction
     {
         PlayArea playArea = GameManager.Instance.PlayArea;
         HandArea handArea = GameManager.Instance.Hand;
-        TarotHandArea tarotHand = GameManager.Instance.TarotHand;
-        Deck tarotDeck = GameManager.Instance.TarotDeck;
         Deck deck = GameManager.Instance.Deck;
+        HandArea tarotHand = GameManager.Instance.TarotHand;
+        Deck tarotDeck = GameManager.Instance.TarotDeck;
 
         while (handArea.Cards.Count < GameManager.Instance.HandSize && deck.Cards.Count > 0)
         {

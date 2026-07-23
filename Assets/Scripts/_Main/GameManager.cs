@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public DiscardPile DiscardPile;
     public PlayArea PlayArea;
     public Deck TarotDeck;
-    public TarotHandArea TarotHand;
+    public HandArea TarotHand;
     public DiscardPile TarotDiscardPile;
 
     [Header("Cards")]

@@ -25,13 +25,13 @@ public class CardVisual : MonoBehaviour
 
         front.sprite = SetFrontSprite();
 
-        if (card is MajorArcana majorArcana)
-        {
-            cardText.text = majorArcana.Text;
-        } else
-        {
+        // if (card is MajorArcana majorArcana)
+        // {
+        //     cardText.text = majorArcana.Text;
+        // } else
+        // {
             cardText.text = "";
-        }
+        // }
     }
 
     public Sprite SetFrontSprite()
