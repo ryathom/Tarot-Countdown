@@ -61,6 +61,16 @@ public class CardVisual : MonoBehaviour
                 Star => majorSO.starSprite,
                 Strength => majorSO.strengthSprite,
                 Sun => majorSO.sunSprite,
+                Temperance => majorSO.temperanceSprite,
+                TheEmperor => majorSO.emperorSprite,
+                TheEmpress => majorSO.empressSprite,
+                TheHermit => majorSO.hermitSprite,
+                TheHierophant => majorSO.heirophantSprite,
+                TheHighPriestess => majorSO.highPriestessSprite,
+                TheLovers => majorSO.loversSprite,
+                TheTower => majorSO.towerSprite,
+                WheelofFortune => majorSO.wheelSprite,
+                World => majorSO.worldSprite,
                 _ => null,
             };
         } else if (card is Death && card.CardSO is DeathSO deathSO)
