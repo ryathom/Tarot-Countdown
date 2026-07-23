@@ -11,5 +11,25 @@ public class HangedMan : MajorArcana
     }
 
     public override IEnumerator ExecuteEffect()
-    { return null; }
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (GameManager.Instance.Deck.Cards[i] is Death death)
+            {
+                UIManager.Instance.OpenBrowser(GameManager.Instance.Deck);
+                yield return new WaitForSeconds(1f);
+                
+                GameManager.Instance.Deck.RemoveCard(death);
+                GameManager.Instance.Deck.InsertCard(death, GameManager.Instance.Deck.Cards.Count - 1);
+                
+                // Refresh browser
+                UIManager.Instance.OpenBrowser(GameManager.Instance.Deck);
+                
+                yield return new WaitForSeconds(2f);
+                UIManager.Instance.CloseBrowser();
+                
+                yield break;
+            }
+        }
+    }
 }

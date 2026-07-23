@@ -6,6 +6,7 @@ public class Fool : MajorArcana
     {
         Name = "The Fool";
         FateCost = 10;
+        Text = "Shuffle all cards back into your deck.";
     }
 
     public override IEnumerator ExecuteEffect()
