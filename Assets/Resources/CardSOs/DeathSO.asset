@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8804a27b4da4642dc8998d9ad4ebe5aa, type: 3}
   m_Name: DeathSO
   m_EditorClassIdentifier: Assembly-CSharp::DeathSO
-  CardBack: {fileID: 1209488358134636492, guid: cdbfd67b15db84e5ba210861d02b33f0, type: 3}
+  CardBack: {fileID: -1882218762276351159, guid: 283124f2a026345a08d1a54c063aeddc, type: 3}
   deathSprite: {fileID: -1882218762276351159, guid: 283124f2a026345a08d1a54c063aeddc, type: 3}

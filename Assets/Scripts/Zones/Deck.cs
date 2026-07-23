@@ -10,13 +10,24 @@ public class Deck : Zone
 
     protected override void ClickCard(Card card)
     {
-        // GameManager.Actions.AddAction(new DrawCard());
+        UIManager.Instance.OpenBrowser(this);
     }
 
     public override void InsertCard(Card card, int position)
     {
         base.InsertCard(card, position);
         card.SetFaceUp(false);
+    }
+
+    public override void UpdateVisuals()
+    {
+        for (int i = Cards.Count - 1; i >= 0; i--)
+        {
+            Card card = Cards[i];
+            card.Container.SetTargetPosition(this.transform.position);
+            card.Container.transform.SetParent(this.transform);
+            card.Container.transform.SetAsLastSibling();
+        }
     }
 
     public void Shuffle()
