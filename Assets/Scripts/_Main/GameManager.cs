@@ -103,6 +103,10 @@ public class GameManager : MonoBehaviour
         {
             new Fool(testCard),
             new Devil(testCard),
+            new Star(testCard),
+            new Moon(testCard),
+            new Sun(testCard),
+            new World(testCard),
         };
 
         foreach (MajorArcana arcana in majorArcana)
