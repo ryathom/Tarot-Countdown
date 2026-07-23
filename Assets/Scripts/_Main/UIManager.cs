@@ -30,6 +30,8 @@ public class UIManager : MonoBehaviour
     {
         cardBrowser.gameObject.SetActive(false);
         helpScreen.transform.localScale = Vector2.zero;
+
+        InputManager.Instance.OnCancelAction += CloseHelpScreen;
     }
 
     private void Update()

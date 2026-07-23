@@ -43,7 +43,6 @@ public class InputManager : MonoBehaviour
         if (clickAction.WasPressedThisFrame())
         {
             OnClickAction?.Invoke();
-            Debug.Log("Cancel");
         }
 
         if (middleClickAction.WasPressedThisFrame())

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 2ed022341a7da4abfac8fff071f6c720, type: 3}
   m_Name: MinorArcanaSO
   m_EditorClassIdentifier: Assembly-CSharp::MinorArcanaSO
   CardBack: {fileID: 7637622552833134485, guid: a0af20ae0e7ac49dba51526b427af1f9, type: 3}
