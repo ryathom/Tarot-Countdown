@@ -21,9 +21,4 @@ public class PlayArea : Zone
             Cards[i].Container.ShowVisual(true);
         }
     }
-
-    protected override void ClickCard(Card card)
-    {
-        GameManager.Actions.AddAction(new UnplayCard(card));
-    }
 }

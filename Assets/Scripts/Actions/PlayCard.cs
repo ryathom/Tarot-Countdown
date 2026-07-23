@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine;
 
 public class PlayCard : IAction
 {
@@ -11,25 +12,26 @@ public class PlayCard : IAction
 
     public IEnumerator Execute()
     {
-        PlayArea playArea = GameManager.Instance.PlayArea;   
+        PlayArea playArea = GameManager.Instance.PlayArea;
 
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(Card, playArea));
-    }
-}
 
-public class UnplayCard : IAction
-{
-    public Card Card {get; private set;}
+        if (GetMillCost() >= 0)
+        {
+            yield return GameManager.Actions.ExecuteImmediate(new MillCards(GetMillCost()));
+        }
 
-    public UnplayCard(Card card)
-    {
-        Card = card;
+        GameManager.Actions.AddAction(new EndTurn());
     }
 
-    public IEnumerator Execute()
+    public int GetMillCost()
     {
-        HandArea hand = GameManager.Instance.Hand;
+        if (Card.Number >= 9) return 3;
 
-        yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(Card, hand));
+        if (Card.Number >= 6) return 2;
+
+        if (Card.Number >= 3) return 1;
+        
+        return 0;
     }
 }

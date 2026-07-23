@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public int Turn {get; private set;}
     public int HandSize {get => startingHandSize;}
 
-    private readonly int startingHandSize = 7;
+    private readonly int startingHandSize = 5;
     private readonly int startingDeathPosition = 30;
     private readonly int turnsToSurvive = 20;
 
