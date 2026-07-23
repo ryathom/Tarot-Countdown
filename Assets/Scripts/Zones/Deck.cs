@@ -44,4 +44,16 @@ public class Deck : Zone
 
         return -1;
     }
+
+    public int DeathCount()
+    {
+        int count = 0;
+
+        foreach (Card card in Cards)
+        {
+            if (card is Death) count++;
+        }
+
+        return count;
+    }
 }

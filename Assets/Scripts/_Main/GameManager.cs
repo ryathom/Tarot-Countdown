@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using PrimeTween;
 using UnityEngine;
 
@@ -98,16 +99,27 @@ public class GameManager : MonoBehaviour
 
     private void InstantiateTarotCards()
     {
-        for (int i = 0; i < 5; i++)
+        List<MajorArcana> majorArcana = new()
+        {
+            new Fool(testCard),
+            new Devil(testCard),
+        };
+
+        foreach (MajorArcana arcana in majorArcana)
         {
             CardContainer cardContainer = Instantiate(cardContainerPrefab, Canvas.transform);
-            Fool card = new(testCard);
 
-            cardContainer.SetCard(card);
-            TarotDeck.AddCard(card);
+            cardContainer.SetCard(arcana);
+            TarotDeck.AddCard(arcana);
         }
 
         TarotDeck.Shuffle();
+    }
+
+    public void DestroyCard(Card card)
+    {
+        card.Zone.RemoveCard(card);
+        Destroy(card.Container.gameObject);
     }
 
     // Gameplay

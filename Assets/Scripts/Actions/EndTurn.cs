@@ -12,13 +12,16 @@ public class EndTurn : IAction
     {
         PlayArea playArea = GameManager.Instance.PlayArea;
         HandArea handArea = GameManager.Instance.Hand;
+        TarotHandArea tarotHand = GameManager.Instance.TarotHand;
+        Deck tarotDeck = GameManager.Instance.TarotDeck;
+        Deck deck = GameManager.Instance.Deck;
 
-        while (handArea.Cards.Count < GameManager.Instance.HandSize)
+        while (handArea.Cards.Count < GameManager.Instance.HandSize && deck.Cards.Count > 0)
         {
             yield return GameManager.Actions.ExecuteImmediate(new DrawCard());
         }
 
-        while (GameManager.Instance.TarotHand.Cards.Count < GameManager.Instance.TarotHandSize)
+        while (tarotHand.Cards.Count < GameManager.Instance.TarotHandSize && tarotDeck.Cards.Count > 0)
         {
             yield return GameManager.Actions.ExecuteImmediate(new DrawTarotCard());
         }
