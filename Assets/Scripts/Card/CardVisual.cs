@@ -1,3 +1,4 @@
+using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,32 +7,71 @@ public class CardVisual : MonoBehaviour
 {
     [SerializeField] private Image front;
     [SerializeField] private Image back;
-    [SerializeField] private TextMeshProUGUI cardName;
-    [SerializeField] private TextMeshProUGUI cardText;
+    
+
+    [SerializeField] private GameObject majorPopUp;
+    [SerializeField] private GameObject minorPopUp;
+
+    [SerializeField] private TextMeshProUGUI majorName;
+    [SerializeField] private TextMeshProUGUI majorText;
+    [SerializeField] private TextMeshProUGUI minorName;
+    [SerializeField] private TextMeshProUGUI minorText;
 
     private Card card;
 
     public void SetCard(Card card)
     {
         this.card = card;
+        majorPopUp.transform.localScale = Vector3.zero;
+        minorPopUp.transform.localScale = Vector3.zero;
         UpdateVisuals();
     }
 
     public void UpdateVisuals()
     {
-        cardName.text = "";
+        majorName.text = card.Name;
+        minorName.text = card.Name;
         back.sprite = card.CardSO.CardBack;
         back.enabled = !card.FaceUp;
 
         front.sprite = SetFrontSprite();
 
-        // if (card is MajorArcana majorArcana)
-        // {
-        //     cardText.text = majorArcana.Text;
-        // } else
-        // {
-            cardText.text = "";
-        // }
+        if (card is MajorArcana majorArcana)
+        {
+            majorText.text = "Cost: " + majorArcana.FateCost + " Fate\n" + majorArcana.Text;
+            majorPopUp.SetActive(true);
+            minorPopUp.SetActive(false);
+        } else if (card is MinorArcana)
+        {
+            minorText.text = "Cost: Mill " + card.GetMillCost() + " cards.";
+            majorPopUp.SetActive(false);
+            minorPopUp.SetActive(true);
+        } else if (card is Death)
+        {
+            minorText.text = "You die if you draw or mill this card.";
+            majorPopUp.SetActive(false);
+            minorPopUp.SetActive(true);
+        }
+    }
+
+    public void ShowMajorPopUp()
+    {
+        Tween.Scale(majorPopUp.transform, Vector2.one, 0.1f);
+    }
+
+    public void HideMajorPopUp()
+    {
+        Tween.Scale(majorPopUp.transform, Vector2.zero, 0.1f);
+    }
+
+    public void ShowMinorPopUp()
+    {
+        Tween.Scale(minorPopUp.transform, Vector2.one, 0.1f);
+    }
+
+    public void HideMinorPopUp()
+    {
+        Tween.Scale(minorPopUp.transform, Vector2.zero, 0.1f);
     }
 
     public Sprite SetFrontSprite()

@@ -50,6 +50,29 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         cardVisual.gameObject.SetActive(enabled);
     }
 
+    public void ShowPopUp(bool enabled)
+    {
+        if (Card is MajorArcana)
+        {
+            if (enabled)
+            {
+                cardVisual.ShowMajorPopUp();
+            } else
+            {
+                cardVisual.HideMajorPopUp();
+            }
+        } else
+        {
+            if (enabled)
+            {
+                cardVisual.ShowMinorPopUp();
+            } else
+            {
+                cardVisual.HideMinorPopUp();
+            }
+        }
+    }
+
     public void SetTargetPosition(Vector2 pos)
     {
         TargetPosition = pos;

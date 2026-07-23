@@ -33,5 +33,16 @@ public abstract class Card
     {
         Zone = zone;
     }
+
+    public int GetMillCost()
+    {
+        if (Number > 9) return 3;
+
+        if (Number > 6) return 2;
+
+        if (Number > 3) return 1;
+        
+        return 0;
+    }
 }
 

@@ -18,7 +18,7 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusic(mainTheme);
+        // PlayMusic(mainTheme);
     }
 
     public void PlayMusic(AudioClip clip)
