@@ -12,5 +12,10 @@ public class WheelofFortune : MajorArcana
     }
 
     public override IEnumerator ExecuteEffect()
-    { return null; }
+    {
+        while (GameManager.Instance.Hand.Cards.Count > 0)
+        {
+            yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(GameManager.Instance.Hand.Cards[0], GameManager.Instance.DiscardPile));
+        }
+    }
 }
