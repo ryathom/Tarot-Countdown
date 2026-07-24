@@ -7,7 +7,15 @@ public class CardVisual : MonoBehaviour
 {
     [SerializeField] private Image front;
     [SerializeField] private Image back;
-    
+
+    [SerializeField] private Color wandsColour = Color.red;
+    [SerializeField] private Color pentaclesColour = Color.green;
+    [SerializeField] private Color cupsColour = Color.blue;
+    [SerializeField] private Color swordsColour = Color.yellow;
+
+    [SerializeField] private Vector2 borderThickness = new Vector2(3f, -3f);
+
+    private Outline suitOutline;
 
     [SerializeField] private GameObject majorPopUp;
     [SerializeField] private GameObject minorPopUp;
@@ -18,6 +26,20 @@ public class CardVisual : MonoBehaviour
     [SerializeField] private TextMeshProUGUI minorText;
 
     private Card card;
+
+    private void Awake()
+    {
+        suitOutline = front.GetComponent<Outline>();
+
+        if (suitOutline == null)
+        {
+            suitOutline = front.gameObject.AddComponent<Outline>();
+        }
+
+        suitOutline.effectDistance = borderThickness;
+        suitOutline.useGraphicAlpha = false;
+        suitOutline.enabled = false;
+    }
 
     public void SetCard(Card card)
     {
@@ -37,6 +59,7 @@ public class CardVisual : MonoBehaviour
         back.enabled = !card.FaceUp;
 
         front.sprite = SetFrontSprite();
+        UpdateSuitBorder();
 
         if (card is MajorArcana majorArcana)
         {
@@ -82,6 +105,31 @@ public class CardVisual : MonoBehaviour
         if (minorPopUp.transform.localScale == Vector3.zero) return;
 
         Tween.Scale(minorPopUp.transform, Vector3.zero, 0.1f);
+    }
+
+    private void UpdateSuitBorder()
+    {
+        if (card is MinorArcana minorArcana)
+        {
+            suitOutline.enabled = true;
+            suitOutline.effectColor = GetSuitColour(minorArcana.Suit);
+        }
+        else
+        {
+            suitOutline.enabled = false;
+        }
+    }
+
+    private Color GetSuitColour(Suit suit)
+    {
+        return suit switch
+        {
+            Suit.Wands => wandsColour,
+            Suit.Pentacles => pentaclesColour,
+            Suit.Cups => cupsColour,
+            Suit.Swords => swordsColour,
+            _ => Color.white
+        };
     }
 
     public Sprite SetFrontSprite()
