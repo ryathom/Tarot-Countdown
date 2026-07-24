@@ -90,7 +90,7 @@ public class CardVisual : MonoBehaviour
             {
                 Suit.Wands => minorSO.wandSprites[minor.Number - 1],
                 Suit.Cups => minorSO.cupSprites[minor.Number - 1],
-                Suit.Coins => minorSO.coinSprites[minor.Number - 1],
+                Suit.Pentacles => minorSO.coinSprites[minor.Number - 1],
                 Suit.Swords => minorSO.swordSprites[minor.Number - 1],
                 _ => null,
             };

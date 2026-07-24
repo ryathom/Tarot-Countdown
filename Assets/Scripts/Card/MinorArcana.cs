@@ -26,6 +26,6 @@ public enum Suit
     Wands,
     Swords,
     Cups,
-    Coins
+    Pentacles
 }
 
