@@ -29,6 +29,8 @@ public class CardVisual : MonoBehaviour
 
     public void UpdateVisuals()
     {
+        if (card is MinorArcana ma) ma.SetName();
+
         majorName.text = card.Name;
         minorName.text = card.Name;
         back.sprite = card.CardSO.CardBack;

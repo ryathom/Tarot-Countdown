@@ -4,6 +4,11 @@ public class MinorArcana : Card
     {
         Number = number;
         Suit = suit;
+        SetName();
+    }
+
+    public void SetName()
+    {
         Name = NumberString(Number) + " of " + Suit;
     }
 
