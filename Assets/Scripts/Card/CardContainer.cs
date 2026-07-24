@@ -128,7 +128,6 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             OnClickCard?.Invoke(Card);
         } else if (IsDragging == false && eventData.button == PointerEventData.InputButton.Right)
         {
-            Flip();
             OnRightClickCard?.Invoke(Card);
         }
     }
