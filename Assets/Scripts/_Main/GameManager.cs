@@ -74,10 +74,7 @@ public class GameManager : MonoBehaviour
         {
             for (int j = 1; j < 15; j++)
             {
-                CardContainer cardContainer = Instantiate(cardContainerPrefab, Canvas.transform);
-                MinorArcana card = new(minorArcanaSO, j, (Suit)i);
-
-                cardContainer.SetCard(card);
+                MinorArcana card = InstantiateMinorArcana(j, (Suit)i);
                 Deck.AddCard(card);
             }            
         }
@@ -98,6 +95,15 @@ public class GameManager : MonoBehaviour
         return death;
     }
 
+    public MinorArcana InstantiateMinorArcana(int number, Suit suit)
+    {
+        CardContainer cardContainer = Instantiate(cardContainerPrefab, Canvas.transform);
+        MinorArcana card = new(minorArcanaSO, number, suit);
+
+        cardContainer.SetCard(card);
+        return card;
+    }
+
     private void InstantiateTarotCards()
     {
         List<MajorArcana> majorArcana = new()
@@ -110,17 +116,17 @@ public class GameManager : MonoBehaviour
             new World(majorArcanaSO),
             new HangedMan(majorArcanaSO),
             new TheEmpress(majorArcanaSO),
-            new TheLovers(majorArcanaSO),
+            // new TheLovers(majorArcanaSO),
             new TheTower(majorArcanaSO),
-            new TheHierophant(majorArcanaSO),
+            // new TheHierophant(majorArcanaSO),
             new TheHighPriestess(majorArcanaSO),
-            new Temperance(majorArcanaSO),
+            // new Temperance(majorArcanaSO),
             new TheEmperor(majorArcanaSO),
             new Strength(majorArcanaSO),
-            new TheHermit(majorArcanaSO),
+            // new TheHermit(majorArcanaSO),
             new Judgement(majorArcanaSO),
             new WheelofFortune(majorArcanaSO),
-            new Magician(majorArcanaSO),
+            // new Magician(majorArcanaSO),
             new Justice(majorArcanaSO),
             new Chariot(majorArcanaSO),
         };
@@ -169,6 +175,11 @@ public class GameManager : MonoBehaviour
         Doom += gain;
     }
 
+    public void SetDoom(int doom)
+    {
+        Doom = doom;
+    }
+
     public void EndTurn()
     {
         Actions.AddAction(new EndTurn());
@@ -177,5 +188,10 @@ public class GameManager : MonoBehaviour
     public void DecrementTurn()
     {
         Turn -= 1;
+
+        if (Turn == 0)
+        {
+            Debug.Log("You win!");
+        }
     }
 }

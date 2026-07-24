@@ -50,6 +50,35 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         cardVisual.gameObject.SetActive(enabled);
     }
 
+    public void Flip()
+    {
+        Tween.Scale(transform, new Vector3(0f, 1f, 1f), 0.1f, cycles: 2, cycleMode: CycleMode.Yoyo)
+        .OnComplete(() => Card.SetFaceUp(!Card.FaceUp));
+    }
+
+    public void ShowPopUp(bool enabled)
+    {
+        if (Card is MajorArcana)
+        {
+            if (enabled)
+            {
+                cardVisual.ShowMajorPopUp();
+            } else
+            {
+                cardVisual.HideMajorPopUp();
+            }
+        } else
+        {
+            if (enabled)
+            {
+                cardVisual.ShowMinorPopUp();
+            } else
+            {
+                cardVisual.HideMinorPopUp();
+            }
+        }
+    }
+
     public void SetTargetPosition(Vector2 pos)
     {
         TargetPosition = pos;
@@ -106,7 +135,6 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public void OnBeginDrag(PointerEventData eventData)
     {
         OnBeginDragContainer?.Invoke(this);
-        SetDragging(true);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -115,7 +143,6 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        SetDragging(false);
         OnEndDragContainer?.Invoke(this, eventData);
     }
 }

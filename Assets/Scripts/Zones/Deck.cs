@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Deck : Zone
 {
+    private readonly Vector3 hoverScale = new(1.2f, 1.2f, 1f);
+
     public override void AddCard(Card card)
     {
         base.AddCard(card);
@@ -15,12 +17,15 @@ public class Deck : Zone
 
     public override void InsertCard(Card card, int position)
     {
+        position = Mathf.Clamp(position, 0, Cards.Count);
         base.InsertCard(card, position);
         card.SetFaceUp(false);
     }
 
     public override void UpdateVisuals()
     {
+        if (isBrowsing) return;
+
         for (int i = Cards.Count - 1; i >= 0; i--)
         {
             Card card = Cards[i];
@@ -32,6 +37,11 @@ public class Deck : Zone
 
     public void Shuffle()
     {
+        foreach(Card card in Cards)
+        {
+            card.SetFaceUp(false);
+        }
+
         for (int i = 0; i < Cards.Count; i++) 
         {
             Card temp = Cards[i];
@@ -66,5 +76,18 @@ public class Deck : Zone
         }
 
         return count;
+    }
+
+    protected override void EnterContainer(CardContainer container)
+    {
+        container.SetScale(hoverScale);
+        
+        if (container.Card is Death) container.ShowPopUp(true);
+    }
+
+    protected override void ExitContainer(CardContainer container)
+    {
+        container.SetScale(Vector3.one);
+        container.ShowPopUp(false);
     }
 }

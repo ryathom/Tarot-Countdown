@@ -12,5 +12,12 @@ public class Justice : MajorArcana
     }
 
     public override IEnumerator ExecuteEffect()
-    { return null; }
+    {
+        if (GameManager.Instance.Doom == 0)
+        {
+            GameManager.Instance.DecrementTurn();
+        }
+
+        return null;
+    }
 }

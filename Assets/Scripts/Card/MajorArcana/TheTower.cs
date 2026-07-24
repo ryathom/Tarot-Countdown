@@ -12,5 +12,18 @@ public class TheTower : MajorArcana
     }
 
     public override IEnumerator ExecuteEffect()
-    { return null; }
+    {
+        Deck deck = GameManager.Instance.Deck;
+        UIManager.Instance.OpenBrowser(deck, canClose: false);
+
+        yield return new WaitForSeconds(0.5f);
+
+        deck.Cards.Reverse();
+
+        UIManager.Instance.OpenBrowser(deck, canClose: false);
+
+        yield return new WaitForSeconds(1f);
+
+        UIManager.Instance.CloseBrowser();
+    }
 }

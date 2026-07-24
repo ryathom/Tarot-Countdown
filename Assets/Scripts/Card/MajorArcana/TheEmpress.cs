@@ -12,5 +12,13 @@ public class TheEmpress : MajorArcana
     }
 
     public override IEnumerator ExecuteEffect()
-    { return null; }
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            Card card = GameManager.Instance.InstantiateMinorArcana(3, (Suit)i);
+            GameManager.Instance.Deck.InsertCard(card, Random.Range(0, GameManager.Instance.Deck.Cards.Count));
+
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
 }

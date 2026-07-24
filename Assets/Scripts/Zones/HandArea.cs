@@ -1,11 +1,18 @@
+using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class HandArea : Zone
 {
-    private readonly float cardSpacing = 180;
+    [SerializeField] private float cardSpacing = 180;
     private int yScale = 0;
 
     private readonly Vector3 hoverScale = new(1.2f, 1.2f, 1f);
+
+    private readonly float minDragThreshold = 300f;
+    private readonly float maxDragThreshold = 700f;
+
+    public Action<Card> OnClickCardInHand;
 
     // Methods
     //---------------------------------------------------------------------------------------------------------
@@ -24,6 +31,7 @@ public class HandArea : Zone
             Vector2 targetPosition = new(x, y);
 
             Cards[i].Container.transform.SetAsLastSibling();
+            Cards[i].Container.transform.SetParent(this.transform);
             Cards[i].Container.SetTargetPosition(this.transform.position + (Vector3)targetPosition);
             Cards[i].Container.ShowVisual(true);
         }
@@ -33,16 +41,47 @@ public class HandArea : Zone
     //---------------------------------------------------------------------------------------------------------
     protected override void ClickCard(Card card)
     {
-        GameManager.Actions.AddAction(new PlayCard(card));
+        if (isBrowsing)
+        {
+            OnClickCardInHand?.Invoke(card);
+        } else
+        {
+            GameManager.Actions.AddAction(new PlayCard(card));
+        }
     }
 
     protected override void EnterContainer(CardContainer container)
     {
+        if (container.IsDragging) return;
+
         container.SetScale(hoverScale);
+        container.ShowPopUp(true);
     }
 
     protected override void ExitContainer(CardContainer container)
     {
+        if (container.IsDragging) return;
+
         container.SetScale(Vector3.one);
+        container.ShowPopUp(false);
+    }
+
+    protected override void BeginDragContainer(CardContainer container)
+    {
+        container.SetDragging(true);
+    }
+
+    protected override void EndDragContainer(CardContainer container, PointerEventData eventData)
+    {
+        container.SetDragging(false);
+        Debug.Log(eventData.position);
+        
+        if (eventData.position.y > minDragThreshold && eventData.position.y < maxDragThreshold)
+        {
+            GameManager.Actions.AddAction(new PlayCard(container.Card));
+        } else
+        {
+            UpdateVisuals();
+        }
     }
 }

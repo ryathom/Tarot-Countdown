@@ -12,5 +12,19 @@ public class TheHighPriestess : MajorArcana
     }
 
     public override IEnumerator ExecuteEffect()
-    { return null; }
+    {
+        UIManager.Instance.OpenBrowser(GameManager.Instance.Deck);
+        yield return new WaitForSeconds(0.5f);
+
+        for (int i = 0; i < 5; i++)
+        {
+            GameManager.Instance.Deck.Cards[i].Container.Flip();
+        }
+
+        // Refresh browser
+        UIManager.Instance.OpenBrowser(GameManager.Instance.Deck);
+        
+        yield return new WaitForSeconds(1f);
+        UIManager.Instance.CloseBrowser();
+    }
 }

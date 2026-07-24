@@ -6,6 +6,7 @@ public abstract class Card
     public string Name;
 
     public int Number;
+    public int EffectiveNumber;
     public Suit Suit;
 
     public CardContainer Container {get; private set;}
@@ -32,6 +33,17 @@ public abstract class Card
     public void SetZone(Zone zone)
     {
         Zone = zone;
+    }
+
+    public int GetMillCost()
+    {
+        // if (Number > 9) return 3;
+
+        // if (Number > 6) return 2;
+
+        // if (Number > 3) return 1;
+        
+        return 0;
     }
 }
 

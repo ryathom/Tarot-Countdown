@@ -7,6 +7,8 @@ public class Zone : MonoBehaviour
 {
     public List<Card> Cards {get; protected set;}
 
+    public bool isBrowsing;
+
     public Action OnContentsChange;
 
     public void Start()
@@ -47,6 +49,8 @@ public class Zone : MonoBehaviour
 
     public virtual void UpdateVisuals()
     {
+        if (isBrowsing) return;
+
         foreach(Card card in Cards)
         {
             card.Container.SetTargetPosition(this.transform.position);

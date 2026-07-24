@@ -25,11 +25,19 @@ public class PlayCard : IAction
     {
         PlayArea playArea = GameManager.Instance.PlayArea;
 
+        if (playArea.Cards.Count == 0 && Card.Number == 1)
+        {
+            Card.EffectiveNumber = 15;
+        } else
+        {
+            Card.EffectiveNumber = Card.Number;
+        }
+
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(Card, playArea));
 
-        if (GetMillCost() >= 0)
+        if (Card.GetMillCost() >= 0)
         {
-            yield return GameManager.Actions.ExecuteImmediate(new MillCards(GetMillCost()));
+            yield return GameManager.Actions.ExecuteImmediate(new MillCards(Card.GetMillCost()));
         }
 
         GameManager.Actions.AddAction(new EndTurn());
@@ -46,16 +54,5 @@ public class PlayCard : IAction
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(arcana, GameManager.Instance.TarotDiscardPile));
 
         GameManager.Actions.AddAction(new EndTurn());
-    }
-
-    public int GetMillCost()
-    {
-        if (Card.Number > 9) return 3;
-
-        if (Card.Number > 6) return 2;
-
-        if (Card.Number > 3) return 1;
-        
-        return 0;
     }
 }
