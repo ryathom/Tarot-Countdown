@@ -39,7 +39,7 @@ public class SoundFXManager : MonoBehaviour
     {
         if (drawSounds == null || drawSounds.Length == 0)
         {
-            // Debug.LogWarning("No draw sounds assigned.");
+            Debug.LogWarning("No draw sounds assigned.");
             return;
         }
 
@@ -60,6 +60,6 @@ public class SoundFXManager : MonoBehaviour
       
         MusicManager.Instance.DuckMusic(empressSound.length);
 
-        PlaySoundFXClip(empressSound, spawnTransform, 0.15f);
+        PlaySoundFXClip(empressSound, spawnTransform, 0.10f);
     }
 }
