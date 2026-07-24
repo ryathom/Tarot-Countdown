@@ -6,12 +6,13 @@ public class ChangeZone : IAction
         public Card Card {get; private set;}
         public Zone EndZone {get; private set;}
 
-        private readonly float delay = 0.25f;
+        public float Delay {get; private set;}
 
-        public ChangeZone(Card card, Zone endZone)
+        public ChangeZone(Card card, Zone endZone, float delay = 0.25f)
         {
             Card = card;
             EndZone = endZone;
+            Delay = delay;
         }
 
         public IEnumerator Execute()
@@ -19,6 +20,6 @@ public class ChangeZone : IAction
             Card.Zone.RemoveCard(Card);
             EndZone.AddCard(Card);
 
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSeconds(Delay);
         }
     }
