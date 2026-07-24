@@ -20,6 +20,8 @@ public class HandArea : Zone
     //---------------------------------------------------------------------------------------------------------
     public override void UpdateVisuals()
     {
+        SortHand();
+
         for (int i = 0; i < Cards.Count; i++)
         {
             float relativePosition = i - ((Cards.Count - 1f) / 2f);
@@ -35,6 +37,16 @@ public class HandArea : Zone
             Cards[i].Container.SetTargetPosition(this.transform.position + (Vector3)targetPosition);
             Cards[i].Container.ShowVisual(true);
         }
+    }
+
+    public void SortHand()
+    {
+        Cards.Sort(delegate(Card x, Card y)
+        {
+            if (x.Number == y.Number) return 0;
+            else if (x.Number > y.Number) return -1;
+            else return 1;
+        });
     }
 
     // Gameplay
