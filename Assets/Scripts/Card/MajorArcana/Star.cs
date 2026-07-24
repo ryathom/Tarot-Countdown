@@ -6,12 +6,12 @@ public class Star : MajorArcana
     {
         Name = "The Star";
         FateCost = 4;
-        Text = "Shuffle all Coins from your discard pile back into your deck.";
+        Text = "Shuffle all Pentacles from your discard pile back into your deck.";
     }
 
     public override IEnumerator ExecuteEffect()
     {
-        yield return ShuffleBackSuit(Suit.Coins);
+        yield return ShuffleBackSuit(Suit.Pentacles);
     }
 }
 

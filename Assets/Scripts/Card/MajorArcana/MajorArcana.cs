@@ -30,5 +30,7 @@ public abstract class MajorArcana : Card
             yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(cardsToShuffle[0], GameManager.Instance.Deck));
             cardsToShuffle.Remove(cardsToShuffle[0]);
         }
+
+        GameManager.Instance.Deck.Shuffle();
     }
 }

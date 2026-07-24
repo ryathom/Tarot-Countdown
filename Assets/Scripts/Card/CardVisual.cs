@@ -29,6 +29,8 @@ public class CardVisual : MonoBehaviour
 
     public void UpdateVisuals()
     {
+        if (card is MinorArcana ma) ma.SetName();
+
         majorName.text = card.Name;
         minorName.text = card.Name;
         back.sprite = card.CardSO.CardBack;
@@ -90,7 +92,7 @@ public class CardVisual : MonoBehaviour
             {
                 Suit.Wands => minorSO.wandSprites[minor.Number - 1],
                 Suit.Cups => minorSO.cupSprites[minor.Number - 1],
-                Suit.Coins => minorSO.coinSprites[minor.Number - 1],
+                Suit.Pentacles => minorSO.coinSprites[minor.Number - 1],
                 Suit.Swords => minorSO.swordSprites[minor.Number - 1],
                 _ => null,
             };

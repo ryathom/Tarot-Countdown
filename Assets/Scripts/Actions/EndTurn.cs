@@ -83,7 +83,9 @@ public class EndTurn : IAction
         // Base score
         if (currentRun.Count >= minimumRunSize)
         {
-            score = baseScore;   
+            score = baseScore;
+            // Regain ability to sacrifice a card
+            GameManager.Instance.CanSacrifice = true;
         }
 
         // Suit bonus

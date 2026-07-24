@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using PrimeTween;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +13,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private CardBrowser cardBrowser;
     [SerializeField] private GameObject helpScreen;
+    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private TextMeshProUGUI gameOverText;
+    [SerializeField] private Image sacrificeZone;
 
     public bool BrowserOpen {get => cardBrowser.isOpen;}
 
@@ -31,6 +33,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         cardBrowser.gameObject.SetActive(false);
+        gameOverScreen.transform.localScale = Vector2.zero;
         helpScreen.transform.localScale = Vector2.zero;
 
         InputManager.Instance.OnCancelAction += CloseHelpScreen;
@@ -39,6 +42,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         UpdateCounters();
+        UpdateSacrificeZone();
     }
 
     private void UpdateCounters()
@@ -46,6 +50,17 @@ public class UIManager : MonoBehaviour
         turnCounter.text = "Turns Remaining: " + GameManager.Instance.Turn;
         fateCounter.text = "Fate: " + GameManager.Instance.Fate;
         doomCounter.text = "Doom: " + GameManager.Instance.Doom;
+    }
+
+    private void UpdateSacrificeZone()
+    {
+        if (GameManager.Instance.CanSacrifice)
+        {
+            sacrificeZone.color = Color.white;
+        } else
+        {
+            sacrificeZone.color = Color.grey;
+        }
     }
 
     public void OpenBrowser(Zone zone, bool canClose = true)
@@ -69,6 +84,18 @@ public class UIManager : MonoBehaviour
     public void CloseHelpScreen()
     {
         Tween.Scale(helpScreen.transform, Vector2.zero, 0.1f);
+    }
+
+    public void ShowGameOverScreen(string text)
+    {
+        gameOverScreen.SetActive(true);
+        Tween.Scale(gameOverScreen.transform, Vector2.one, 0.2f);
+        gameOverText.text = text;
+    }
+
+    public void HideGameOverScreen()
+    {
+        Tween.Scale(gameOverScreen.transform, Vector2.zero, 0.1f);
     }
     
 }

@@ -8,7 +8,7 @@ public class TheEmpress : MajorArcana
     {
         Name = "The Empress";
         FateCost = 3;
-        Text = "Create a new 3 of each suit and place them in random positions in the deck.";
+        Text = "Create a new 3 of each suit and shuffle them into the deck.";
     }
 
     public override IEnumerator ExecuteEffect()
@@ -19,6 +19,8 @@ public class TheEmpress : MajorArcana
         {
             Card card = GameManager.Instance.InstantiateMinorArcana(3, (Suit)i);
             GameManager.Instance.Deck.InsertCard(card, Random.Range(0, GameManager.Instance.Deck.Cards.Count));
+
+            GameManager.Instance.Deck.Shuffle();
 
             yield return new WaitForSeconds(0.25f);
         }

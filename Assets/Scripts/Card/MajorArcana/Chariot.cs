@@ -9,7 +9,7 @@ public class Chariot : MajorArcana
     {
         Name = "The Chariot";
         FateCost = 3;
-        Text = "Choose two cards from your discard pile. Randomly place them in the top 10 cards of your deck.";
+        Text = "Choose two cards from your discard pile. Place them on top of your deck";
     }
 
     private List<Card> selectedCards = new();
@@ -43,7 +43,7 @@ public class Chariot : MajorArcana
             Card card = selectedCards[0];
             selectedCards.Remove(card);
             card.Zone.RemoveCard(card);
-            GameManager.Instance.Deck.InsertCard(card, Random.Range(0, 10));
+            GameManager.Instance.Deck.InsertCard(card, 0);
         }
     }
 }
