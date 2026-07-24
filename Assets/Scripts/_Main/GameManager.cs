@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using PrimeTween;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -158,6 +159,11 @@ public class GameManager : MonoBehaviour
     {
         card.Zone.RemoveCard(card);
         Destroy(card.Container.gameObject);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     // Gameplay

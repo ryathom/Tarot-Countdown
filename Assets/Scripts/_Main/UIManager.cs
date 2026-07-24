@@ -95,7 +95,8 @@ public class UIManager : MonoBehaviour
 
     public void HideGameOverScreen()
     {
-        Tween.Scale(gameOverScreen.transform, Vector2.zero, 0.1f);
+        Tween.Scale(gameOverScreen.transform, Vector2.zero, 0.1f)
+        .OnComplete(() => GameManager.Instance.LoadMainMenu());
     }
     
 }
