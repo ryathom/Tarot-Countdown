@@ -6,7 +6,7 @@ public class SoundFXManager : MonoBehaviour
 
     [SerializeField] private AudioSource soundFXObject;
 
-    [SerializeField] private AudioClip[] drawSounds;
+    [SerializeField] private AudioClip drawSound;
 
     [SerializeField] private AudioClip hoverSound;
 
@@ -15,6 +15,8 @@ public class SoundFXManager : MonoBehaviour
     [SerializeField] private AudioClip discardCardSound;
 
     [SerializeField] private AudioClip incorrectRunSound;
+
+    [SerializeField] private AudioClip gainFateSound;
 
     [SerializeField] private AudioClip empressSound;
 
@@ -28,13 +30,15 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
-    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
+    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume, float pitch = 1f)
     {
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
 
         audioSource.clip = audioClip;
 
         audioSource.volume = volume;
+
+        audioSource.pitch = pitch;
 
         audioSource.Play();
 
@@ -45,16 +49,7 @@ public class SoundFXManager : MonoBehaviour
 
     public void PlayDrawSoundClip(Transform spawnTransform)
     {
-        if (drawSounds == null || drawSounds.Length == 0)
-        {
-            Debug.LogWarning("No draw sounds assigned.");
-            return;
-        }
-
-        int randomIndex = Random.Range(0, drawSounds.Length);
-        AudioClip selectedSound = drawSounds[randomIndex];
-
-        PlaySoundFXClip(selectedSound, spawnTransform, 0.01f);
+      PlaySoundFXClip(drawSound, spawnTransform, 0.1f, 0.95f);
     }
 
     public void PlayHoverSoundClip(Transform spawnTransform)
@@ -77,11 +72,16 @@ public class SoundFXManager : MonoBehaviour
     }
     public void PlayDiscardSoundClip(Transform spawnTransform)
     {
-        PlaySoundFXClip(discardCardSound, spawnTransform, 0.2f);
+        PlaySoundFXClip(discardCardSound, spawnTransform, 0.1f);
     }
 
     public void PlayIncorrectRunSound(Transform spawnTransform)
     {
         PlaySoundFXClip(incorrectRunSound, spawnTransform, 0.4f);
+    }
+
+    public void PlayGainFateSound(Transform spawnTransform)
+    { 
+        PlaySoundFXClip(gainFateSound, spawnTransform, 0.05f);
     }
 }

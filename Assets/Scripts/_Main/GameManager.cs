@@ -187,6 +187,10 @@ public class GameManager : MonoBehaviour
     public void GainFate(int gain)
     {
         Fate += gain;
+
+        if(gain>0)
+        { SoundFXManager.Instance.PlayGainFateSound(transform); }
+
     }
 
     public void GainDoom(int gain)
