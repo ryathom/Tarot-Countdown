@@ -1433,8 +1433,8 @@ RectTransform:
   - {fileID: 599709895}
   - {fileID: 778199804}
   - {fileID: 1841515359}
-  - {fileID: 933764635}
   - {fileID: 41330870}
+  - {fileID: 933764635}
   - {fileID: 1394583255}
   m_Father: {fileID: 1343180917}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1618,7 +1618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HandArea
   isBrowsing: 0
-  cardSpacing: -180
+  TarotHand: 1
 --- !u!1 &1077040147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,7 +2091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hand
   isBrowsing: 0
-  cardSpacing: 180
+  TarotHand: 0
 --- !u!1 &1412968755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3615,7 +3615,7 @@ MonoBehaviour:
   soundFXObject: {fileID: 864695815765556743, guid: f218e7346b58a104d8b36856f1abb43a, type: 3}
   drawSounds: []
   hoverSound: {fileID: 8300000, guid: f8de0d4884fff39459092c89a3b87c69, type: 3}
-  empressSound: {fileID: 0}
+  empressSound: {fileID: 8300000, guid: 1b9d3c14f558d1847b14bdb8cb486b31, type: 3}
 --- !u!4 &2084769622
 Transform:
   m_ObjectHideFlags: 0

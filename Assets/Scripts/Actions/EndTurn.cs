@@ -23,7 +23,7 @@ public class EndTurn : IAction
             yield return GameManager.Actions.ExecuteImmediate(new DrawCard());
         }
 
-        while (tarotHand.Cards.Count < GameManager.Instance.TarotHandSize && tarotDeck.Cards.Count > 0)
+        while (tarotHand.Cards.Count < GameManager.Instance.TarotHandSize)
         {
             yield return GameManager.Actions.ExecuteImmediate(new DrawTarotCard());
         }

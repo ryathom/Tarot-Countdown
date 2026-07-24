@@ -61,11 +61,29 @@ public class DrawTarotCard : IAction
     {
         Deck deck = GameManager.Instance.TarotDeck;
 
-        if (deck.Cards.Count <= 0) yield break;
+        if (deck.Cards.Count <= 0)
+        {
+            yield return RecycleTarot();
+        }
 
         HandArea hand = GameManager.Instance.TarotHand;
         Card card = deck.Cards[0];
         
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(card, hand));
+    }
+
+    public IEnumerator RecycleTarot()
+    {
+        Deck deck = GameManager.Instance.TarotDeck;
+        DiscardPile discardPile = GameManager.Instance.TarotDiscardPile;
+
+        while (discardPile.Cards.Count > 0)
+        {
+            yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(discardPile.Cards[0], deck, 0.1f));
+        }
+
+        yield return new WaitForSeconds(0.25f);
+
+        deck.Shuffle();
     }
 }
