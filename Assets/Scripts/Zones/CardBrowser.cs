@@ -4,17 +4,28 @@ using UnityEngine.EventSystems;
 
 public class CardBrowser : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    // private readonly float cardSpacing = 40;
+    private float cardSpacing = 40;
 
     private Zone currentZone;
+    private bool canClose;
 
-    public void Open(Zone zone)
+    public bool isOpen = false;
+
+    public void Open(Zone zone, bool canClose = true)
     {
+        this.canClose = canClose;
         zone.isBrowsing = true;
+        isOpen = true;
         currentZone = zone;
         List<Card> Cards = zone.Cards;
 
-        float cardSpacing = 1800 / Cards.Count;
+        if (Cards.Count > 0)
+        {
+            cardSpacing = 1800 / Cards.Count;
+        } else
+        {
+            cardSpacing = 40;
+        }
         cardSpacing = Mathf.Clamp(cardSpacing, 10, 200);
 
         for (int i = Cards.Count - 1; i >= 0; i--)
@@ -37,13 +48,14 @@ public class CardBrowser : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
     public void Close()
     {
+        isOpen = false;
         currentZone.isBrowsing = false;
         currentZone.UpdateVisuals();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        UIManager.Instance.CloseBrowser();
+        if (canClose) UIManager.Instance.CloseBrowser();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
