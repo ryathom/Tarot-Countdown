@@ -17,7 +17,7 @@ public class TheEmperor : MajorArcana
 
         for (int i = 0; i < GameManager.Instance.Doom - 1; i++)
         {
-            GameManager.Instance.DecrementTurn();
+            GameManager.Instance.IncrementScore();
             yield return new WaitForSeconds(0.25f);
         }
 

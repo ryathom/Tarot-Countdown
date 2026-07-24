@@ -2477,7 +2477,7 @@ GameObject:
   - component: {fileID: 1712674616}
   - component: {fileID: 1712674615}
   m_Layer: 5
-  m_Name: Turn
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2522,7 +2522,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Turn:'
+  m_text: 'Score:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f3d7aac668ccf47468276e3d4e30bfab, type: 2}
   m_sharedMaterial: {fileID: -207289249410964934, guid: f3d7aac668ccf47468276e3d4e30bfab, type: 2}
@@ -2896,7 +2896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d9df6cea7b846d593681a9de718b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  turnCounter: {fileID: 1712674615}
+  scoreCounter: {fileID: 1712674615}
   fateCounter: {fileID: 35327541}
   doomCounter: {fileID: 217984028}
   cardBrowser: {fileID: 1965845131}

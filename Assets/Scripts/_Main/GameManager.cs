@@ -26,14 +26,13 @@ public class GameManager : MonoBehaviour
 
     public int Fate {get; private set;}
     public int Doom {get; private set;}
-    public int Turn {get; private set;}
+    public int Score {get; private set;}
 
     public int HandSize = 5;
     public int TarotHandSize = 3;
     public bool CanSacrifice;
 
     private readonly int startingDeathPosition = 28;
-    private readonly int turnsToSurvive = 50;
 
     // Unity methods
     //------------------------------------------------------------------------------------
@@ -180,7 +179,7 @@ public class GameManager : MonoBehaviour
             Actions.AddAction(new DrawTarotCard());
         }
 
-        Turn = turnsToSurvive;
+        Score = 0;
         CanSacrifice = true;
     }
 
@@ -208,13 +207,8 @@ public class GameManager : MonoBehaviour
         Actions.AddAction(new EndTurn());
     }
 
-    public void DecrementTurn()
+    public void IncrementScore()
     {
-        Turn -= 1;
-
-        if (Turn == 0)
-        {
-            Actions.AddAction(new GameOver(true));
-        }
+        Score += 1;
     }
 }

@@ -15,7 +15,7 @@ public class Justice : MajorArcana
     {
         if (GameManager.Instance.Doom == 0)
         {
-            GameManager.Instance.DecrementTurn();
+            GameManager.Instance.IncrementScore();
         } else
         {
             GameManager.Instance.GainDoom(-1);
