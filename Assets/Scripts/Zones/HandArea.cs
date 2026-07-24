@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,6 +11,8 @@ public class HandArea : Zone
 
     private readonly float minDragThreshold = 300f;
     private readonly float maxDragThreshold = 700f;
+
+    public Action<Card> OnClickCardInHand;
 
     // Methods
     //---------------------------------------------------------------------------------------------------------
@@ -38,7 +41,13 @@ public class HandArea : Zone
     //---------------------------------------------------------------------------------------------------------
     protected override void ClickCard(Card card)
     {
-        GameManager.Actions.AddAction(new PlayCard(card));
+        if (isBrowsing)
+        {
+            OnClickCardInHand?.Invoke(card);
+        } else
+        {
+            GameManager.Actions.AddAction(new PlayCard(card));
+        }
     }
 
     protected override void EnterContainer(CardContainer container)
