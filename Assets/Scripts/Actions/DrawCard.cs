@@ -19,12 +19,35 @@ public class DrawCard : IAction
         //This is where the SOUND IS
         SoundFXManager.Instance.PlayDrawSoundClip(GameManager.Instance.transform);
 
-      yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(card, hand));
+        yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(card, hand));
 
         if (card is Death)
         {
-            Debug.Log("Game over");
+            GameManager.Actions.AddAction(new GameOver(false));
         }
+    }
+}
+
+public class GameOver : IAction
+{
+    public bool Victory;
+
+    public GameOver(bool victory)
+    {
+        Victory = victory;
+    }
+
+    public IEnumerator Execute()
+    {
+        if (Victory)
+        {
+            UIManager.Instance.ShowGameOverScreen("You win!");
+        } else
+        {
+            UIManager.Instance.ShowGameOverScreen("You died.");
+        }
+
+        return null;
     }
 }
 

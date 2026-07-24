@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private CardBrowser cardBrowser;
     [SerializeField] private GameObject helpScreen;
+    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private TextMeshProUGUI gameOverText;
     [SerializeField] private Image sacrificeZone;
 
     public bool BrowserOpen {get => cardBrowser.isOpen;}
@@ -31,6 +33,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         cardBrowser.gameObject.SetActive(false);
+        gameOverScreen.transform.localScale = Vector2.zero;
         helpScreen.transform.localScale = Vector2.zero;
 
         InputManager.Instance.OnCancelAction += CloseHelpScreen;
@@ -81,6 +84,18 @@ public class UIManager : MonoBehaviour
     public void CloseHelpScreen()
     {
         Tween.Scale(helpScreen.transform, Vector2.zero, 0.1f);
+    }
+
+    public void ShowGameOverScreen(string text)
+    {
+        gameOverScreen.SetActive(true);
+        Tween.Scale(gameOverScreen.transform, Vector2.one, 0.2f);
+        gameOverText.text = text;
+    }
+
+    public void HideGameOverScreen()
+    {
+        Tween.Scale(gameOverScreen.transform, Vector2.zero, 0.1f);
     }
     
 }

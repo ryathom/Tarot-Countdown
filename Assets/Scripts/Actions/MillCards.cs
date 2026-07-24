@@ -24,8 +24,7 @@ public class MillCards : IAction
 
             if (card is Death)
             {
-                Debug.Log("Game over");
-                yield break;
+                GameManager.Actions.AddAction(new GameOver(false));
             }
         }
     }

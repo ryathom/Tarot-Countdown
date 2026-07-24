@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
 
         if (Turn == 0)
         {
-            Debug.Log("You win!");
+            Actions.AddAction(new GameOver(true));
         }
     }
 }
