@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CardBrowser cardBrowser;
     [SerializeField] private GameObject helpScreen;
 
+    public bool BrowserOpen {get => cardBrowser.isOpen;}
+
     private void Awake()
     {
         if (Instance == null)
@@ -46,10 +48,10 @@ public class UIManager : MonoBehaviour
         doomCounter.text = "Doom: " + GameManager.Instance.Doom;
     }
 
-    public void OpenBrowser(Zone zone)
+    public void OpenBrowser(Zone zone, bool canClose = true)
     {
         cardBrowser.gameObject.SetActive(true);
-        cardBrowser.Open(zone);
+        cardBrowser.Open(zone, canClose);
     }
 
     public void CloseBrowser()
