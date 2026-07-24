@@ -31,8 +31,8 @@ public class GameManager : MonoBehaviour
     public int TarotHandSize = 3;
     public bool CanSacrifice;
 
-    private readonly int startingDeathPosition = 30;
-    private readonly int turnsToSurvive = 20;
+    private readonly int startingDeathPosition = 28;
+    private readonly int turnsToSurvive = 50;
 
     // Unity methods
     //------------------------------------------------------------------------------------
@@ -109,27 +109,38 @@ public class GameManager : MonoBehaviour
     {
         List<MajorArcana> majorArcana = new()
         {
+            // new Fool(majorArcanaSO),
+            // new Devil(majorArcanaSO),
+            // new Star(majorArcanaSO),
+            // new Moon(majorArcanaSO),
+            // new Sun(majorArcanaSO),
+            // new World(majorArcanaSO),
+            // new HangedMan(majorArcanaSO),
+            // new TheEmpress(majorArcanaSO),
+            // // new TheLovers(majorArcanaSO),
+            // new TheTower(majorArcanaSO),
+            // // new TheHierophant(majorArcanaSO),
+            // new TheHighPriestess(majorArcanaSO),
+            // // new Temperance(majorArcanaSO),
+            // new TheEmperor(majorArcanaSO),
+            // new Strength(majorArcanaSO),
+            // // new TheHermit(majorArcanaSO),
+            // new Judgement(majorArcanaSO),
+            // new WheelofFortune(majorArcanaSO),
+            // // new Magician(majorArcanaSO),
+            // new Justice(majorArcanaSO),
+            // new Chariot(majorArcanaSO),
+
+            // Buffed/strong cards only
             new Fool(majorArcanaSO),
-            new Devil(majorArcanaSO),
             new Star(majorArcanaSO),
             new Moon(majorArcanaSO),
             new Sun(majorArcanaSO),
             new World(majorArcanaSO),
             new HangedMan(majorArcanaSO),
             new TheEmpress(majorArcanaSO),
-            // new TheLovers(majorArcanaSO),
-            new TheTower(majorArcanaSO),
-            // new TheHierophant(majorArcanaSO),
-            new TheHighPriestess(majorArcanaSO),
-            // new Temperance(majorArcanaSO),
-            new TheEmperor(majorArcanaSO),
-            new Strength(majorArcanaSO),
-            // new TheHermit(majorArcanaSO),
-            new Judgement(majorArcanaSO),
-            new WheelofFortune(majorArcanaSO),
-            // new Magician(majorArcanaSO),
             new Justice(majorArcanaSO),
-            new Chariot(majorArcanaSO),
+            new Chariot(majorArcanaSO)
         };
 
         foreach (MajorArcana arcana in majorArcana)

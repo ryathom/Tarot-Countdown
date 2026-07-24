@@ -8,7 +8,7 @@ public class Justice : MajorArcana
     {
         Name = "Justice";
         FateCost = 4;
-        Text = "If you have 0 Doom, reduce the turn count by 1.";
+        Text = "If you have 0 Doom, reduce the turn count by 1. Otherwise, reduce Doom by 1.";
     }
 
     public override IEnumerator ExecuteEffect()
@@ -16,6 +16,9 @@ public class Justice : MajorArcana
         if (GameManager.Instance.Doom == 0)
         {
             GameManager.Instance.DecrementTurn();
+        } else
+        {
+            GameManager.Instance.GainDoom(-1);
         }
 
         return null;

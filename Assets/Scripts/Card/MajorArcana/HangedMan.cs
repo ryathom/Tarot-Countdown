@@ -7,12 +7,12 @@ public class HangedMan : MajorArcana
     {
         Name = "The Hanged Man";
         FateCost = 7;
-        Text = "If there is a Death card in your next 3 cards, send it to the bottom of your deck.";
+        Text = "Send the Death card to the bottom of the deck.";
     }
 
     public override IEnumerator ExecuteEffect()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < GameManager.Instance.Deck.Cards.Count; i++)
         {
             if (GameManager.Instance.Deck.Cards[i] is Death death)
             {
