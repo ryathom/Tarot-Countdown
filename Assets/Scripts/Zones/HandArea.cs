@@ -6,18 +6,27 @@ public class HandArea : Zone
 {
     [SerializeField] private bool TarotHand;
 
-    private float cardSpacing = 180 * Screen.width / 1920;
+    private float cardSpacing;
 
     private readonly Vector3 hoverScale = new(1.2f, 1.2f, 1f);
 
-    private readonly float minDragThreshold = 300f * Screen.height / 1080;
-    private readonly float maxDragThreshold = 700f * Screen.height / 1080;
-    private readonly float minSacrificeThreshold = 300f * Screen.width / 1920;
+    private float minDragThreshold;
+    private float maxDragThreshold;
+    private float minSacrificeThreshold;
 
     public Action<Card> OnClickCardInHand;
 
     // Methods
     //---------------------------------------------------------------------------------------------------------
+   protected override void Start()
+    {
+        base.Start();
+
+        cardSpacing = 180f * Screen.width / 1920f;
+        minDragThreshold = 300f * Screen.height / 1080f;
+        maxDragThreshold = 700f * Screen.height / 1080f;
+        minSacrificeThreshold = 300f * Screen.width / 1920f;
+    }
     public override void UpdateVisuals()
     {
         SortHand();

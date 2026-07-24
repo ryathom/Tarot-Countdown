@@ -11,7 +11,7 @@ public class Zone : MonoBehaviour
 
     public Action OnContentsChange;
 
-    public void Start()
+    protected virtual void Start()
     {
         Cards = new();
     }
