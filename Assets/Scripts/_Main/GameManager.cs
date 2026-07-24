@@ -102,26 +102,26 @@ public class GameManager : MonoBehaviour
     {
         List<MajorArcana> majorArcana = new()
         {
-            // new Fool(majorArcanaSO),
-            // new Devil(majorArcanaSO),
-            // new Star(majorArcanaSO),
-            // new Moon(majorArcanaSO),
-            // new Sun(majorArcanaSO),
-            // new World(majorArcanaSO),
+            new Fool(majorArcanaSO),
+            new Devil(majorArcanaSO),
+            new Star(majorArcanaSO),
+            new Moon(majorArcanaSO),
+            new Sun(majorArcanaSO),
+            new World(majorArcanaSO),
             new HangedMan(majorArcanaSO),
-            // new TheEmpress(majorArcanaSO),
-            // new TheLovers(majorArcanaSO),
-            // new TheTower(majorArcanaSO),
-            // new TheHierophant(majorArcanaSO),
+            new TheEmpress(majorArcanaSO),
+            new TheLovers(majorArcanaSO),
+            new TheTower(majorArcanaSO),
+            new TheHierophant(majorArcanaSO),
             new TheHighPriestess(majorArcanaSO),
-            // new Temperance(majorArcanaSO),
-            // new TheEmperor(majorArcanaSO),
-            // new Strength(majorArcanaSO),
-            // new TheHermit(majorArcanaSO),
+            new Temperance(majorArcanaSO),
+            new TheEmperor(majorArcanaSO),
+            new Strength(majorArcanaSO),
+            new TheHermit(majorArcanaSO),
             new Judgement(majorArcanaSO),
-            // new WheelofFortune(majorArcanaSO),
-            // new Magician(majorArcanaSO),
-            // new Justice(majorArcanaSO),
+            new WheelofFortune(majorArcanaSO),
+            new Magician(majorArcanaSO),
+            new Justice(majorArcanaSO),
             new Chariot(majorArcanaSO),
         };
 
@@ -157,7 +157,6 @@ public class GameManager : MonoBehaviour
         }
 
         Turn = turnsToSurvive;
-        // Fate = 10;
     }
 
     public void GainFate(int gain)
