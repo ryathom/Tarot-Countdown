@@ -6,6 +6,7 @@ public abstract class Card
     public string Name;
 
     public int Number;
+    public int EffectiveNumber;
     public Suit Suit;
 
     public CardContainer Container {get; private set;}

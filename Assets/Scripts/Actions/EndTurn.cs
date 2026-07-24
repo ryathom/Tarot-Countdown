@@ -98,7 +98,7 @@ public class EndTurn : IAction
 
         foreach(Card card in handArea)
         {
-            if (card.Number < lastPlayedCard.Number)
+            if (card.EffectiveNumber < lastPlayedCard.EffectiveNumber)
             {
                 return true;
             }
@@ -113,9 +113,9 @@ public class EndTurn : IAction
 
         foreach(Card card in cards)
         {
-            if (card.Number < num)
+            if (card.EffectiveNumber < num)
             {
-                num = card.Number;
+                num = card.EffectiveNumber;
             } else
             {
                 return false;

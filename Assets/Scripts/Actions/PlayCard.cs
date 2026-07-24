@@ -25,6 +25,14 @@ public class PlayCard : IAction
     {
         PlayArea playArea = GameManager.Instance.PlayArea;
 
+        if (playArea.Cards.Count == 0 && Card.Number == 1)
+        {
+            Card.EffectiveNumber = 15;
+        } else
+        {
+            Card.EffectiveNumber = Card.Number;
+        }
+
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(Card, playArea));
 
         if (Card.GetMillCost() >= 0)
