@@ -8,6 +8,10 @@ public class SoundFXManager : MonoBehaviour
 
     [SerializeField] private AudioClip[] drawSounds;
 
+    [SerializeField] private AudioClip hoverSound;
+
+    [SerializeField] private AudioClip empressSound;
+
     private void Awake()
     {
         if (Instance == null)
@@ -43,5 +47,19 @@ public class SoundFXManager : MonoBehaviour
         AudioClip selectedSound = drawSounds[randomIndex];
 
         PlaySoundFXClip(selectedSound, spawnTransform, 0.01f);
+    }
+
+    public void PlayHoverSoundClip(Transform spawnTransform)
+    {
+
+        PlaySoundFXClip(hoverSound, spawnTransform, 0.01f);
+    }
+
+    public void PlayempressSoundClip(Transform spawnTransform)
+    {
+      
+        MusicManager.Instance.DuckMusic(empressSound.length);
+
+        PlaySoundFXClip(empressSound, spawnTransform, 0.15f);
     }
 }

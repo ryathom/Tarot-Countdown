@@ -56,6 +56,7 @@ public class HandArea : Zone
 
         container.SetScale(hoverScale);
         container.ShowPopUp(true);
+        SoundFXManager.Instance.PlayHoverSoundClip(GameManager.Instance.transform);
     }
 
     protected override void ExitContainer(CardContainer container)
@@ -64,6 +65,7 @@ public class HandArea : Zone
 
         container.SetScale(Vector3.one);
         container.ShowPopUp(false);
+        
     }
 
     protected override void BeginDragContainer(CardContainer container)

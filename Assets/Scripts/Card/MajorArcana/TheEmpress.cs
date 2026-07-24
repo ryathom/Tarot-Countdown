@@ -13,6 +13,8 @@ public class TheEmpress : MajorArcana
 
     public override IEnumerator ExecuteEffect()
     {
+        SoundFXManager.Instance.PlayempressSoundClip(GameManager.Instance.transform);
+
         for (int i = 0; i < 4; i++)
         {
             Card card = GameManager.Instance.InstantiateMinorArcana(3, (Suit)i);
