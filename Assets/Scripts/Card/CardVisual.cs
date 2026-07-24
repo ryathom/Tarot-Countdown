@@ -10,12 +10,14 @@ public class CardVisual : MonoBehaviour
 
     [SerializeField] private Color wandsColour = Color.red;
     [SerializeField] private Color pentaclesColour = Color.green;
-    [SerializeField] private Color cupsColour = Color.blue;
     [SerializeField] private Color swordsColour = Color.yellow;
+    [SerializeField] private Color tarotColour = Color.purple;
 
-    [SerializeField] private Vector2 borderThickness = new Vector2(3f, -3f);
+    [SerializeField] private Vector2 borderThickness = new Vector2(5f, -5f);
 
     private Outline suitOutline;
+
+    private Image minorPopUpBackground;
 
     [SerializeField] private GameObject majorPopUp;
     [SerializeField] private GameObject minorPopUp;
@@ -39,6 +41,8 @@ public class CardVisual : MonoBehaviour
         suitOutline.effectDistance = borderThickness;
         suitOutline.useGraphicAlpha = false;
         suitOutline.enabled = false;
+
+        minorPopUpBackground = minorPopUp.GetComponent<Image>();
     }
 
     public void SetCard(Card card)
@@ -109,10 +113,38 @@ public class CardVisual : MonoBehaviour
 
     private void UpdateSuitBorder()
     {
+        if (!card.FaceUp)
+        {
+            suitOutline.enabled = false; return; 
+        }
+
+        suitOutline.enabled = true;
+
         if (card is MinorArcana minorArcana)
         {
-            suitOutline.enabled = true;
-            suitOutline.effectColor = GetSuitColour(minorArcana.Suit);
+            Color suitColour = GetSuitColour(minorArcana.Suit);
+
+            suitOutline.effectColor = suitColour;
+
+            if (minorPopUpBackground != null)
+            {
+                Color popupColour;
+
+                if (minorArcana.Suit == Suit.Cups)
+                {
+                    popupColour = Color.Lerp(Color.white, suitColour, 0.7f);
+                }
+                else
+                {
+                    popupColour = Color.Lerp(Color.white, suitColour, 0.5f);
+                }
+
+                minorPopUpBackground.color = popupColour;
+            }
+        }
+        else if (card is MajorArcana || card is Death)
+        {
+            suitOutline.effectColor = tarotColour;
         }
         else
         {
@@ -126,7 +158,6 @@ public class CardVisual : MonoBehaviour
         {
             Suit.Wands => wandsColour,
             Suit.Pentacles => pentaclesColour,
-            Suit.Cups => cupsColour,
             Suit.Swords => swordsColour,
             _ => Color.white
         };
