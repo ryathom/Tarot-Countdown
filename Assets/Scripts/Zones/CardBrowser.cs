@@ -10,6 +10,7 @@ public class CardBrowser : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
     public void Open(Zone zone)
     {
+        zone.isBrowsing = true;
         currentZone = zone;
         List<Card> Cards = zone.Cards;
 
@@ -36,6 +37,7 @@ public class CardBrowser : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
     public void Close()
     {
+        currentZone.isBrowsing = false;
         currentZone.UpdateVisuals();
     }
 

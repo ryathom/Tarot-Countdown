@@ -23,6 +23,8 @@ public class Deck : Zone
 
     public override void UpdateVisuals()
     {
+        if (isBrowsing) return;
+
         for (int i = Cards.Count - 1; i >= 0; i--)
         {
             Card card = Cards[i];
@@ -34,6 +36,11 @@ public class Deck : Zone
 
     public void Shuffle()
     {
+        foreach(Card card in Cards)
+        {
+            card.SetFaceUp(false);
+        }
+
         for (int i = 0; i < Cards.Count; i++) 
         {
             Card temp = Cards[i];
