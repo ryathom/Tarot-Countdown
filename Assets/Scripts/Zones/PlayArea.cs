@@ -1,17 +1,25 @@
+using System.Collections.Generic;
+using Unity.Multiplayer.Center.Common;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayArea : Zone
 {
     private float cardSpacing;
     private readonly Vector3 hoverScale = new(1.1f, 1.1f, 1f);
 
+    [SerializeField] private List<Image> placementZones;
+    [SerializeField] private Color selectColor;
+    [SerializeField] private Color deselectColor;
+
+    public bool isScoring;
+
     // Methods
     //---------------------------------------------------------------------------------------------------------
     protected override void Start()
     {
         base.Start();
-
-        cardSpacing = 200 * Screen.width / 1920;
+        SetPlacementZoneColors();
     }
 
     public override void AddCard(Card card)
@@ -24,20 +32,32 @@ public class PlayArea : Zone
 
     public override void UpdateVisuals()
     {
+        if (isScoring) return;
+
         for (int i = 0; i < Cards.Count; i++)
         {
-            float relativePosition = i - ((Cards.Count - 1f) / 2f);
-            
-            float x = relativePosition * cardSpacing;
-
-            Vector2 targetPosition = new(x, 0);
-
             Cards[i].Container.transform.SetAsLastSibling();
             Cards[i].Container.transform.SetParent(this.transform);
-            Cards[i].Container.SetTargetPosition(this.transform.position + (Vector3)targetPosition);
+            Cards[i].Container.SetTargetPosition(placementZones[i].transform.position);
             Cards[i].Container.ShowVisual(true);
             Cards[i].Container.ShowPopUp(false);
             Cards[i].Container.SetScale(Vector3.one);
+        }
+
+        SetPlacementZoneColors();
+    }
+
+    public void SetPlacementZoneColors()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (i == Cards.Count)
+            {
+                placementZones[i].color = selectColor;
+            } else
+            {
+                placementZones[i].color = deselectColor;
+            }
         }
     }
 

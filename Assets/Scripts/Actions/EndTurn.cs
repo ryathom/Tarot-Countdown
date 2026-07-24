@@ -38,12 +38,15 @@ public class EndTurn : IAction
 
             yield return ScoreRun(playArea);
 
+            playArea.isScoring = true;
             while (!IsValidRun(playArea.Cards))
             {
                 SoundFXManager.Instance.PlayDiscardSoundClip(playArea.Cards[0].Container.transform);
 
                 yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(playArea.Cards[0], GameManager.Instance.DiscardPile));
             }
+            playArea.isScoring = false;
+            playArea.UpdateVisuals();
 
             ResetAceNumber(playArea.Cards);
 
@@ -51,14 +54,15 @@ public class EndTurn : IAction
         {
             yield return ScoreRun(playArea);
 
+            playArea.isScoring = true;
             while (playArea.Cards.Count > 0)
             {
                 SoundFXManager.Instance.PlayDiscardSoundClip(playArea.Cards[0].Container.transform);
 
-                yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(playArea.Cards[0], GameManager.Instance.DiscardPile))
-                    
-                    ;
+                yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(playArea.Cards[0], GameManager.Instance.DiscardPile));
             }
+            playArea.isScoring = false;
+            playArea.UpdateVisuals();
         }
 
         
