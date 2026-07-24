@@ -2,11 +2,18 @@ using UnityEngine;
 
 public class PlayArea : Zone
 {
-    private readonly float cardSpacing = 200 * Screen.width / 1920;
+    private float cardSpacing;
     private readonly Vector3 hoverScale = new(1.1f, 1.1f, 1f);
 
     // Methods
     //---------------------------------------------------------------------------------------------------------
+    protected override void Start()
+    {
+        base.Start();
+
+        cardSpacing = 200 * Screen.width / 1920;
+    }
+
     public override void AddCard(Card card)
     {
         base.AddCard(card);
