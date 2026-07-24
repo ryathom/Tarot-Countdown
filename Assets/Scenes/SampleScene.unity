@@ -2136,10 +2136,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.07
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2234,7 +2234,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicManager
   musicSource: {fileID: 1412968757}
-  mainTheme: {fileID: 8300000, guid: 8a71b73292aba47448fdac3affb7d31e, type: 3}
+  mainTheme: {fileID: 8300000, guid: 0e126939e19810c448c813debf9c1248, type: 3}
+  duckedVolume: 0.001
+  fadeDuration: 0.2
 --- !u!1 &1449557492
 GameObject:
   m_ObjectHideFlags: 0
@@ -3604,8 +3606,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8a0c6bf5750804b9d2bd716b2c1e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundFXManager
-  soundFXObject: {fileID: 0}
+  soundFXObject: {fileID: 864695815765556743, guid: f218e7346b58a104d8b36856f1abb43a, type: 3}
   drawSounds: []
+  hoverSound: {fileID: 8300000, guid: f8de0d4884fff39459092c89a3b87c69, type: 3}
+  empressSound: {fileID: 0}
 --- !u!4 &2084769622
 Transform:
   m_ObjectHideFlags: 0
