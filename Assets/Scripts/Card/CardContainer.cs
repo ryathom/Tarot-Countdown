@@ -50,6 +50,12 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         cardVisual.gameObject.SetActive(enabled);
     }
 
+    public void Flip()
+    {
+        Tween.Scale(transform, new Vector3(0f, 1f, 1f), 0.1f, cycles: 2, cycleMode: CycleMode.Yoyo)
+        .OnComplete(() => Card.SetFaceUp(!Card.FaceUp));
+    }
+
     public void ShowPopUp(bool enabled)
     {
         if (Card is MajorArcana)
@@ -122,6 +128,7 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             OnClickCard?.Invoke(Card);
         } else if (IsDragging == false && eventData.button == PointerEventData.InputButton.Right)
         {
+            Flip();
             OnRightClickCard?.Invoke(Card);
         }
     }

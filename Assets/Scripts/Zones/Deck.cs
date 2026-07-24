@@ -17,6 +17,7 @@ public class Deck : Zone
 
     public override void InsertCard(Card card, int position)
     {
+        position = Mathf.Clamp(position, 0, Cards.Count);
         base.InsertCard(card, position);
         card.SetFaceUp(false);
     }

@@ -18,7 +18,7 @@ public class TheHighPriestess : MajorArcana
 
         for (int i = 0; i < 5; i++)
         {
-            GameManager.Instance.Deck.Cards[i].SetFaceUp(true);
+            GameManager.Instance.Deck.Cards[i].Container.Flip();
         }
 
         // Refresh browser
