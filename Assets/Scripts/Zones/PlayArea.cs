@@ -7,6 +7,14 @@ public class PlayArea : Zone
 
     // Methods
     //---------------------------------------------------------------------------------------------------------
+    public override void AddCard(Card card)
+    {
+        base.AddCard(card);
+
+        SoundFXManager.Instance.PlayCardSoundClip(GameManager.Instance.transform);
+
+    }
+
     public override void UpdateVisuals()
     {
         for (int i = 0; i < Cards.Count; i++)

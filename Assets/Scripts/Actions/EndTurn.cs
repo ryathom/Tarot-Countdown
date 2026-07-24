@@ -32,23 +32,32 @@ public class EndTurn : IAction
 
         if (!IsValidRun(playArea.Cards))
         {
+            SoundFXManager.Instance.PlayIncorrectRunSound(GameManager.Instance.transform);
+
             yield return GameManager.Actions.ExecuteImmediate(new GainDoom(1));
 
             yield return ScoreRun(playArea);
 
             while (!IsValidRun(playArea.Cards))
             {
+                SoundFXManager.Instance.PlayDiscardSoundClip(playArea.Cards[0].Container.transform);
+
                 yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(playArea.Cards[0], GameManager.Instance.DiscardPile));
             }
 
             ResetAceNumber(playArea.Cards);
+
         } else if (!HasValidPlays(playArea.Cards, handArea.Cards))
         {
             yield return ScoreRun(playArea);
 
             while (playArea.Cards.Count > 0)
             {
-                yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(playArea.Cards[0], GameManager.Instance.DiscardPile));
+                SoundFXManager.Instance.PlayDiscardSoundClip(playArea.Cards[0].Container.transform);
+
+                yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(playArea.Cards[0], GameManager.Instance.DiscardPile))
+                    
+                    ;
             }
         }
 

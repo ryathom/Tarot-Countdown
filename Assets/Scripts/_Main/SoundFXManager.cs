@@ -10,7 +10,15 @@ public class SoundFXManager : MonoBehaviour
 
     [SerializeField] private AudioClip hoverSound;
 
+    [SerializeField] private AudioClip playCardSound;
+
+    [SerializeField] private AudioClip discardCardSound;
+
+    [SerializeField] private AudioClip incorrectRunSound;
+
     [SerializeField] private AudioClip empressSound;
+
+
 
     private void Awake()
     {
@@ -57,9 +65,23 @@ public class SoundFXManager : MonoBehaviour
 
     public void PlayempressSoundClip(Transform spawnTransform)
     {
-      
+
         MusicManager.Instance.DuckMusic(empressSound.length);
 
         PlaySoundFXClip(empressSound, spawnTransform, 0.10f);
+    }
+
+    public void PlayCardSoundClip(Transform spawnTransform)
+    {
+        PlaySoundFXClip(playCardSound, spawnTransform, 0.4f);
+    }
+    public void PlayDiscardSoundClip(Transform spawnTransform)
+    {
+        PlaySoundFXClip(discardCardSound, spawnTransform, 0.2f);
+    }
+
+    public void PlayIncorrectRunSound(Transform spawnTransform)
+    {
+        PlaySoundFXClip(incorrectRunSound, spawnTransform, 0.4f);
     }
 }
