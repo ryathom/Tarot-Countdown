@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine;
 
 public class Moon : MajorArcana
 {
@@ -11,6 +12,7 @@ public class Moon : MajorArcana
 
     public override IEnumerator ExecuteEffect()
     {
+        SoundFXManager.Instance.PlayMoonSoundClip(GameManager.Instance.transform);
         yield return ShuffleBackSuit(Suit.Wands);
     }
 }

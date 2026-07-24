@@ -20,6 +20,7 @@ public class SoundFXManager : MonoBehaviour
 
     [SerializeField] private AudioClip empressSound;
 
+    [SerializeField] private AudioClip moonSound;
 
 
     private void Awake()
@@ -83,5 +84,11 @@ public class SoundFXManager : MonoBehaviour
     public void PlayGainFateSound(Transform spawnTransform)
     { 
         PlaySoundFXClip(gainFateSound, spawnTransform, 0.05f);
+    }
+
+    public void PlayMoonSoundClip(Transform spawnTransform)
+    {
+        MusicManager.Instance.DuckMusic(moonSound.length);
+        PlaySoundFXClip(moonSound, spawnTransform, 0.6f, 0.95f);
     }
 }

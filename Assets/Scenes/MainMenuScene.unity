@@ -721,7 +721,11 @@ MonoBehaviour:
         m_SelectedSource:
           rid: -2
         m_Provider2DCache:
-          rid: -2
+          rid: 7933758702989869139
+    - rid: 7933758702989869139
+      type: {class: 'Provider2DCache`1[[UnityEngine.Rendering.Universal.Light2DProvider, Unity.RenderPipelines.Universal.2D.Runtime]]', ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data:
+        m_Cache: []
 --- !u!4 &619394802
 Transform:
   m_ObjectHideFlags: 0
@@ -1606,8 +1610,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MusicManager
   musicSource: {fileID: 1412968757}
   mainTheme: {fileID: 8300000, guid: 0e126939e19810c448c813debf9c1248, type: 3}
-  duckedVolume: 0.001
-  fadeDuration: 0.2
+  duckedVolume: 0.01
+  fadeDuration: 1
 --- !u!224 &1545917796 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5690716025249590217, guid: 887d09dd153130b41a74454dee92a590, type: 3}

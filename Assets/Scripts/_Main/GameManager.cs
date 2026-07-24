@@ -133,15 +133,15 @@ public class GameManager : MonoBehaviour
             // new Chariot(majorArcanaSO),
 
             // Buffed/strong cards only
-            new Fool(majorArcanaSO),
+            //new Fool(majorArcanaSO),
             new Star(majorArcanaSO),
             new Moon(majorArcanaSO),
             new Sun(majorArcanaSO),
-            new World(majorArcanaSO),
-            new HangedMan(majorArcanaSO),
-            new TheEmpress(majorArcanaSO),
-            new Justice(majorArcanaSO),
-            new Chariot(majorArcanaSO)
+            //new World(majorArcanaSO),
+            //new HangedMan(majorArcanaSO),
+            //new TheEmpress(majorArcanaSO),
+            //new Justice(majorArcanaSO),
+            //new Chariot(majorArcanaSO)
         };
 
         foreach (MajorArcana arcana in majorArcana)

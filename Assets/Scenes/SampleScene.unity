@@ -3630,6 +3630,7 @@ MonoBehaviour:
   incorrectRunSound: {fileID: 8300000, guid: 1ddbe379b0829934ab9d505dd26c54d2, type: 3}
   gainFateSound: {fileID: 8300000, guid: 0acc8664bfb34b2468fc5553d2dfafd7, type: 3}
   empressSound: {fileID: 8300000, guid: 1b9d3c14f558d1847b14bdb8cb486b31, type: 3}
+  moonSound: {fileID: 8300000, guid: 89e8f8c2e24a7d84bb5bd2205f9431cd, type: 3}
 --- !u!4 &2084769622
 Transform:
   m_ObjectHideFlags: 0
