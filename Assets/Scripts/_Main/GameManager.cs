@@ -188,5 +188,10 @@ public class GameManager : MonoBehaviour
     public void DecrementTurn()
     {
         Turn -= 1;
+
+        if (Turn == 0)
+        {
+            Debug.Log("You win!");
+        }
     }
 }

@@ -8,7 +8,7 @@ public class EndTurn : IAction
 
     private readonly int minimumRunSize = 6;
     private readonly int maximumRunSize = 6;
-    private readonly int baseScore = 2;
+    private readonly int baseScore = 5;
 
     public IEnumerator Execute()
     {
@@ -28,8 +28,12 @@ public class EndTurn : IAction
             yield return GameManager.Actions.ExecuteImmediate(new DrawTarotCard());
         }
 
+        yield return GameManager.Actions.ExecuteImmediate(new MillCards(GameManager.Instance.Doom));
+
         if (!IsValidRun(playArea.Cards))
         {
+            yield return GameManager.Actions.ExecuteImmediate(new GainDoom(1));
+
             yield return ScoreRun(playArea);
 
             while (!IsValidRun(playArea.Cards))
@@ -57,7 +61,6 @@ public class EndTurn : IAction
     {
         int score = CalculateScore(playArea.Cards);
         yield return GameManager.Actions.ExecuteImmediate(new GainFate(score));
-        yield return GameManager.Actions.ExecuteImmediate(new GainDoom(1));
     }
 
     public int CalculateScore(List<Card> playArea)

@@ -37,11 +37,11 @@ public abstract class Card
 
     public int GetMillCost()
     {
-        if (Number > 9) return 3;
+        // if (Number > 9) return 3;
 
-        if (Number > 6) return 2;
+        // if (Number > 6) return 2;
 
-        if (Number > 3) return 1;
+        // if (Number > 3) return 1;
         
         return 0;
     }
