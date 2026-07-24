@@ -11,6 +11,7 @@ public class HandArea : Zone
 
     private readonly float minDragThreshold = 300f;
     private readonly float maxDragThreshold = 700f;
+    private readonly float minSacrificeThreshold = 300f;
 
     public Action<Card> OnClickCardInHand;
 
@@ -74,12 +75,14 @@ public class HandArea : Zone
     protected override void EndDragContainer(CardContainer container, PointerEventData eventData)
     {
         container.SetDragging(false);
-        Debug.Log(eventData.position);
         
         if (eventData.position.y > minDragThreshold && eventData.position.y < maxDragThreshold)
         {
             GameManager.Actions.AddAction(new PlayCard(container.Card));
-        } else
+        } else if (eventData.position.x < minSacrificeThreshold && eventData.position.y < minDragThreshold)
+        {
+            GameManager.Actions.AddAction(new SacrificeCard(container.Card));
+        }
         {
             UpdateVisuals();
         }

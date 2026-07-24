@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public int HandSize = 5;
     public int TarotHandSize = 3;
+    public bool CanSacrifice;
 
     private readonly int startingDeathPosition = 30;
     private readonly int turnsToSurvive = 20;
@@ -163,6 +164,7 @@ public class GameManager : MonoBehaviour
         }
 
         Turn = turnsToSurvive;
+        CanSacrifice = true;
     }
 
     public void GainFate(int gain)

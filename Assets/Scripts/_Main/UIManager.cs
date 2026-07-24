@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using PrimeTween;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +13,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private CardBrowser cardBrowser;
     [SerializeField] private GameObject helpScreen;
+    [SerializeField] private Image sacrificeZone;
 
     public bool BrowserOpen {get => cardBrowser.isOpen;}
 
@@ -39,6 +39,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         UpdateCounters();
+        UpdateSacrificeZone();
     }
 
     private void UpdateCounters()
@@ -46,6 +47,17 @@ public class UIManager : MonoBehaviour
         turnCounter.text = "Turns Remaining: " + GameManager.Instance.Turn;
         fateCounter.text = "Fate: " + GameManager.Instance.Fate;
         doomCounter.text = "Doom: " + GameManager.Instance.Doom;
+    }
+
+    private void UpdateSacrificeZone()
+    {
+        if (GameManager.Instance.CanSacrifice)
+        {
+            sacrificeZone.color = Color.white;
+        } else
+        {
+            sacrificeZone.color = Color.grey;
+        }
     }
 
     public void OpenBrowser(Zone zone, bool canClose = true)
