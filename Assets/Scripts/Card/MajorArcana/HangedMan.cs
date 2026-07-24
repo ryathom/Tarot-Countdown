@@ -20,7 +20,7 @@ public class HangedMan : MajorArcana
                 yield return new WaitForSeconds(1f);
                 
                 GameManager.Instance.Deck.RemoveCard(death);
-                GameManager.Instance.Deck.InsertCard(death, GameManager.Instance.Deck.Cards.Count - 1);
+                GameManager.Instance.Deck.InsertCard(death, GameManager.Instance.Deck.Cards.Count);
                 
                 // Refresh browser
                 UIManager.Instance.OpenBrowser(GameManager.Instance.Deck);
