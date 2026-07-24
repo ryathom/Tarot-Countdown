@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayArea : Zone
 {
-    private readonly float cardSpacing = 244;
+    private readonly float cardSpacing = 200 * Screen.width / 1920;
     private readonly Vector3 hoverScale = new(1.1f, 1.1f, 1f);
 
     // Methods

@@ -4,14 +4,15 @@ using UnityEngine.EventSystems;
 
 public class HandArea : Zone
 {
-    [SerializeField] private float cardSpacing = 180;
-    private int yScale = 0;
+    [SerializeField] private bool TarotHand;
+
+    private float cardSpacing = 180 * Screen.width / 1920;
 
     private readonly Vector3 hoverScale = new(1.2f, 1.2f, 1f);
 
-    private readonly float minDragThreshold = 300f;
-    private readonly float maxDragThreshold = 700f;
-    private readonly float minSacrificeThreshold = 300f;
+    private readonly float minDragThreshold = 300f * Screen.height / 1080;
+    private readonly float maxDragThreshold = 700f * Screen.height / 1080;
+    private readonly float minSacrificeThreshold = 300f * Screen.width / 1920;
 
     public Action<Card> OnClickCardInHand;
 
@@ -25,11 +26,9 @@ public class HandArea : Zone
             
             float x = relativePosition * cardSpacing;
 
-            float y = -1 - (relativePosition * relativePosition / (Cards.Count * 2));
-            y *= yScale;
+            if (TarotHand) x *= -1;
 
-
-            Vector2 targetPosition = new(x, y);
+            Vector2 targetPosition = new(x, 0);
 
             Cards[i].Container.transform.SetAsLastSibling();
             Cards[i].Container.transform.SetParent(this.transform);
