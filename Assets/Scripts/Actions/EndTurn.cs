@@ -63,7 +63,7 @@ public class EndTurn : IAction
 
         
 
-        GameManager.Instance.DecrementTurn();
+        GameManager.Instance.IncrementScore();
     }
 
     public IEnumerator ScoreRun(PlayArea playArea)
