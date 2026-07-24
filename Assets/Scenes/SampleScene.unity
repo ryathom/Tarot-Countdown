@@ -3006,8 +3006,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Drag a card here to sacrifice it and gain half its value in Fate. \n\nAbility
-    refreshes each time you play a run of 6 cards.
+  m_text: Drag Minor Arcana here to sacrifice it and gain half its value in Fate.
+    \n\nDrag Major Arcana here to reduce Doom by 1. \n\nAbility refreshes each time
+    you play a run of 6 cards.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f3d7aac668ccf47468276e3d4e30bfab, type: 2}
   m_sharedMaterial: {fileID: -207289249410964934, guid: f3d7aac668ccf47468276e3d4e30bfab, type: 2}
@@ -3034,8 +3035,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
