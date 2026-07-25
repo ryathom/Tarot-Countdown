@@ -5,13 +5,13 @@ public class Star : MajorArcana
     public Star(CardSO cardSO) : base(cardSO)
     {
         Name = "The Star";
-        FateCost = 4;
-        Text = "Shuffle all Pentacles from your discard pile back into your deck.";
+        FateCost = 2;
+        Text = "Transform all cards in your hand into Pentacles.";
     }
 
     public override IEnumerator ExecuteEffect()
     {
-        yield return ShuffleBackSuit(Suit.Pentacles);
+        yield return TransformHandIntoSuit(Suit.Pentacles);
     }
 }
 

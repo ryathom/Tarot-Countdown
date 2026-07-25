@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 public class Deck : Zone
 {
     private readonly Vector3 hoverScale = new(1.2f, 1.2f, 1f);
+
+    public Action<Card> OnClickCardInDeck;
 
     public override void AddCard(Card card)
     {
@@ -12,7 +15,13 @@ public class Deck : Zone
 
     protected override void ClickCard(Card card)
     {
-        UIManager.Instance.OpenBrowser(this);
+        if (isBrowsing)
+        {
+            OnClickCardInDeck?.Invoke(card);
+        } else
+        {
+            UIManager.Instance.OpenBrowser(this);
+        }
     }
 
     public override void InsertCard(Card card, int position)
@@ -45,7 +54,7 @@ public class Deck : Zone
         for (int i = 0; i < Cards.Count; i++) 
         {
             Card temp = Cards[i];
-            int randomIndex = Random.Range(i, Cards.Count);
+            int randomIndex = UnityEngine.Random.Range(i, Cards.Count);
             Cards[i] = Cards[randomIndex];
             Cards[randomIndex] = temp;
         }

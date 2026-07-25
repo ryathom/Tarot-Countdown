@@ -6,12 +6,12 @@ public class World : MajorArcana
     {
         Name = "The World";
         FateCost = 4;
-        Text = "Shuffle all Swords from your discard pile back into your deck.";
+        Text = "Transform all cards in your hand into Swords.";
     }
 
     public override IEnumerator ExecuteEffect()
     {
-        yield return ShuffleBackSuit(Suit.Swords);
+        yield return TransformHandIntoSuit(Suit.Swords);
     }
 }
 

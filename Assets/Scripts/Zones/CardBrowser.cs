@@ -11,13 +11,14 @@ public class CardBrowser : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
     public bool isOpen = false;
 
-    public void Open(Zone zone, bool canClose = true)
+    public void Open(Zone zone, bool canClose = true, List<Card> subset = null)
     {
         this.canClose = canClose;
         zone.isBrowsing = true;
         isOpen = true;
         currentZone = zone;
-        List<Card> Cards = zone.Cards;
+        
+        List<Card> Cards = subset ?? zone.Cards;
 
         if (Cards.Count > 0)
         {

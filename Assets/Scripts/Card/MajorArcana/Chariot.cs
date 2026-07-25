@@ -8,49 +8,21 @@ public class Chariot : MajorArcana
     public Chariot(CardSO cardSO) : base(cardSO)
     {
         Name = "The Chariot";
-        FateCost = 3;
-        Text = "Choose two cards from your discard pile. Place them on top of your deck";
-    }
-
-    private List<Card> selectedCards = new();
-
-    public override bool CanPlay()
-    {
-        if (GameManager.Instance.DiscardPile.Cards.Count < 2) return false;
-
-        return base.CanPlay();
+        FateCost = 5;
+        Text = "Shuffle your discard pile into your deck.";
     }
 
     public override IEnumerator ExecuteEffect()
     {
         DiscardPile discardPile = GameManager.Instance.DiscardPile;
-        UIManager.Instance.OpenBrowser(discardPile, canClose: false);
+        Deck deck = GameManager.Instance.Deck;
 
-        discardPile.OnClickCardInDiscardPile += SelectCard;
-        
-        while(selectedCards.Count < 2)
+        while (discardPile.Cards.Count > 0)
         {
-            yield return null;
+            yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(discardPile.Cards[0], deck, 0.05f));
         }
 
-        ReturnCards();
-        yield return new WaitForSeconds(0.5f);
-        UIManager.Instance.CloseBrowser();
-    }
-
-    public void SelectCard(Card card)
-    {
-        selectedCards.Add(card);
-    }
-
-    public void ReturnCards()
-    {
-        while(selectedCards.Count > 0)
-        {
-            Card card = selectedCards[0];
-            selectedCards.Remove(card);
-            card.Zone.RemoveCard(card);
-            GameManager.Instance.Deck.InsertCard(card, 0);
-        }
+        deck.Shuffle();
+        yield return new WaitForSeconds(0.25f);
     }
 }

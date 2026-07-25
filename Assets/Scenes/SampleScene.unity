@@ -1836,8 +1836,8 @@ MonoBehaviour:
   introTextCanvasGroup: {fileID: 574804682}
   cardSize: {x: 350, y: 525}
   appearDuration: 0.35
-  displayDuration: 2
-  flyDuration: 1
+  displayDuration: 0.2
+  flyDuration: 0.2
 --- !u!1 &725042646
 GameObject:
   m_ObjectHideFlags: 0

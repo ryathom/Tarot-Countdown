@@ -8,14 +8,21 @@ public class WheelofFortune : MajorArcana
     {
         Name = "Wheel of Fortune";
         FateCost = 5;
-        Text = "Discard your hand. Draw 5 new cards.";
+        Text = "Transform each card in your hand into a card with a random suit and number.";
     }
 
     public override IEnumerator ExecuteEffect()
     {
-        while (GameManager.Instance.Hand.Cards.Count > 0)
+        foreach(Card card in GameManager.Instance.Hand.Cards)
         {
-            yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(GameManager.Instance.Hand.Cards[0], GameManager.Instance.DiscardPile));
+            yield return new WaitForSeconds(0.2f);
+
+            card.Number = Random.Range(1,15);
+            card.Suit = (Suit)Random.Range(0,4);
+            card.Container.ShowVisual(true);
         }
+
+        yield return new WaitForSeconds(0.2f);
+        GameManager.Instance.Hand.UpdateVisuals();
     }
 }

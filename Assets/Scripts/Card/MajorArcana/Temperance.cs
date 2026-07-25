@@ -8,9 +8,13 @@ public class Temperance : MajorArcana
     {
         Name = "Temperance";
         FateCost = 5;
-        Text = "Balance the number of cards in your Discard Pile and Deck.";
+        Text = "Reduce Doom by 2.";
     }
 
     public override IEnumerator ExecuteEffect()
-    { return null; }
+    {
+        GameManager.Instance.GainDoom(-2);
+
+        yield return new WaitForSeconds(0.25f);
+    }
 }

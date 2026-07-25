@@ -7,7 +7,7 @@ public class Fool : MajorArcana
     {
         Name = "The Fool";
         FateCost = 10;
-        Text = "Shuffle all cards back into your deck.";
+        Text = "Shuffle all cards back into your deck and draw a new hand. <i>(You can't draw the Death card this turn.)</i>";
     }
 
     public override IEnumerator ExecuteEffect()
@@ -28,6 +28,15 @@ public class Fool : MajorArcana
         }
 
         GameManager.Instance.Deck.Shuffle();
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (GameManager.Instance.Deck.Cards[i] is Death death)
+            {   
+                GameManager.Instance.Deck.RemoveCard(death);
+                GameManager.Instance.Deck.InsertCard(death, Random.Range(6, GameManager.Instance.Deck.Cards.Count));
+            }
+        }
 
         yield return new WaitForSeconds(0.25f);
 

@@ -8,9 +8,29 @@ public class TheHierophant : MajorArcana
     {
         Name = "The Hierophant";
         FateCost = 5;
-        Text = "The next card you play is considered the SAME SUIT as the previous card played.";
+        Text = "Move the Death card down 10 places.";
     }
 
     public override IEnumerator ExecuteEffect()
-    { return null; }
+    {
+        for (int i = 0; i < GameManager.Instance.Deck.Cards.Count; i++)
+        {
+            if (GameManager.Instance.Deck.Cards[i] is Death death)
+            {
+                UIManager.Instance.OpenBrowser(GameManager.Instance.Deck);
+                yield return new WaitForSeconds(1f);
+                
+                GameManager.Instance.Deck.RemoveCard(death);
+                GameManager.Instance.Deck.InsertCard(death, i + 10);
+                
+                // Refresh browser
+                UIManager.Instance.OpenBrowser(GameManager.Instance.Deck);
+                
+                yield return new WaitForSeconds(2f);
+                UIManager.Instance.CloseBrowser();
+                
+                yield break;
+            }
+        }
+    }
 }

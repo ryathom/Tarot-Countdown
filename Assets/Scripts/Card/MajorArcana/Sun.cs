@@ -6,12 +6,12 @@ public class Sun : MajorArcana
     {
         Name = "The Sun";
         FateCost = 4;
-        Text = "Shuffle all Cups from your discard pile back into your deck.";
+        Text = "Transform all cards in your hand into Cups.";
     }
 
     public override IEnumerator ExecuteEffect()
     {
-        yield return ShuffleBackSuit(Suit.Cups);
+        yield return TransformHandIntoSuit(Suit.Cups);
     }
 }
 
