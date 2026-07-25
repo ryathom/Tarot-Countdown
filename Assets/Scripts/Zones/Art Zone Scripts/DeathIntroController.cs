@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 using PrimeTween;
+using TMPro;
 
 public class DeathIntroController : MonoBehaviour
 {
     [Header("Visuals")]
     [SerializeField] private Sprite deathCardSprite;
     [SerializeField] private CanvasGroup canvasGroup;
+    [SerializeField] private TMP_Text introText;
+    [SerializeField] private CanvasGroup introTextCanvasGroup;
 
     [Header("Animation")]
     [SerializeField] private Vector2 cardSize = new(350f, 525f);
@@ -21,6 +24,8 @@ public class DeathIntroController : MonoBehaviour
         canvasGroup.alpha = 0f;
         canvasGroup.blocksRaycasts = false;
         canvasGroup.interactable = false;
+
+        introTextCanvasGroup.alpha = 0f;
     }
 
     private async void Start()
@@ -127,7 +132,31 @@ public class DeathIntroController : MonoBehaviour
 
         Destroy(cardObject);
 
-        canvasGroup.alpha = 0f;
+        introText.text = "Death has entered your deck...";
+
+        await Tween.Alpha(
+            introTextCanvasGroup,
+            1f,
+            0.8f,
+            Ease.OutCubic
+        );
+
+        await Awaitable.WaitForSecondsAsync(1.2f);
+
+        _ = Tween.Alpha(
+            introTextCanvasGroup,
+            0f,
+            0.8f,
+            Ease.InCubic
+        );
+
+        await Tween.Alpha(
+            canvasGroup,
+            0f,
+            0.8f,
+            Ease.InCubic
+        );
+
         canvasGroup.blocksRaycasts = false;
         canvasGroup.interactable = false;
 
