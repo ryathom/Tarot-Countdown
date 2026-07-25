@@ -117,8 +117,6 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public void OnPointerExit(PointerEventData eventData)
     {
         OnExitContainer?.Invoke(this);
-
-        SetScale(new Vector3(1f, 1f, 1f));
     }
 
     public void OnPointerUp(PointerEventData eventData)

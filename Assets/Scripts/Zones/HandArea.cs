@@ -18,9 +18,11 @@ public class HandArea : Zone
 
     public Action<Card> OnClickCardInHand;
 
+    public bool IsDraggingCard { get; private set; }
+
     // Methods
     //---------------------------------------------------------------------------------------------------------
-   protected override void Start()
+    protected override void Start()
     {
         base.Start();
 
@@ -29,7 +31,7 @@ public class HandArea : Zone
         maxDragThreshold = 700f * Screen.height / 1080f;
         minSacrificeThreshold = 300f * Screen.width / 1920f;
     }
-    
+
     public override void UpdateVisuals()
     {
         SortHand();
@@ -37,23 +39,32 @@ public class HandArea : Zone
         for (int i = 0; i < Cards.Count; i++)
         {
             float relativePosition = i - ((Cards.Count - 1f) / 2f);
-            
+
             float x = relativePosition * cardSpacing;
 
             if (TarotHand) x *= -1;
 
             Vector2 targetPosition = new(x, 0);
 
-            Cards[i].Container.transform.SetAsLastSibling();
-            Cards[i].Container.transform.SetParent(this.transform);
-            Cards[i].Container.SetTargetPosition(this.transform.position + (Vector3)targetPosition);
-            Cards[i].Container.ShowVisual(true);
+            CardContainer container = Cards[i].Container;
+
+            container.transform.SetAsLastSibling();
+            container.transform.SetParent(transform);
+
+            // Reset any scale applied while previewing the sacrifice.
+            container.SetScale(Vector3.one);
+
+            container.SetTargetPosition(
+                transform.position + (Vector3)targetPosition
+            );
+
+            container.ShowVisual(true);
         }
     }
 
     public void SortHand()
     {
-        Cards.Sort(delegate(Card x, Card y)
+        Cards.Sort(delegate (Card x, Card y)
         {
             if (x.Number == y.Number) return 0;
             else if (x.Number > y.Number) return -1;
@@ -68,7 +79,8 @@ public class HandArea : Zone
         if (isBrowsing)
         {
             OnClickCardInHand?.Invoke(card);
-        } else
+        }
+        else
         {
             GameManager.Actions.AddAction(new PlayCard(card));
         }
@@ -90,28 +102,52 @@ public class HandArea : Zone
 
         container.SetScale(Vector3.one);
         container.ShowPopUp(false);
-        
+
     }
 
     protected override void BeginDragContainer(CardContainer container)
     {
+        IsDraggingCard = true;
         container.SetDragging(true);
     }
 
-    protected override void EndDragContainer(CardContainer container, PointerEventData eventData)
+    protected override void EndDragContainer(
+        CardContainer container,
+        PointerEventData eventData)
     {
+        IsDraggingCard = false;
         container.SetDragging(false);
 
         if (eventData.position.y > minDragThreshold &&
             eventData.position.y < maxDragThreshold)
         {
-            GameManager.Actions.AddAction(new PlayCard(container.Card));
-        }
-        else if (sacrificeArea.Contains(eventData.position))
-        {
-            sacrificeArea.ShowConfirmation(container.Card);
+            if (sacrificeArea.HasPendingCards)
+            {
+                sacrificeArea.ReturnAllCardsToHand();
+            }
+            GameManager.Actions.AddAction(
+                new PlayCard(container.Card)
+            );
+
             return;
         }
+
+        if (sacrificeArea.Contains(eventData.position))
+        {
+            if (sacrificeArea.CanAddCard())
+            {
+                GameManager.Actions.AddAction(
+                    new ChangeZone(container.Card, sacrificeArea)
+                );
+            }
+            else
+            {
+                UpdateVisuals();
+            }
+
+            return;
+        }
+
         UpdateVisuals();
     }
 }

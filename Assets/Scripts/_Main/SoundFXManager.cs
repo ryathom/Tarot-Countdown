@@ -22,6 +22,12 @@ public class SoundFXManager : MonoBehaviour
 
     [SerializeField] private AudioClip moonSound;
 
+    [SerializeField] private AudioClip sacrificePoint1Sound;
+    [SerializeField] private AudioClip sacrificePoint2Sound;
+    [SerializeField] private AudioClip sacrificePoint3Sound;
+    [SerializeField] private AudioClip sacrificePoint4Sound;
+    [SerializeField] private AudioClip sacrificePoint5Sound;
+
 
     private void Awake()
     {
@@ -90,5 +96,25 @@ public class SoundFXManager : MonoBehaviour
     {
         MusicManager.Instance.DuckMusic(moonSound.length);
         PlaySoundFXClip(moonSound, spawnTransform, 0.6f, 0.95f);
+    }
+    public void PlaySacrificePointSound(int pointIndex, Transform spawnTransform)
+    {
+        AudioClip clip = pointIndex switch
+        {
+            0 => sacrificePoint1Sound,
+            1 => sacrificePoint2Sound,
+            2 => sacrificePoint3Sound,
+            3 => sacrificePoint4Sound,
+            4 => sacrificePoint5Sound,
+            _ => null
+        };
+
+        if (clip == null)
+        {
+            Debug.LogWarning($"No sacrifice sound configured for point index {pointIndex}.");
+            return;
+        }
+
+        PlaySoundFXClip(clip, spawnTransform, 0.15f);
     }
 }

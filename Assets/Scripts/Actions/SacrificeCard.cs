@@ -1,35 +1,43 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class SacrificeCard : IAction
+public class SacrificeCards : IAction
 {
-    public Card Card {get; private set;}
+    public List<Card> Cards { get; private set; }
 
-    public SacrificeCard(Card card)
+    public SacrificeCards(List<Card> cards)
     {
-        Card = card;
+        Cards = cards;
     }
 
     public IEnumerator Execute()
     {
-        if (GameManager.Instance.CanSacrifice == false) yield break;
+        int cardsSacrificed = Cards.Count;
 
-        if (Card is MinorArcana)
+        if (cardsSacrificed == 0)
         {
-            GameManager.Instance.GainFate(Card.Number / 2);
-            GameManager.Instance.Hand.RemoveCard(Card);
-            GameManager.Instance.DestroyCard(Card);
-            GameManager.Instance.CanSacrifice = false;
+            yield break;
+        }
 
-            GameManager.Actions.AddAction(new DrawCard());
-        } else if (Card is MajorArcana)
+        foreach (Card card in Cards)
         {
-            GameManager.Instance.GainDoom(-1);
-            Card.Zone.RemoveCard(Card);
-            GameManager.Instance.DestroyCard(Card);
-            GameManager.Instance.CanSacrifice = false;
+            Zone currentZone = card.Zone;
 
-            GameManager.Actions.AddAction(new DrawTarotCard());
+            currentZone.RemoveCard(card);
+
+            card.Container.gameObject.SetActive(false);
+        }
+
+        yield return GameManager.Actions.ExecuteImmediate(
+            new GainFate(cardsSacrificed)
+        );
+
+        for (int i = 0; i < cardsSacrificed; i++)
+        {
+            yield return GameManager.Actions.ExecuteImmediate(
+                new DrawCard()
+            );
         }
 
         yield return new WaitForSeconds(0.25f);
