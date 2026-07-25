@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -8,9 +9,41 @@ public class TheLovers : MajorArcana
     {
         Name = "The Lovers";
         FateCost = 5;
-        Text = "The next card you play is considered LOWER than the previous card.";
+        Text = "Decrease the value of two cards in your hand by 1.";
     }
 
+    private List<Card> selectedCards = new();
+
     public override IEnumerator ExecuteEffect()
-    { return null; }
+    {
+        HandArea hand = GameManager.Instance.Hand;
+        UIManager.Instance.OpenBrowser(hand, canClose: false);
+
+        hand.OnClickCardInHand += SelectCard;
+        
+        while(selectedCards.Count < 2)
+        {
+            yield return null;
+        }
+
+        selectedCards.Clear();
+        
+        yield return new WaitForSeconds(0.5f);
+        UIManager.Instance.CloseBrowser();
+    }
+
+    public void SelectCard(Card card)
+    {
+        selectedCards.Add(card);
+
+        if (card.Number == 1)
+        {
+            card.Number = 13;
+        } else
+        {
+            card.Number -= 1;
+        }
+
+        card.Container.ShowVisual(true);
+    }
 }

@@ -7,8 +7,8 @@ public class TheTower : MajorArcana
     public TheTower(CardSO cardSO) : base(cardSO)
     {
         Name = "The Tower";
-        FateCost = 7;
-        Text = "Reverse your deck.";
+        FateCost = 2;
+        Text = "Shuffle your deck.";
     }
 
     public override IEnumerator ExecuteEffect()
@@ -18,7 +18,7 @@ public class TheTower : MajorArcana
 
         yield return new WaitForSeconds(0.5f);
 
-        deck.Cards.Reverse();
+        deck.Shuffle();
 
         UIManager.Instance.OpenBrowser(deck, canClose: false);
 

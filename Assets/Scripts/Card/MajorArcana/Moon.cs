@@ -6,14 +6,14 @@ public class Moon : MajorArcana
     public Moon(CardSO cardSO) : base(cardSO)
     {
         Name = "The Moon";
-        FateCost = 4;
-        Text = "Shuffle all Wands from your discard pile back into your deck.";
+        FateCost = 2;
+        Text = "Transform all cards in your hand into Wands.";
     }
 
     public override IEnumerator ExecuteEffect()
     {
         SoundFXManager.Instance.PlayMoonSoundClip(GameManager.Instance.transform);
-        yield return ShuffleBackSuit(Suit.Wands);
+        yield return TransformHandIntoSuit(Suit.Wands);
     }
 }
 

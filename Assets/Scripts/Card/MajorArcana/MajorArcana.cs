@@ -40,4 +40,16 @@ public abstract class MajorArcana : Card
 
         GameManager.Instance.Deck.Shuffle();
     }
+
+    public IEnumerator TransformHandIntoSuit(Suit suit)
+    {
+        yield return new WaitForSeconds(0.1f);
+        for (int i = 0; i < GameManager.Instance.Hand.Cards.Count; i++)
+        {
+            Card card = GameManager.Instance.Hand.Cards[i];
+            card.Suit = suit;
+            GameManager.Instance.Hand.UpdateVisuals();
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 }

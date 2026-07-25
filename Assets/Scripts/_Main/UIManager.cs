@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using PrimeTween;
 using TMPro;
 using UnityEngine;
@@ -63,10 +64,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void OpenBrowser(Zone zone, bool canClose = true)
+    public void OpenBrowser(Zone zone, bool canClose = true, List<Card> subset = null)
     {
         cardBrowser.gameObject.SetActive(true);
-        cardBrowser.Open(zone, canClose);
+        cardBrowser.Open(zone, canClose, subset);
     }
 
     public void CloseBrowser()

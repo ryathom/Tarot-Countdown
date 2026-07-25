@@ -7,20 +7,14 @@ public class Justice : MajorArcana
     public Justice(CardSO cardSO) : base(cardSO)
     {
         Name = "Justice";
-        FateCost = 4;
-        Text = "If you have 0 Doom, reduce the turn count by 1. Otherwise, reduce Doom by 1.";
+        FateCost = 2;
+        Text = "Reduce Doom by 1.";
     }
 
     public override IEnumerator ExecuteEffect()
     {
-        if (GameManager.Instance.Doom == 0)
-        {
-            GameManager.Instance.IncrementScore();
-        } else
-        {
-            GameManager.Instance.GainDoom(-1);
-        }
+        GameManager.Instance.GainDoom(-1);
 
-        return null;
+        yield return new WaitForSeconds(0.25f);
     }
 }
