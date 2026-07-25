@@ -41,6 +41,8 @@ public class TheHighPriestess : MajorArcana
             yield return null;
         }
 
+        GameManager.Instance.Deck.OnClickCardInDeck -= SelectCard;
+
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(selectedCard, GameManager.Instance.Hand));
 
         UIManager.Instance.CloseBrowser();
