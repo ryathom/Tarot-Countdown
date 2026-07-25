@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     public CardSO minorArcanaSO;
     public CardSO majorArcanaSO;
     public CardSO deathCardSO;
-
     public bool InputEnabled { get; set; } = false;
 
     public int Fate {get; private set;}
@@ -35,6 +34,10 @@ public class GameManager : MonoBehaviour
     public bool CanSacrifice;
 
     private readonly int startingDeathPosition = 28;
+
+    [Header("UI")]
+    public ScorePopup scorePopup;
+    public ScorePopup doomPopup;
 
     // Unity methods
     //------------------------------------------------------------------------------------
@@ -134,15 +137,15 @@ public class GameManager : MonoBehaviour
             // new Chariot(majorArcanaSO),
 
             // Buffed/strong cards only
-            //new Fool(majorArcanaSO),
+            new Fool(majorArcanaSO),
             new Star(majorArcanaSO),
             new Moon(majorArcanaSO),
             new Sun(majorArcanaSO),
-            //new World(majorArcanaSO),
-            //new HangedMan(majorArcanaSO),
-            //new TheEmpress(majorArcanaSO),
-            //new Justice(majorArcanaSO),
-            //new Chariot(majorArcanaSO)
+            new World(majorArcanaSO),
+            new HangedMan(majorArcanaSO),
+            new TheEmpress(majorArcanaSO),
+            new Justice(majorArcanaSO),
+            new Chariot(majorArcanaSO)
         };
 
         foreach (MajorArcana arcana in majorArcana)
@@ -190,13 +193,28 @@ public class GameManager : MonoBehaviour
         Fate += gain;
 
         if(gain>0)
-        { SoundFXManager.Instance.PlayGainFateSound(transform); }
+        { 
+            SoundFXManager.Instance.PlayGainFateSound(transform);
+            
+            if (scorePopup != null)
+            {
+                _ = scorePopup.Show($"+{gain} FATE");
+            }
+        }
 
     }
 
     public void GainDoom(int gain)
     {
         Doom += gain;
+
+        if (gain > 0)
+        {
+            if (doomPopup != null)
+            {
+                _ = doomPopup.Show($"+{gain} DOOM");
+            }
+        }
     }
 
     public void SetDoom(int doom)
