@@ -28,6 +28,7 @@ public class Strength : MajorArcana
         }
 
         selectedCards.Clear();
+        hand.OnClickCardInHand -= SelectCard;
         
         yield return new WaitForSeconds(0.5f);
         UIManager.Instance.CloseBrowser();

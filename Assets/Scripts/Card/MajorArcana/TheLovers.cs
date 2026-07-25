@@ -26,6 +26,8 @@ public class TheLovers : MajorArcana
             yield return null;
         }
 
+        hand.OnClickCardInHand -= SelectCard;
+
         selectedCards.Clear();
         
         yield return new WaitForSeconds(0.5f);
