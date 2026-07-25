@@ -12,6 +12,11 @@ public class PlayCard : IAction
 
     public IEnumerator Execute()
     {
+        if (GameManager.Instance.SacrificeArea.HasPendingCards)
+        {
+            GameManager.Instance.SacrificeArea.ReturnAllCardsToHand();
+        }
+
         if (Card is MinorArcana)
         {
             yield return PlayMinorArcana();

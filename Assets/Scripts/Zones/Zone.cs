@@ -11,8 +11,11 @@ public class Zone : MonoBehaviour
 
     public Action OnContentsChange;
 
+    private RectTransform rectTransform;
+
     protected virtual void Start()
     {
+        rectTransform = GetComponent<RectTransform>();
         Cards = new();
     }
 
@@ -83,6 +86,15 @@ public class Zone : MonoBehaviour
             card.Container.OnEnterContainer -= EnterContainer;
             card.Container.OnExitContainer -= ExitContainer;
         }
+    }
+
+    public bool Contains(Vector2 screenPosition)
+    {
+        return RectTransformUtility.RectangleContainsScreenPoint(
+            rectTransform,
+            screenPosition,
+            null
+        );
     }
 
     protected virtual void ClickCard(Card card) {}

@@ -20,6 +20,8 @@ public class SacrificeCards : IAction
             yield break;
         }
 
+        GameManager.Instance.CanSacrifice = false;
+
         foreach (Card card in Cards)
         {
             Zone currentZone = card.Zone;

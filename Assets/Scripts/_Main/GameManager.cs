@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public HandArea TarotHand;
     public DiscardPile TarotDiscardPile;
     public ArcanaPlayArea ArcanaPlayArea;
+    public SacrificeArea SacrificeArea;
 
     [Header("Cards")]
     public CardContainer cardContainerPrefab;

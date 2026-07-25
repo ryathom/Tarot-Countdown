@@ -25,7 +25,6 @@ public class SacrificeArea : Zone
     [SerializeField] private RectTransform cardPreviewAnchor;
     [SerializeField] private float previewScale = 0.8f;
 
-    private RectTransform rectTransform;
     private Card previewedCard;
 
     private const int MaximumCards = 5;
@@ -37,8 +36,6 @@ public class SacrificeArea : Zone
     protected override void Start()
     {
         base.Start();
-
-        rectTransform = GetComponent<RectTransform>();
 
         if (zoneImage != null)
         {
@@ -65,18 +62,13 @@ public class SacrificeArea : Zone
         }
     }
 
-    public bool CanAddCard()
+    public bool CanAddCard(Card card)
     {
-        return Cards.Count < MaximumCards;
-    }
+        if (GameManager.Instance.CanSacrifice == false) return false;
 
-    public bool Contains(Vector2 screenPosition)
-    {
-        return RectTransformUtility.RectangleContainsScreenPoint(
-            rectTransform,
-            screenPosition,
-            null
-        );
+        if (card is not MinorArcana) return false;
+
+        return Cards.Count < MaximumCards;
     }
 
     public override void AddCard(Card card)

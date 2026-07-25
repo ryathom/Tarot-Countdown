@@ -6,15 +6,10 @@ using UnityEngine.EventSystems;
 public class HandArea : Zone
 {
     [SerializeField] private bool TarotHand;
-    [SerializeField] private SacrificeArea sacrificeArea;
 
     private float cardSpacing;
 
     private readonly Vector3 hoverScale = new(1.2f, 1.2f, 1f);
-
-    private float minDragThreshold;
-    private float maxDragThreshold;
-    private float minSacrificeThreshold;
 
     public Action<Card> OnClickCardInHand;
 
@@ -27,9 +22,6 @@ public class HandArea : Zone
         base.Start();
 
         cardSpacing = 180f * Screen.width / 1920f;
-        minDragThreshold = 300f * Screen.height / 1080f;
-        maxDragThreshold = 700f * Screen.height / 1080f;
-        minSacrificeThreshold = 300f * Screen.width / 1920f;
     }
 
     public override void UpdateVisuals()
@@ -118,26 +110,17 @@ public class HandArea : Zone
         IsDraggingCard = false;
         container.SetDragging(false);
 
-        if (eventData.position.y > minDragThreshold &&
-            eventData.position.y < maxDragThreshold)
+        if (GameManager.Instance.PlayArea.Contains(eventData.position))
         {
-            if (sacrificeArea.HasPendingCards)
-            {
-                sacrificeArea.ReturnAllCardsToHand();
-            }
-            GameManager.Actions.AddAction(
-                new PlayCard(container.Card)
-            );
-
-            return;
+            GameManager.Actions.AddAction(new PlayCard(container.Card));
         }
 
-        if (sacrificeArea.Contains(eventData.position))
+        if (GameManager.Instance.SacrificeArea.Contains(eventData.position))
         {
-            if (sacrificeArea.CanAddCard())
+            if (GameManager.Instance.SacrificeArea.CanAddCard(container.Card))
             {
                 GameManager.Actions.AddAction(
-                    new ChangeZone(container.Card, sacrificeArea)
+                    new ChangeZone(container.Card, GameManager.Instance.SacrificeArea)
                 );
             }
             else

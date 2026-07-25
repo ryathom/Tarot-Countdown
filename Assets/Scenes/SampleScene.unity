@@ -3419,7 +3419,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HandArea
   isBrowsing: 0
   TarotHand: 1
-  sacrificeArea: {fileID: 0}
 --- !u!1 &962725989
 GameObject:
   m_ObjectHideFlags: 0
@@ -4669,7 +4668,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Hand
   isBrowsing: 0
   TarotHand: 0
-  sacrificeArea: {fileID: 663576643}
 --- !u!114 &1394583257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7280,6 +7278,7 @@ MonoBehaviour:
   TarotHand: {fileID: 933764636}
   TarotDiscardPile: {fileID: 1841515360}
   ArcanaPlayArea: {fileID: 550051363}
+  SacrificeArea: {fileID: 663576643}
   cardContainerPrefab: {fileID: 7506245666604779894, guid: 6c0833ada28854f89860aeccc909b760, type: 3}
   minorArcanaSO: {fileID: 11400000, guid: 491a27badc59344e6bad9898717541b8, type: 2}
   majorArcanaSO: {fileID: 11400000, guid: 222d922ccdda34b98b5aef514ed5125c, type: 2}
