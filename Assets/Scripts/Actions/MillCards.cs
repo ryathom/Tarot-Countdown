@@ -15,6 +15,8 @@ public class MillCards : IAction
         DiscardPile pile = GameManager.Instance.DiscardPile;
         Deck deck = GameManager.Instance.Deck;
 
+        if (Number > 0) GameManager.Instance.MillPopup();
+
         for (int i = 0; i < Number; i++)
         {
             if (deck.Cards.Count <= 0) yield break;

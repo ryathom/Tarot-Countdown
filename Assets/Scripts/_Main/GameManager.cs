@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public ScorePopup scorePopup;
     public ScorePopup doomPopup;
+    public ScorePopup millPopup;
 
     // Unity methods
     //------------------------------------------------------------------------------------
@@ -225,5 +226,16 @@ public class GameManager : MonoBehaviour
     public void IncrementScore()
     {
         Score += 1;
+    }
+
+    public void MillPopup()
+    {
+        if (Doom == 1)
+        {
+            _ = millPopup.Show("Doomed");
+        } else if (Doom > 1)
+        {
+            _ = millPopup.Show("Doomed (x" + Doom + ")");
+        }
     }
 }
