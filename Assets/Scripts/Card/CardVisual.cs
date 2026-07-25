@@ -70,6 +70,15 @@ public class CardVisual : MonoBehaviour
             majorText.text = "Cost: " + majorArcana.FateCost + " Fate\n" + majorArcana.Text;
             majorPopUp.SetActive(true);
             minorPopUp.SetActive(false);
+
+            if (card.Zone is HandArea && majorArcana.CanPlay() == false)
+            {
+                front.color = Color.grey;
+            } else
+            {
+                front.color = Color.white;
+            }
+
         } else if (card is MinorArcana)
         {
             minorText.text = "Cost: Mill " + card.GetMillCost() + " cards.";

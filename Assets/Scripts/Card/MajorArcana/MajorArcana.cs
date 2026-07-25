@@ -13,6 +13,13 @@ public abstract class MajorArcana : Card
 
     public abstract IEnumerator ExecuteEffect();
 
+    public virtual bool CanPlay()
+    {
+        if (FateCost > GameManager.Instance.Fate) return false;
+
+        return true;
+    }
+
     public IEnumerator ShuffleBackSuit(Suit suit)
     {
         List<Card> cardsToShuffle = new();

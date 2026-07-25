@@ -14,6 +14,13 @@ public class Chariot : MajorArcana
 
     private List<Card> selectedCards = new();
 
+    public override bool CanPlay()
+    {
+        if (GameManager.Instance.DiscardPile.Cards.Count < 2) return false;
+
+        return base.CanPlay();
+    }
+
     public override IEnumerator ExecuteEffect()
     {
         DiscardPile discardPile = GameManager.Instance.DiscardPile;

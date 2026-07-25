@@ -44,7 +44,7 @@ public class PlayCard : IAction
 
     public IEnumerator PlayMajorArcana(MajorArcana arcana)
     {
-        if (arcana.FateCost > GameManager.Instance.Fate) yield break;
+        if (arcana.CanPlay() == false) yield break;
 
         yield return GameManager.Actions.ExecuteImmediate(new GainFate(-arcana.FateCost));
 

@@ -202,6 +202,9 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (Fate <= 0) Fate = 0;
+
+        TarotHand.UpdateVisuals();
     }
 
     public void GainDoom(int gain)
@@ -215,6 +218,8 @@ public class GameManager : MonoBehaviour
                 _ = doomPopup.Show($"+{gain} DOOM");
             }
         }
+
+        if (Doom <= 0) Doom = 0;
     }
 
     public void SetDoom(int doom)

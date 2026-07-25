@@ -27,6 +27,7 @@ public class HandArea : Zone
         maxDragThreshold = 700f * Screen.height / 1080f;
         minSacrificeThreshold = 300f * Screen.width / 1920f;
     }
+    
     public override void UpdateVisuals()
     {
         SortHand();
