@@ -1,11 +1,28 @@
 using System;
+using PrimeTween;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Deck : Zone
 {
     private readonly Vector3 hoverScale = new(1.2f, 1.2f, 1f);
 
+    [SerializeField] private GameObject deckCounterField;
+    [SerializeField] private TextMeshProUGUI deckCount;
+
+    [SerializeField] private GameObject deathCounterField;
+    [SerializeField] private TextMeshProUGUI deathCount;
+
     public Action<Card> OnClickCardInDeck;
+
+    protected override void Start()
+    {
+        base.Start();
+        deckCounterField.transform.localScale = Vector2.zero;
+
+        if (deathCounterField != null) deathCounterField.transform.localScale = Vector2.zero;
+    }
 
     public override void AddCard(Card card)
     {
@@ -42,6 +59,8 @@ public class Deck : Zone
             card.Container.transform.SetParent(this.transform);
             card.Container.transform.SetAsLastSibling();
         }
+
+        if (deathCounterField != null) ShowDeathCount(DeathCardPosition() <= 10);
     }
 
     public void Shuffle()
@@ -68,7 +87,7 @@ public class Deck : Zone
         {
             if (card is Death)
             {
-                return Cards.IndexOf(card);
+                return Cards.IndexOf(card) + 1;
             }
         }
 
@@ -87,16 +106,48 @@ public class Deck : Zone
         return count;
     }
 
+    public void ShowDeckCount(bool enabled)
+    {
+        if (enabled)
+        {
+            Tween.Scale(deckCounterField.transform, Vector2.one, 0.1f);
+        } else
+        {
+            Tween.Scale(deckCounterField.transform, Vector2.zero, 0.1f);
+        }
+
+        deckCount.text = Cards.Count + " cards";
+    }
+
+    public void ShowDeathCount(bool enabled)
+    {
+        if (enabled)
+        {
+            Tween.Scale(deathCounterField.transform, Vector2.one, 0.5f);
+        } else
+        {
+            Tween.Scale(deathCounterField.transform, Vector2.zero, 0.1f);
+        }
+
+        deathCount.text = DeathCardPosition().ToString();
+    }
+
     protected override void EnterContainer(CardContainer container)
     {
         container.SetScale(hoverScale);
         
         if (container.Card is Death) container.ShowPopUp(true);
+
+        if (!isBrowsing)
+        {
+            ShowDeckCount(true);
+        }
     }
 
     protected override void ExitContainer(CardContainer container)
     {
         container.SetScale(Vector3.one);
         container.ShowPopUp(false);
+        ShowDeckCount(false);
     }
 }

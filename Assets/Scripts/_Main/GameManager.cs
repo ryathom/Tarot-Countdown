@@ -176,8 +176,6 @@ public class GameManager : MonoBehaviour
 
         Score = 0;
         CanSacrifice = true;
-
-        Fate = 10;
     }
 
     public void GainFate(int gain)
