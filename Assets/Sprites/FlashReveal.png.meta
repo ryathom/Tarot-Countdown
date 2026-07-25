@@ -1,0 +1,1222 @@
+fileFormatVersion: 2
+guid: 44431a0d7b8d745ecabd679b492072ea
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3528079921574144977
+    second: FlashReveal_0
+  - first:
+      213: -2532917752972191222
+    second: FlashReveal_1
+  - first:
+      213: 1833677992014423646
+    second: FlashReveal_2
+  - first:
+      213: 4480245700003618956
+    second: FlashReveal_3
+  - first:
+      213: -7064011134859038398
+    second: FlashReveal_4
+  - first:
+      213: 8264951094140381034
+    second: FlashReveal_5
+  - first:
+      213: 6700155884258210257
+    second: FlashReveal_6
+  - first:
+      213: -8689011710325872987
+    second: FlashReveal_7
+  - first:
+      213: 4741960780387677347
+    second: FlashReveal_8
+  - first:
+      213: 1752197145748123902
+    second: FlashReveal_9
+  - first:
+      213: -4851229552965168398
+    second: FlashReveal_10
+  - first:
+      213: -2070310367925861508
+    second: FlashReveal_11
+  - first:
+      213: -5362115396369607717
+    second: FlashReveal_12
+  - first:
+      213: 2193087387651557818
+    second: FlashReveal_13
+  - first:
+      213: 2361904185126119658
+    second: FlashReveal_14
+  - first:
+      213: -7733504356250623724
+    second: FlashReveal_15
+  - first:
+      213: -5598634034899208758
+    second: FlashReveal_16
+  - first:
+      213: -1194050127098759024
+    second: FlashReveal_17
+  - first:
+      213: -3152884503711018256
+    second: FlashReveal_18
+  - first:
+      213: 1870521181909348351
+    second: FlashReveal_19
+  - first:
+      213: 4450653630405104536
+    second: FlashReveal_20
+  - first:
+      213: -5834034717257719248
+    second: FlashReveal_21
+  - first:
+      213: -6575148681068500088
+    second: FlashReveal_22
+  - first:
+      213: 7971911334138337954
+    second: FlashReveal_23
+  - first:
+      213: -4368097960020858804
+    second: FlashReveal_24
+  - first:
+      213: 2503053490994897342
+    second: FlashReveal_25
+  - first:
+      213: 7281865009671843808
+    second: FlashReveal_26
+  - first:
+      213: 7804754091662444423
+    second: FlashReveal_27
+  - first:
+      213: -6246391354959569047
+    second: FlashReveal_28
+  - first:
+      213: 5630184336000083935
+    second: FlashReveal_29
+  - first:
+      213: -8998473212011845264
+    second: FlashReveal_30
+  - first:
+      213: 8551328244408517568
+    second: FlashReveal_31
+  - first:
+      213: 3589202637026917237
+    second: FlashReveal_32
+  - first:
+      213: 8738795211606194541
+    second: FlashReveal_33
+  - first:
+      213: -6692558723394658273
+    second: FlashReveal_34
+  - first:
+      213: -4538060373315872398
+    second: FlashReveal_35
+  - first:
+      213: 8989786466900984479
+    second: FlashReveal_36
+  - first:
+      213: 8292243672118030304
+    second: FlashReveal_37
+  - first:
+      213: 2174493008744636822
+    second: FlashReveal_38
+  - first:
+      213: 1276987796447408670
+    second: FlashReveal_39
+  - first:
+      213: -4876444901642280220
+    second: FlashReveal_40
+  - first:
+      213: 7989808525555670941
+    second: FlashReveal_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FlashReveal_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 371
+        width: 164
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f24926ff00eb90fc0800000000000000
+      internalID: -3528079921574144977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_1
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 371
+        width: 164
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0adfc049b449dcd0800000000000000
+      internalID: -2532917752972191222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_2
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 371
+        width: 164
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e56a8722b68827910800000000000000
+      internalID: 1833677992014423646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_3
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 364
+        width: 208
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c80ef2f0ab70d2e30800000000000000
+      internalID: 4480245700003618956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_4
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 601
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 241b251bc4797fd90800000000000000
+      internalID: -7064011134859038398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_5
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 557
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a67a6340b3103b270800000000000000
+      internalID: 8264951094140381034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_6
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 558
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d134fc174cbbfc50800000000000000
+      internalID: 6700155884258210257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_7
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 539
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a621d4c2ed6a6780800000000000000
+      internalID: -8689011710325872987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_8
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 514
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a477dda434dec140800000000000000
+      internalID: 4741960780387677347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_9
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 456
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef035c0450e015810800000000000000
+      internalID: 1752197145748123902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_10
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 369
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f252abac68fcacb0800000000000000
+      internalID: -4851229552965168398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_11
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 29
+        width: 208
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7388f870b7c443e0800000000000000
+      internalID: -2070310367925861508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_12
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 29
+        width: 208
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd39cbae470f595b0800000000000000
+      internalID: -5362115396369607717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_13
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 264
+        width: 14
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab94c5e0c596f6e10800000000000000
+      internalID: 2193087387651557818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_14
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 29
+        width: 208
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae863fba75b27c020800000000000000
+      internalID: 2361904185126119658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_15
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 288
+        width: 14
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 411eeb803c21da490800000000000000
+      internalID: -7733504356250623724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_16
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 289
+        width: 14
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac5bb621208ad42b0800000000000000
+      internalID: -5598634034899208758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_17
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 281
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 098b44a5cb1ed6fe0800000000000000
+      internalID: -1194050127098759024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_18
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 279
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f29872af34be34d0800000000000000
+      internalID: -3152884503711018256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_19
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 251
+        width: 14
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fffec80ca1d65f910800000000000000
+      internalID: 1870521181909348351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_20
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 263
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 893599275e5e3cd30800000000000000
+      internalID: 4450653630405104536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_21
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 265
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 032ae8ea558590fa0800000000000000
+      internalID: -5834034717257719248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_22
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 245
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88ba8877c1160c4a0800000000000000
+      internalID: -6575148681068500088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_23
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 261
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aad9341f1be1ae60800000000000000
+      internalID: 7971911334138337954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_24
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 239
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4829dc6c066163c0800000000000000
+      internalID: -4368097960020858804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_25
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 241
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb16d8863e1acb220800000000000000
+      internalID: 2503053490994897342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_26
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 238
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ef26d335a16e0560800000000000000
+      internalID: 7281865009671843808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_27
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 226
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78701d8be7e005c60800000000000000
+      internalID: 7804754091662444423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_28
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 227
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96f509f482c5059a0800000000000000
+      internalID: -6246391354959569047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_29
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 221
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd7e047d2de622e40800000000000000
+      internalID: 5630184336000083935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_30
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 222
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0796a252a400f1380800000000000000
+      internalID: -8998473212011845264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_31
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 208
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c30cbd3bbb6ca670800000000000000
+      internalID: 8551328244408517568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_32
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 198
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57b72ee28c86fc130800000000000000
+      internalID: 3589202637026917237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_33
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 105
+        width: 14
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d69fba0e1ff664970800000000000000
+      internalID: 8738795211606194541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_34
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 183
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f10ae9dbc414f13a0800000000000000
+      internalID: -6692558723394658273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_35
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 150
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2791b3752229501c0800000000000000
+      internalID: -4538060373315872398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_36
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 113
+        width: 13
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f924f36692322cc70800000000000000
+      internalID: 8989786466900984479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_37
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 126
+        width: 13
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ef63938fa7f31370800000000000000
+      internalID: 8292243672118030304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_38
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 91
+        width: 8
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6916bc8ded95d2e10800000000000000
+      internalID: 2174493008744636822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_39
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 75
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e12b1c592a5c8b110800000000000000
+      internalID: 1276987796447408670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_40
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 51
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e2e8dec233635cb0800000000000000
+      internalID: -4876444901642280220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlashReveal_41
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 38
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9f122da58081ee60800000000000000
+      internalID: 7989808525555670941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FlashReveal_0: -3528079921574144977
+      FlashReveal_1: -2532917752972191222
+      FlashReveal_10: -4851229552965168398
+      FlashReveal_11: -2070310367925861508
+      FlashReveal_12: -5362115396369607717
+      FlashReveal_13: 2193087387651557818
+      FlashReveal_14: 2361904185126119658
+      FlashReveal_15: -7733504356250623724
+      FlashReveal_16: -5598634034899208758
+      FlashReveal_17: -1194050127098759024
+      FlashReveal_18: -3152884503711018256
+      FlashReveal_19: 1870521181909348351
+      FlashReveal_2: 1833677992014423646
+      FlashReveal_20: 4450653630405104536
+      FlashReveal_21: -5834034717257719248
+      FlashReveal_22: -6575148681068500088
+      FlashReveal_23: 7971911334138337954
+      FlashReveal_24: -4368097960020858804
+      FlashReveal_25: 2503053490994897342
+      FlashReveal_26: 7281865009671843808
+      FlashReveal_27: 7804754091662444423
+      FlashReveal_28: -6246391354959569047
+      FlashReveal_29: 5630184336000083935
+      FlashReveal_3: 4480245700003618956
+      FlashReveal_30: -8998473212011845264
+      FlashReveal_31: 8551328244408517568
+      FlashReveal_32: 3589202637026917237
+      FlashReveal_33: 8738795211606194541
+      FlashReveal_34: -6692558723394658273
+      FlashReveal_35: -4538060373315872398
+      FlashReveal_36: 8989786466900984479
+      FlashReveal_37: 8292243672118030304
+      FlashReveal_38: 2174493008744636822
+      FlashReveal_39: 1276987796447408670
+      FlashReveal_4: -7064011134859038398
+      FlashReveal_40: -4876444901642280220
+      FlashReveal_41: 7989808525555670941
+      FlashReveal_5: 8264951094140381034
+      FlashReveal_6: 6700155884258210257
+      FlashReveal_7: -8689011710325872987
+      FlashReveal_8: 4741960780387677347
+      FlashReveal_9: 1752197145748123902
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
