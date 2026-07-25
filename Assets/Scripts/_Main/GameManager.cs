@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public CardSO majorArcanaSO;
     public CardSO deathCardSO;
 
+    public bool InputEnabled { get; set; } = false;
+
     public int Fate {get; private set;}
     public int Doom {get; private set;}
     public int Score {get; private set;}

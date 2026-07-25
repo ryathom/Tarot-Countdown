@@ -73,6 +73,7 @@ public class HandArea : Zone
 
     protected override void EnterContainer(CardContainer container)
     {
+        if (!GameManager.Instance.InputEnabled) return;
         if (container.IsDragging) return;
 
         container.SetScale(hoverScale);
