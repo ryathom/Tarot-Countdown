@@ -134,21 +134,21 @@ public class DeathIntroController : MonoBehaviour
 
         introText.text = "Death has entered your deck...";
 
-        await Tween.Alpha(
-            introTextCanvasGroup,
-            1f,
-            0.8f,
-            Ease.OutCubic
-        );
+        // await Tween.Alpha(
+        //     introTextCanvasGroup,
+        //     1f,
+        //     0.8f,
+        //     Ease.OutCubic
+        // );
 
-        await Awaitable.WaitForSecondsAsync(1.2f);
+        // await Awaitable.WaitForSecondsAsync(1.2f);
 
-        _ = Tween.Alpha(
-            introTextCanvasGroup,
-            0f,
-            0.8f,
-            Ease.InCubic
-        );
+        // _ = Tween.Alpha(
+        //     introTextCanvasGroup,
+        //     0f,
+        //     0.8f,
+        //     Ease.InCubic
+        // );
 
         await Tween.Alpha(
             canvasGroup,

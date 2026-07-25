@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine;
 
 public class PlayCard : IAction
 {
@@ -46,9 +47,16 @@ public class PlayCard : IAction
     {
         if (arcana.CanPlay() == false) yield break;
 
+        yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(arcana, GameManager.Instance.ArcanaPlayArea));
+        GameManager.Instance.ArcanaPlayArea.UpdateVisuals();
+
+        yield return new WaitForSeconds(0.5f);
+
         yield return GameManager.Actions.ExecuteImmediate(new GainFate(-arcana.FateCost));
 
         yield return arcana.ExecuteEffect();
+
+        yield return new WaitForSeconds(0.5f);
 
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(arcana, GameManager.Instance.TarotDiscardPile));
 

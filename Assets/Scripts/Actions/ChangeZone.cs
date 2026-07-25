@@ -18,6 +18,8 @@ public class ChangeZone : IAction
         public IEnumerator Execute()
         {
             Card.Zone.RemoveCard(Card);
+            Debug.Log(EndZone);
+            Debug.Log(Card);
             EndZone.AddCard(Card);
 
             yield return new WaitForSeconds(Delay);
