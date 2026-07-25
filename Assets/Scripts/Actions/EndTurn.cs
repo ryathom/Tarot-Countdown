@@ -130,6 +130,8 @@ public class EndTurn : IAction
             }
         }
 
+        suitCount = suitRun.Count > suitCount ? suitRun.Count : suitCount;
+
         return suitCount switch
         {
             6 => 11,
