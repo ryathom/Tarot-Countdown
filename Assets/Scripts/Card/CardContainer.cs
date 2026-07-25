@@ -67,7 +67,7 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             {
                 cardVisual.HideMajorPopUp();
             }
-        } else
+        } else if (Card is MinorArcana)
         {
             if (enabled)
             {
@@ -75,6 +75,15 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             } else
             {
                 cardVisual.HideMinorPopUp();
+            }
+        }else if (Card is Death)
+        {
+            if (enabled)
+            {
+                cardVisual.ShowDeathPopUp();
+            } else
+            {
+                cardVisual.HideDeathPopUp();
             }
         }
     }

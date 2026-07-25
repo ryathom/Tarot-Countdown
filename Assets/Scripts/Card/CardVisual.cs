@@ -21,11 +21,11 @@ public class CardVisual : MonoBehaviour
 
     [SerializeField] private GameObject majorPopUp;
     [SerializeField] private GameObject minorPopUp;
+    [SerializeField] private GameObject deathPopUp;
 
     [SerializeField] private TextMeshProUGUI majorName;
     [SerializeField] private TextMeshProUGUI majorText;
     [SerializeField] private TextMeshProUGUI minorName;
-    [SerializeField] private TextMeshProUGUI minorText;
 
     private Card card;
 
@@ -45,11 +45,17 @@ public class CardVisual : MonoBehaviour
         minorPopUpBackground = minorPopUp.GetComponent<Image>();
     }
 
+    private void Start()
+    {
+        majorPopUp.transform.localScale = Vector3.zero;
+        minorPopUp.transform.localScale = Vector3.zero;
+        deathPopUp.transform.localScale = Vector3.zero;
+    }
+
     public void SetCard(Card card)
     {
         this.card = card;
-        majorPopUp.transform.localScale = Vector3.zero;
-        minorPopUp.transform.localScale = Vector3.zero;
+        
         UpdateVisuals();
     }
 
@@ -70,6 +76,7 @@ public class CardVisual : MonoBehaviour
             majorText.text = "Cost: " + majorArcana.FateCost + " Fate\n" + majorArcana.Text;
             majorPopUp.SetActive(true);
             minorPopUp.SetActive(false);
+            deathPopUp.SetActive(false);
 
             if (card.Zone is HandArea && majorArcana.CanPlay() == false)
             {
@@ -81,14 +88,14 @@ public class CardVisual : MonoBehaviour
 
         } else if (card is MinorArcana)
         {
-            minorText.text = "Cost: Mill " + card.GetMillCost() + " cards.";
             majorPopUp.SetActive(false);
             minorPopUp.SetActive(true);
+            deathPopUp.SetActive(false);
         } else if (card is Death)
         {
-            minorText.text = "You die if you draw or mill this card.";
             majorPopUp.SetActive(false);
-            minorPopUp.SetActive(true);
+            minorPopUp.SetActive(false);
+            deathPopUp.SetActive(true);
         }
     }
 
@@ -118,6 +125,20 @@ public class CardVisual : MonoBehaviour
         if (minorPopUp.transform.localScale == Vector3.zero) return;
 
         Tween.Scale(minorPopUp.transform, Vector3.zero, 0.1f);
+    }
+
+    public void ShowDeathPopUp()
+    {
+        if (deathPopUp.transform.localScale == Vector3.one) return;
+
+        Tween.Scale(deathPopUp.transform, Vector3.one, 0.1f);
+    }
+
+    public void HideDeathPopUp()
+    {
+        if (deathPopUp.transform.localScale == Vector3.zero) return;
+
+        Tween.Scale(deathPopUp.transform, Vector3.zero, 0.1f);
     }
 
     private void UpdateSuitBorder()

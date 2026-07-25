@@ -108,6 +108,8 @@ public class Deck : Zone
 
     public void ShowDeckCount(bool enabled)
     {
+        if (DeathCount() == 0) return;
+
         if (enabled)
         {
             Tween.Scale(deckCounterField.transform, Vector2.one, 0.1f);
