@@ -28,7 +28,7 @@ public class CardBrowser : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         {
             cardSpacing = 40 * Screen.width / 1920;
         }
-        cardSpacing = Mathf.Clamp(cardSpacing, 10, 200);
+        cardSpacing = Mathf.Clamp(cardSpacing, 10, 200 * Screen.width / 1920);
 
         for (int i = Cards.Count - 1; i >= 0; i--)
         {

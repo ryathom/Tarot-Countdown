@@ -28,29 +28,6 @@ public class DrawCard : IAction
     }
 }
 
-public class GameOver : IAction
-{
-    public bool Victory;
-
-    public GameOver(bool victory)
-    {
-        Victory = victory;
-    }
-
-    public IEnumerator Execute()
-    {
-        if (Victory)
-        {
-            UIManager.Instance.ShowGameOverScreen("You win!");
-        } else
-        {
-            UIManager.Instance.ShowGameOverScreen("You died.");
-        }
-
-        return null;
-    }
-}
-
 public class DrawTarotCard : IAction
 {
     public DrawTarotCard()

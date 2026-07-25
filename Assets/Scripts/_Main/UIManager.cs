@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using PrimeTween;
 using TMPro;
@@ -8,6 +9,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance {get; private set;}
 
+    [SerializeField] private TextMeshProUGUI highScoreCounter;
     [SerializeField] private TextMeshProUGUI scoreCounter;
     [SerializeField] private TextMeshProUGUI fateCounter;
     [SerializeField] private TextMeshProUGUI doomCounter;
@@ -48,6 +50,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateCounters()
     {
+        highScoreCounter.text = "High Score: " + Math.Max(GameManager.Instance.Score, PlayerPrefs.GetInt("HighScore"));
         scoreCounter.text = "Score: " + GameManager.Instance.Score;
         fateCounter.text = "Fate: " + GameManager.Instance.Fate;
         doomCounter.text = "Doom: " + GameManager.Instance.Doom;
