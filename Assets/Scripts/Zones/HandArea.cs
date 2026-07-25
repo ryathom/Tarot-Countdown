@@ -1,10 +1,12 @@
 using System;
+using PrimeTween;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class HandArea : Zone
 {
     [SerializeField] private bool TarotHand;
+    [SerializeField] private SacrificeArea sacrificeArea;
 
     private float cardSpacing;
 
@@ -99,16 +101,17 @@ public class HandArea : Zone
     protected override void EndDragContainer(CardContainer container, PointerEventData eventData)
     {
         container.SetDragging(false);
-        
-        if (eventData.position.y > minDragThreshold && eventData.position.y < maxDragThreshold)
+
+        if (eventData.position.y > minDragThreshold &&
+            eventData.position.y < maxDragThreshold)
         {
             GameManager.Actions.AddAction(new PlayCard(container.Card));
-        } else if (eventData.position.x < minSacrificeThreshold && eventData.position.y < minDragThreshold)
-        {
-            GameManager.Actions.AddAction(new SacrificeCard(container.Card));
         }
+        else if (sacrificeArea.Contains(eventData.position))
         {
-            UpdateVisuals();
+            sacrificeArea.ShowConfirmation(container.Card);
+            return;
         }
+        UpdateVisuals();
     }
 }
