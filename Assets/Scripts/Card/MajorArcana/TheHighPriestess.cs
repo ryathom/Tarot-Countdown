@@ -50,6 +50,8 @@ public class TheHighPriestess : MajorArcana
 
     public void SelectCard(Card card)
     {
+        if (card is Death) return;
+        
         selectedCard = card;
     }
 }
