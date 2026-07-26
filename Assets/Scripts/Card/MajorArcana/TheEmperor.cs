@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 
@@ -18,7 +19,9 @@ public class TheEmperor : MajorArcana
         UIManager.Instance.OpenBrowser(deck, canClose: false);
         yield return new WaitForSeconds(0.5f);
 
-        OrderCards(10);
+        int n = GameManager.Instance.Deck.Cards.Count < 10 ? GameManager.Instance.Deck.Cards.Count : 10;
+
+        OrderCards(n);
 
         UIManager.Instance.OpenBrowser(deck, canClose: false);
         yield return new WaitForSeconds(1f);
