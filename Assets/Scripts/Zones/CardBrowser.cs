@@ -20,15 +20,7 @@ public class CardBrowser : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         
         List<Card> Cards = subset ?? zone.Cards;
 
-        if (Cards.Count > 0)
-        {
-            cardSpacing = 1800 * Screen.width / 1920;
-            cardSpacing /= Cards.Count;
-        } else
-        {
-            cardSpacing = 40 * Screen.width / 1920;
-        }
-        cardSpacing = Mathf.Clamp(cardSpacing, 10, 200 * Screen.width / 1920);
+        CalculateSpacing(Cards);
 
         for (int i = Cards.Count - 1; i >= 0; i--)
         {
@@ -46,6 +38,19 @@ public class CardBrowser : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
             Cards[i].Container.SetTargetPosition(this.transform.position + (Vector3)targetPosition);
             Cards[i].Container.ShowVisual(true);
         }
+    }
+
+    public void CalculateSpacing(List<Card> Cards)
+    {
+        if (Cards.Count > 0)
+        {
+            cardSpacing = 1800 * Screen.width / 1920;
+            cardSpacing /= Cards.Count;
+        } else
+        {
+            cardSpacing = 40 * Screen.width / 1920;
+        }
+        cardSpacing = Mathf.Clamp(cardSpacing, 10, 200 * Screen.width / 1920);
     }
 
     public void Close()

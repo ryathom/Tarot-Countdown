@@ -20,13 +20,13 @@ public class HandArea : Zone
     protected override void Start()
     {
         base.Start();
-
-        cardSpacing = 180f * Screen.width / 1920f;
+        CalculateSpacing();
     }
 
     public override void UpdateVisuals()
     {
         SortHand();
+        CalculateSpacing();
 
         for (int i = 0; i < Cards.Count; i++)
         {
@@ -62,6 +62,11 @@ public class HandArea : Zone
             else if (x.Number > y.Number) return -1;
             else return 1;
         });
+    }
+
+    public void CalculateSpacing()
+    {
+        cardSpacing = 180f * Screen.width / 1920f;
     }
 
     // Gameplay

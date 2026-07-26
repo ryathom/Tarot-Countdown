@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayArea : Zone
 {
-    private float cardSpacing;
     private readonly Vector3 hoverScale = new(1.1f, 1.1f, 1f);
 
     [SerializeField] private List<Image> placementZones;
