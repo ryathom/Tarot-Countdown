@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     public int TarotHandSize = 3;
     public bool CanSacrifice = true;
 
-    private readonly int startingDeathPosition = 28;
+    private readonly int startingDeathPosition = 30;
 
     [Header("UI")]
     public ScorePopup scorePopup;
