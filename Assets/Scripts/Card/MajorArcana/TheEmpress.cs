@@ -8,15 +8,16 @@ public class TheEmpress : MajorArcana
     {
         Name = "The Empress";
         FateCost = 3;
-        Text = "Create a new (?) of each suit and shuffle them into the deck.";
+        Text = "Create a new random card of each suit and shuffle them into the deck.";
     }
 
     public override IEnumerator ExecuteEffect()
     {
-        int x = Random.Range(1,15);
+        int x;
 
         for (int i = 0; i < 4; i++)
         {
+            x = Random.Range(1,15);
             Card card = GameManager.Instance.InstantiateMinorArcana(x, (Suit)i);
 
             card.Container.transform.SetAsLastSibling();
