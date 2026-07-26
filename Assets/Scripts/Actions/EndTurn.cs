@@ -28,8 +28,6 @@ public class EndTurn : IAction
             yield return GameManager.Actions.ExecuteImmediate(new DrawTarotCard());
         }
 
-        yield return GameManager.Actions.ExecuteImmediate(new MillCards(GameManager.Instance.Doom));
-
         if (!IsValidRun(playArea.Cards))
         {
             SoundFXManager.Instance.PlayIncorrectRunSound(GameManager.Instance.transform);

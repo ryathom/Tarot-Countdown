@@ -40,6 +40,8 @@ public class PlayCard : IAction
 
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(Card, playArea));
 
+        yield return GameManager.Actions.ExecuteImmediate(new MillCards(GameManager.Instance.Doom));
+
         GameManager.Actions.AddAction(new EndTurn());
     }
 
