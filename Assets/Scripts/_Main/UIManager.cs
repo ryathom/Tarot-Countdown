@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI doomCounter;
 
     [SerializeField] private CardBrowser cardBrowser;
+    [SerializeField] private TarotBrowser tarotBrowser;
     [SerializeField] private GameObject helpScreen;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private TextMeshProUGUI gameOverText;
@@ -38,8 +39,16 @@ public class UIManager : MonoBehaviour
         cardBrowser.gameObject.SetActive(false);
         gameOverScreen.transform.localScale = Vector2.zero;
         helpScreen.transform.localScale = Vector2.zero;
+        tarotBrowser.transform.localScale = Vector2.zero;
 
         InputManager.Instance.OnCancelAction += CloseHelpScreen;
+        InputManager.Instance.OnCancelAction += CloseTarotBrowser;
+    }
+
+    private void OnDestroy()
+    {
+        InputManager.Instance.OnCancelAction -= CloseHelpScreen;
+        InputManager.Instance.OnCancelAction -= CloseTarotBrowser;
     }
 
     private void Update()
@@ -101,6 +110,20 @@ public class UIManager : MonoBehaviour
     {
         Tween.Scale(gameOverScreen.transform, Vector2.zero, 0.1f)
         .OnComplete(() => GameManager.Instance.LoadMainMenu());
+    }
+
+    public void OpenTarotBrowser()
+    {
+        tarotBrowser.gameObject.SetActive(true);
+        Tween.Scale(tarotBrowser.transform, Vector2.one, 0.2f)
+        .OnComplete(()=> tarotBrowser.Open());
+    }
+
+    public void CloseTarotBrowser()
+    {
+        Tween.Scale(tarotBrowser.transform, Vector2.zero, 0.1f)
+        .OnComplete(() => tarotBrowser.gameObject.SetActive(false));
+        tarotBrowser.Close();
     }
     
 }
