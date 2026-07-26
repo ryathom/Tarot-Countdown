@@ -123,7 +123,6 @@ public class UIManager : MonoBehaviour
     {
         Tween.Scale(tarotBrowser.transform, Vector2.zero, 0.1f)
         .OnComplete(() => tarotBrowser.gameObject.SetActive(false));
-        tarotBrowser.Close();
     }
     
 }
