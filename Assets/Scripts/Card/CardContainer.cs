@@ -56,6 +56,11 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         .OnComplete(() => Card.SetFaceUp(!Card.FaceUp));
     }
 
+    public void SetColor(Color color)
+    {
+        cardVisual.SetFrontSpriteColor(color);
+    }
+
     public void ShowPopUp(bool enabled)
     {
         if (Card is MajorArcana)

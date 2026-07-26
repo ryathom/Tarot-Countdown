@@ -99,6 +99,11 @@ public class CardVisual : MonoBehaviour
         }
     }
 
+    public void SetFrontSpriteColor(Color color)
+    {
+        front.color = color;
+    }
+
     public void ShowMajorPopUp()
     {
         if (majorPopUp.transform.localScale == Vector3.one) return;

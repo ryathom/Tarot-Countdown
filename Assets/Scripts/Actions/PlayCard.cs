@@ -42,6 +42,8 @@ public class PlayCard : IAction
 
         yield return GameManager.Actions.ExecuteImmediate(new MillCards(GameManager.Instance.Doom));
 
+        GameManager.Instance.IncreaseScore(1);
+
         GameManager.Actions.AddAction(new EndTurn());
     }
 

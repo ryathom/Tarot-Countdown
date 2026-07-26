@@ -35,9 +35,10 @@ public class GameManager : MonoBehaviour
     public int TarotHandSize = 3;
     public bool CanSacrifice = true;
 
-    private readonly int startingDeathPosition = 28;
+    private readonly int startingDeathPosition = 30;
 
     [Header("UI")]
+    public ScorePopup fatePopup;
     public ScorePopup scorePopup;
     public ScorePopup doomPopup;
     public ScorePopup millPopup;
@@ -190,9 +191,9 @@ public class GameManager : MonoBehaviour
         { 
             SoundFXManager.Instance.PlayGainFateSound(transform);
             
-            if (scorePopup != null)
+            if (fatePopup != null)
             {
-                _ = scorePopup.Show($"+{gain} FATE");
+                _ = fatePopup.Show($"+{gain} FATE");
             }
         }
 
@@ -226,9 +227,17 @@ public class GameManager : MonoBehaviour
         Actions.AddAction(new EndTurn());
     }
 
-    public void IncrementScore()
+    public void IncreaseScore(int score)
     {
-        Score += 1;
+        Score += score;
+
+        if(score>0)
+        {  
+            if (scorePopup != null)
+            {
+                _ = scorePopup.Show($"+{score}");
+            }
+        }
     }
 
     public void MillPopup()
