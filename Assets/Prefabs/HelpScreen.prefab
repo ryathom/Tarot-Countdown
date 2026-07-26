@@ -2616,7 +2616,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Your deck contains a single <b>Death</b> card. \n\n<b><u>If <b>Death</b>
-    is drawn or milled, the game ends.\n"
+    is drawn or discarded, the game ends.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f3d7aac668ccf47468276e3d4e30bfab, type: 2}
   m_sharedMaterial: {fileID: -207289249410964934, guid: f3d7aac668ccf47468276e3d4e30bfab, type: 2}
@@ -3836,8 +3836,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Whenever you play a card, discard cards from the top of your deck equal
-    to your <b>Doom</b>.
+  m_text: Whenever you play a card, cards are automatically discarded from the top
+    of your deck equal to your <b>Doom</b>.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f3d7aac668ccf47468276e3d4e30bfab, type: 2}
   m_sharedMaterial: {fileID: -207289249410964934, guid: f3d7aac668ccf47468276e3d4e30bfab, type: 2}

@@ -5,7 +5,7 @@ public class Sun : MajorArcana
     public Sun(CardSO cardSO) : base(cardSO)
     {
         Name = "The Sun";
-        FateCost = 4;
+        FateCost = 2;
         Text = "Transform all cards in your hand into Cups.";
     }
 

@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You die if you draw or mill this card.
+  m_text: You die if you draw or discard this card.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f3d7aac668ccf47468276e3d4e30bfab, type: 2}
   m_sharedMaterial: {fileID: -207289249410964934, guid: f3d7aac668ccf47468276e3d4e30bfab, type: 2}
@@ -1039,6 +1039,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardContainer
   cardVisual: {fileID: 4280587417258082792}
   dragSpeed: 15
+  CardOverrideSO: {fileID: 0}
+  CardNumberOverride: 0
+  CardSuitOverride: 0
 --- !u!1 &8014793165881413265
 GameObject:
   m_ObjectHideFlags: 0

@@ -12114,35 +12114,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120940655053198669, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 120940655053198669, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 120940655053198669, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 71.07361
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 120940655053198669, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -167.24255
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1748713260115825710, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1748713260115825710, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1748713260115825710, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 220.07361
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1748713260115825710, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -167.24255
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1985173919984428676, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_Color.b
@@ -12158,51 +12158,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5239807221246729516, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5239807221246729516, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5239807221246729516, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 369.0736
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5239807221246729516, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -167.24255
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5935434879853051996, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5935434879853051996, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5935434879853051996, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 816.0736
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5935434879853051996, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -167.24255
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6399150007553166227, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
+      propertyPath: m_text
+      value: "Your deck contains a single <b>Death</b> card. \n\n<b><u>If <b>Death</b>
+        is drawn or discarded, the game ends.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 6461434274670986703, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6461434274670986703, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6461434274670986703, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 667.0736
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6461434274670986703, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -167.24255
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6899352065677519527, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -12246,23 +12251,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7859789194451595147, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8174380188406478182, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
+      propertyPath: m_text
+      value: Whenever you play a card, cards are automatically discarded from the
+        top of your deck equal to your <b>Doom</b>.
       objectReference: {fileID: 0}
     - target: {fileID: 8869098840275608062, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8869098840275608062, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8869098840275608062, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 518.0736
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8869098840275608062, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -167.24255
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8952382665289639648, guid: 4df5a2a1a298e4ba791af34c2794a7df, type: 3}
       propertyPath: m_Pivot.x
