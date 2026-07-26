@@ -5,7 +5,7 @@ public class World : MajorArcana
     public World(CardSO cardSO) : base(cardSO)
     {
         Name = "The World";
-        FateCost = 4;
+        FateCost = 2;
         Text = "Transform all cards in your hand into Swords.";
     }
 
