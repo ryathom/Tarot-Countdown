@@ -11,6 +11,10 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     public Card Card {get; private set;}
 
+    public CardSO CardOverrideSO;
+    public int CardNumberOverride;
+    public Suit CardSuitOverride;
+
     public bool IsDragging {get; private set;}
     public Vector2 TargetPosition {get; private set;}
     public Vector2 ReturnPosition {get; private set;}
@@ -32,6 +36,16 @@ public class CardContainer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     // Unity Messages
     //---------------------------------------------------------------------------------------------------------
+    public void Start()
+    {
+        if (CardNumberOverride != 0)
+        {
+            MinorArcana card = new(CardOverrideSO, CardNumberOverride, CardSuitOverride);
+            SetCard(card);
+            card.SetFaceUp(true);
+        }
+    }
+
     private void Update()
     {
         if (IsDragging)

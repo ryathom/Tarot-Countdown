@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CardBrowser cardBrowser;
     [SerializeField] private TarotBrowser tarotBrowser;
     [SerializeField] private GameObject helpScreen;
+    [SerializeField] private GameObject cardHelpScreen;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private TextMeshProUGUI gameOverText;
     [SerializeField] private Image sacrificeZone;
@@ -39,6 +40,7 @@ public class UIManager : MonoBehaviour
         cardBrowser.gameObject.SetActive(false);
         gameOverScreen.transform.localScale = Vector2.zero;
         helpScreen.transform.localScale = Vector2.zero;
+        cardHelpScreen.transform.localScale = Vector2.zero;
         tarotBrowser.transform.localScale = Vector2.zero;
 
         InputManager.Instance.OnCancelAction += CloseHelpScreen;
@@ -97,6 +99,17 @@ public class UIManager : MonoBehaviour
     public void CloseHelpScreen()
     {
         Tween.Scale(helpScreen.transform, Vector2.zero, 0.1f);
+    }
+
+    public void OpenCardHelpScreen()
+    {
+        cardHelpScreen.SetActive(true);
+        Tween.Scale(cardHelpScreen.transform, Vector2.one, 0.2f);
+    }
+
+    public void CloseCardHelpScreen()
+    {
+        Tween.Scale(cardHelpScreen.transform, Vector2.zero, 0.1f);
     }
 
     public void ShowGameOverScreen(string text)
