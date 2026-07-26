@@ -226,9 +226,9 @@ public class GameManager : MonoBehaviour
         Actions.AddAction(new EndTurn());
     }
 
-    public void IncrementScore()
+    public void IncreaseScore(int score)
     {
-        Score += 1;
+        Score += score;
     }
 
     public void MillPopup()

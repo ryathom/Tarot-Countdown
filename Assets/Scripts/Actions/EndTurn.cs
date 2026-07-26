@@ -8,7 +8,7 @@ public class EndTurn : IAction
 
     private readonly int minimumRunSize = 6;
     private readonly int maximumRunSize = 6;
-    private readonly int baseScore = 5;
+    private readonly int baseScore = 3;
 
     public IEnumerator Execute()
     {
@@ -60,14 +60,14 @@ public class EndTurn : IAction
             playArea.isScoring = false;
             playArea.UpdateVisuals();
         }
-
-        GameManager.Instance.IncrementScore();
     }
 
     public IEnumerator ScoreRun(PlayArea playArea)
     {
         int score = CalculateScore(playArea.Cards);
         yield return GameManager.Actions.ExecuteImmediate(new GainFate(score));
+
+        GameManager.Instance.IncreaseScore(score);
     }
 
     public int CalculateScore(List<Card> playArea)
