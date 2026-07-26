@@ -17,7 +17,10 @@ public class TheHighPriestess : MajorArcana
     public override IEnumerator ExecuteEffect()
     {
         List<Card> top5 = new();
-        for (int i = 0; i < 5; i++)
+
+        int n = GameManager.Instance.Deck.Cards.Count < 5 ? GameManager.Instance.Deck.Cards.Count : 5;
+
+        for (int i = 0; i < n; i++)
         {
             top5.Add(GameManager.Instance.Deck.Cards[i]);
         }
@@ -25,25 +28,31 @@ public class TheHighPriestess : MajorArcana
         UIManager.Instance.OpenBrowser(GameManager.Instance.Deck, canClose: false, subset: top5);
         yield return new WaitForSeconds(0.5f);
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < n; i++)
         {
-            GameManager.Instance.Deck.Cards[i].Container.Flip();
+            if (GameManager.Instance.Deck.Cards[i].FaceUp == false)
+            {
+                GameManager.Instance.Deck.Cards[i].Container.Flip();
+            }
             yield return new WaitForSeconds(0.05f);
         }
 
         // Refresh browser
         UIManager.Instance.OpenBrowser(GameManager.Instance.Deck, canClose: false, subset: top5);
-        
-        GameManager.Instance.Deck.OnClickCardInDeck += SelectCard;
 
-        while(selectedCard == null)
+        if (top5.Count > 1)
         {
-            yield return null;
+            GameManager.Instance.Deck.OnClickCardInDeck += SelectCard;
+
+            while(selectedCard == null)
+            {
+                yield return null;
+            }
+
+            GameManager.Instance.Deck.OnClickCardInDeck -= SelectCard;
+
+            yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(selectedCard, GameManager.Instance.Hand));
         }
-
-        GameManager.Instance.Deck.OnClickCardInDeck -= SelectCard;
-
-        yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(selectedCard, GameManager.Instance.Hand));
 
         UIManager.Instance.CloseBrowser();
     }

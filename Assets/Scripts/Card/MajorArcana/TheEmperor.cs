@@ -35,8 +35,8 @@ public class TheEmperor : MajorArcana
 
         for (int i = 0; i < n; i++)
         {
-            cardsToOrder.Add(deck.Cards[i]);
-            deck.RemoveCard(deck.Cards[i]);
+            cardsToOrder.Add(deck.Cards[0]);
+            deck.RemoveCard(deck.Cards[0]);
         }
 
         cardsToOrder.Sort(delegate(Card x, Card y)
