@@ -99,6 +99,9 @@ public class EndTurn : IAction
             score = baseScore;
             // Regain ability to sacrifice a card
             GameManager.Instance.CanSacrifice = true;
+
+            UnityEngine.Object.FindAnyObjectByType<SacrificeArea>()
+                ?.UpdateSacrificeAvailability();
         }
 
         // Suit bonus

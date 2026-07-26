@@ -22,6 +22,9 @@ public class SacrificeCards : IAction
 
         GameManager.Instance.CanSacrifice = false;
 
+        GameManager.Instance.SacrificeArea
+            ?.UpdateSacrificeAvailability();
+
         foreach (Card card in Cards)
         {
             Zone currentZone = card.Zone;

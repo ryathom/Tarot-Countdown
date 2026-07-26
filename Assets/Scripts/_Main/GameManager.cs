@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public int HandSize = 5;
     public int TarotHandSize = 3;
-    public bool CanSacrifice;
+    public bool CanSacrifice = true;
 
     private readonly int startingDeathPosition = 28;
 
@@ -178,6 +178,8 @@ public class GameManager : MonoBehaviour
 
         Score = 0;
         CanSacrifice = true;
+
+        SacrificeArea?.UpdateSacrificeAvailability();
     }
 
     public void GainFate(int gain)

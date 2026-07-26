@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SacrificeArea : Zone
+public class SacrificeArea : Zone, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Zones")]
     [SerializeField] private HandArea handArea;
@@ -16,6 +17,9 @@ public class SacrificeArea : Zone
     [SerializeField] private Button cancelButton;
     [SerializeField] private Image zoneImage;
     [SerializeField] private Color emptyZoneColor = Color.red;
+    [SerializeField] private GameObject sacrificePrompt;
+    [SerializeField] private GameObject sacrificeLockedPanel;
+    [SerializeField] private CanvasGroup ritualCanvasGroup;
 
     [Header("Pentagram")]
     [SerializeField] private List<SacrificePoint> sacrificePoints;
@@ -26,8 +30,10 @@ public class SacrificeArea : Zone
     [SerializeField] private float previewScale = 0.8f;
 
     private Card previewedCard;
+    private bool isPointerOverArea;
 
     private const int MaximumCards = 5;
+
     public bool HasPendingCards
     {
         get { return Cards.Count > 0; }
@@ -36,6 +42,11 @@ public class SacrificeArea : Zone
     protected override void Start()
     {
         base.Start();
+
+        if (sacrificePrompt != null)
+        {
+            sacrificePrompt.transform.localScale = Vector3.zero;
+        }
 
         if (zoneImage != null)
         {
@@ -60,13 +71,16 @@ public class SacrificeArea : Zone
             point.HoverExited += HideCardPreview;
             point.Clear();
         }
+        UpdateSacrificeAvailability();
     }
 
     public bool CanAddCard(Card card)
     {
-        if (GameManager.Instance.CanSacrifice == false) return false;
+        if (GameManager.Instance.CanSacrifice == false)
+            return false;
 
-        if (card is not MinorArcana) return false;
+        if (card is not MinorArcana)
+            return false;
 
         return Cards.Count < MaximumCards;
     }
@@ -76,13 +90,48 @@ public class SacrificeArea : Zone
         base.AddCard(card);
 
         card.Container.SetScale(Vector3.one);
-        
-       SoundFXManager.Instance.PlaySacrificePointSound(
-       Cards.Count - 1,
-       transform);
 
-       UpdateConfirmationPanel();
+        ShowSacrificePrompt(false);
 
+        SoundFXManager.Instance.PlaySacrificePointSound(
+            Cards.Count - 1,
+            transform
+        );
+
+        UpdateConfirmationPanel();
+    }
+
+    public void UpdateSacrificeAvailability()
+    {
+        bool canSacrifice = GameManager.Instance.CanSacrifice;
+
+        if (sacrificeLockedPanel != null)
+        {
+            sacrificeLockedPanel.SetActive(!canSacrifice);
+        }
+
+        if (ritualCanvasGroup != null)
+        {
+            ritualCanvasGroup.alpha = canSacrifice ? 1f : 0.35f;
+        }
+
+        if (!canSacrifice)
+        {
+            ShowSacrificePrompt(false);
+        }
+        else
+        {
+            UpdateSacrificePrompt();
+        }
+    }
+    private void UpdateSacrificePrompt()
+    {
+        bool shouldShow =
+            isPointerOverArea &&
+            Cards.Count == 0 &&
+            GameManager.Instance.CanSacrifice;
+
+        ShowSacrificePrompt(shouldShow);
     }
 
     public override void RemoveCard(Card card)
@@ -95,7 +144,33 @@ public class SacrificeArea : Zone
         base.RemoveCard(card);
 
         UpdateConfirmationPanel();
+        UpdateSacrificePrompt();
     }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        isPointerOverArea = true;
+        UpdateSacrificePrompt();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        isPointerOverArea = false;
+        ShowSacrificePrompt(false);
+    }
+
+    private void ShowSacrificePrompt(bool enabled)
+    {
+        if (sacrificePrompt == null)
+            return;
+
+        Tween.Scale(
+            sacrificePrompt.transform,
+            enabled ? Vector3.one : Vector3.zero,
+            0.1f
+        );
+    }
+
     private void UpdateConfirmationPanel()
     {
         int cardCount = Cards.Count;
@@ -112,8 +187,7 @@ public class SacrificeArea : Zone
         if (rewardText != null)
         {
             rewardText.text =
-                $"SACRIFICE {cardCount} " +
-                $"{(cardCount == 1 ? "" : "")}\n" +
+                $"SACRIFICE {cardCount} CARDS\n" +
                 $"GAIN {cardCount} FATE";
         }
 
@@ -127,6 +201,7 @@ public class SacrificeArea : Zone
             cancelButton.interactable = true;
         }
     }
+
     public override void UpdateVisuals()
     {
         if (isBrowsing)
@@ -135,7 +210,6 @@ public class SacrificeArea : Zone
         for (int i = 0; i < sacrificePoints.Count; i++)
         {
             if (i < Cards.Count)
-
             {
                 Card card = Cards[i];
 
@@ -172,8 +246,6 @@ public class SacrificeArea : Zone
 
         container.transform.SetParent(transform);
         container.transform.SetAsLastSibling();
-
-        // Teleport immediately instead of animating.
         container.transform.position = cardPreviewAnchor.position;
 
         container.SetScale(Vector3.one * previewScale);
@@ -213,6 +285,8 @@ public class SacrificeArea : Zone
 
     protected override void BeginDragContainer(CardContainer container)
     {
+        ShowSacrificePrompt(false);
+
         previewedCard = container.Card;
 
         container.ShowVisual(true);
@@ -231,6 +305,7 @@ public class SacrificeArea : Zone
         if (Contains(eventData.position))
         {
             UpdateVisuals();
+            UpdateSacrificePrompt();
             return;
         }
 
@@ -245,6 +320,7 @@ public class SacrificeArea : Zone
             return;
 
         previewedCard = null;
+        ShowSacrificePrompt(false);
 
         GameManager.Actions.AddAction(
             new SacrificeCards(
@@ -264,6 +340,7 @@ public class SacrificeArea : Zone
             return;
 
         HideCardPreview();
+        ShowSacrificePrompt(false);
 
         GameManager.Actions.AddAction(
             new CancelSacrifice(
@@ -271,18 +348,5 @@ public class SacrificeArea : Zone
                 handArea
             )
         );
-    }
-
-    private void UpdateRewardText()
-    {
-        if (rewardText == null)
-            return;
-
-        int cardCount = Cards.Count;
-
-        rewardText.text =
-            $"Sacrifice {cardCount} " +
-            $"card{(cardCount == 1 ? "" : "s")}?\n" +
-            $" {cardCount} Fate";
     }
 }

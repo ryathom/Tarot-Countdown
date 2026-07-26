@@ -115,6 +115,6 @@ public class SoundFXManager : MonoBehaviour
             return;
         }
 
-        PlaySoundFXClip(clip, spawnTransform, 0.15f);
+        PlaySoundFXClip(clip, spawnTransform, 0.1f);
     }
 }
