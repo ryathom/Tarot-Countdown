@@ -52,6 +52,10 @@ public class PlayCard : IAction
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(arcana, GameManager.Instance.ArcanaPlayArea));
         GameManager.Instance.ArcanaPlayArea.UpdateVisuals();
 
+        SoundFXManager.Instance.PlaytarotSoundClip(GameManager.Instance.transform);
+
+        GameManager.Instance.Deck.ShowDeathCount(false);
+
         yield return new WaitForSeconds(0.5f);
 
         yield return GameManager.Actions.ExecuteImmediate(new GainFate(-arcana.FateCost));
@@ -63,5 +67,7 @@ public class PlayCard : IAction
         yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(arcana, GameManager.Instance.TarotDiscardPile));
 
         GameManager.Actions.AddAction(new EndTurn());
+
+        GameManager.Instance.Deck.ShowDeathCount(true);
     }
 }

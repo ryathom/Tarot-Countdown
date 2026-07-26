@@ -14,6 +14,7 @@ public class Chariot : MajorArcana
 
     public override IEnumerator ExecuteEffect()
     {
+
         DiscardPile discardPile = GameManager.Instance.DiscardPile;
         Deck deck = GameManager.Instance.Deck;
 

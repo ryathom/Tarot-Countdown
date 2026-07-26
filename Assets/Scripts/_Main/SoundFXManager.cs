@@ -22,6 +22,8 @@ public class SoundFXManager : MonoBehaviour
 
     [SerializeField] private AudioClip moonSound;
 
+    [SerializeField] private AudioClip tarotSound;
+
     [SerializeField] private AudioClip sacrificePoint1Sound;
     [SerializeField] private AudioClip sacrificePoint2Sound;
     [SerializeField] private AudioClip sacrificePoint3Sound;
@@ -94,7 +96,6 @@ public class SoundFXManager : MonoBehaviour
 
     public void PlayMoonSoundClip(Transform spawnTransform)
     {
-        MusicManager.Instance.DuckMusic(moonSound.length);
         PlaySoundFXClip(moonSound, spawnTransform, 0.6f, 0.95f);
     }
     public void PlaySacrificePointSound(int pointIndex, Transform spawnTransform)
@@ -117,4 +118,13 @@ public class SoundFXManager : MonoBehaviour
 
         PlaySoundFXClip(clip, spawnTransform, 0.1f);
     }
+
+    public void PlaytarotSoundClip(Transform spawnTransform)
+    {
+
+        MusicManager.Instance.DuckMusic(tarotSound.length);
+
+        PlaySoundFXClip(tarotSound, spawnTransform, 0.05f);
+    }
+
 }

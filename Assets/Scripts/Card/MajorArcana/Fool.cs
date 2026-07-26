@@ -12,6 +12,7 @@ public class Fool : MajorArcana
 
     public override IEnumerator ExecuteEffect()
     {
+        SoundFXManager.Instance.PlaytarotSoundClip(GameManager.Instance.transform);
         while (GameManager.Instance.PlayArea.Cards.Count > 0)
         {
             yield return GameManager.Actions.ExecuteImmediate(new ChangeZone(GameManager.Instance.PlayArea.Cards[^1], GameManager.Instance.Deck, 0.01f));

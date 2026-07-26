@@ -13,8 +13,6 @@ public class TheEmpress : MajorArcana
 
     public override IEnumerator ExecuteEffect()
     {
-        SoundFXManager.Instance.PlayempressSoundClip(GameManager.Instance.transform);
-
         int x = Random.Range(1,15);
 
         for (int i = 0; i < 4; i++)

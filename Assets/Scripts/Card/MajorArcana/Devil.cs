@@ -12,6 +12,7 @@ public class Devil : MajorArcana
 
     public override IEnumerator ExecuteEffect()
     {
+        SoundFXManager.Instance.PlaytarotSoundClip(GameManager.Instance.transform);
         GameManager.Instance.GainDoom(1);
         yield return new WaitForSeconds(0.2f);
 

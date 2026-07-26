@@ -3,6 +3,8 @@ using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Deck : Zone
 {
@@ -15,13 +17,26 @@ public class Deck : Zone
     [SerializeField] private TextMeshProUGUI deathCount;
 
     public Action<Card> OnClickCardInDeck;
+    private bool canShowDeathCounter = false;
+    private readonly Queue<int> deathPositionQueue = new();
+    private Coroutine deathCountRoutine;
+    private int queuedDeathPosition = -1;
 
     protected override void Start()
     {
         base.Start();
         deckCounterField.transform.localScale = Vector2.zero;
 
-        if (deathCounterField != null) deathCounterField.transform.localScale = Vector2.zero;
+        if (deathCounterField != null)
+        {
+            deathCounterField.transform.localScale = Vector2.zero;
+
+            Tween.Delay(3f, () =>
+            {
+                canShowDeathCounter = true;
+                ShowDeathCount(true);
+            });
+        }
     }
 
     public override void AddCard(Card card)
@@ -60,7 +75,7 @@ public class Deck : Zone
             card.Container.transform.SetAsLastSibling();
         }
 
-        if (deathCounterField != null) ShowDeathCount(DeathCardPosition() <= 10);
+        if (deathCounterField != null && canShowDeathCounter) ShowDeathCount(true); //DeathCardPosition() <= 10);
     }
 
     public void Shuffle()
@@ -126,14 +141,69 @@ public class Deck : Zone
         if (enabled)
         {
             Tween.Scale(deathCounterField.transform, Vector2.one, 0.5f);
-        } else
+        }
+        else
         {
             Tween.Scale(deathCounterField.transform, Vector2.zero, 0.1f);
         }
 
-        deathCount.text = DeathCardPosition().ToString();
-    }
+        int position = DeathCardPosition();
 
+        if (position != queuedDeathPosition)
+        {
+            deathPositionQueue.Enqueue(position);
+            queuedDeathPosition = position;
+
+            if (deathCountRoutine == null)
+            {
+                deathCountRoutine = StartCoroutine(ProcessDeathCountQueue());
+            }
+        }
+    }
+    private void FlashDeathCounter()
+    {
+        Tween.StopAll(deathCounterField.transform);
+
+        deathCounterField.transform.localScale = Vector3.one;
+
+        Sequence.Create()
+            .Group(Tween.ShakeLocalPosition(
+                deathCounterField.transform,
+                strength: new Vector3(8f, 0f, 0f),
+                duration: 0.22f))
+            .Chain(Tween.Scale(deathCounterField.transform, Vector3.one * 1.45f, 0.08f))
+            .Chain(Tween.Scale(deathCounterField.transform, Vector3.one * 0.9f, 0.06f))
+            .Chain(Tween.Scale(deathCounterField.transform, Vector3.one, 0.08f));
+    }
+    private IEnumerator ProcessDeathCountQueue()
+    {
+        while (deathPositionQueue.Count > 0)
+        {
+            int position = deathPositionQueue.Dequeue();
+
+            deathCount.text = position.ToString();
+
+            bool isMilestone =
+                position == 10 ||
+                position == 5 ||
+                position == 4 ||
+                position == 3 ||
+                position == 2 ||
+                position == 1;
+
+            if (isMilestone)
+            {
+                FlashDeathCounter();
+                yield return new WaitForSeconds(0.45f);
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.05f);
+            }
+        }
+
+        deathCountRoutine = null;
+    }
     protected override void EnterContainer(CardContainer container)
     {
         container.SetScale(hoverScale);

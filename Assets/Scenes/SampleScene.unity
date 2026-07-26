@@ -5542,8 +5542,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MusicManager
   musicSource: {fileID: 1412968757}
   mainTheme: {fileID: 8300000, guid: 0e126939e19810c448c813debf9c1248, type: 3}
-  duckedVolume: 0.025
-  fadeDuration: 0.2
+  duckedVolume: 0.015
+  fadeDuration: 1
 --- !u!1 &1418563243
 GameObject:
   m_ObjectHideFlags: 0
@@ -8565,6 +8565,7 @@ MonoBehaviour:
   gainFateSound: {fileID: 8300000, guid: 0acc8664bfb34b2468fc5553d2dfafd7, type: 3}
   empressSound: {fileID: 8300000, guid: 1b9d3c14f558d1847b14bdb8cb486b31, type: 3}
   moonSound: {fileID: 8300000, guid: 89e8f8c2e24a7d84bb5bd2205f9431cd, type: 3}
+  tarotSound: {fileID: 8300000, guid: 4f499fffc0016f244a1c3b96b7c35126, type: 3}
   sacrificePoint1Sound: {fileID: 8300000, guid: df850e6cce12e2a41a72fb72aa4d3616, type: 3}
   sacrificePoint2Sound: {fileID: 8300000, guid: 77f8f5f78ec5e6a4695a1941cd4bd75f, type: 3}
   sacrificePoint3Sound: {fileID: 8300000, guid: 78c44d7b833cf6a41ab17a01e2df4eea, type: 3}
