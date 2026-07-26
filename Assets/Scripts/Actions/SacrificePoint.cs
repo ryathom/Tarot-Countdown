@@ -8,11 +8,17 @@ public class SacrificePoint : MonoBehaviour,
     IPointerExitHandler
 {
     [SerializeField] private Image pointImage;
+    [SerializeField] private GameObject flame;
 
     public Card AssignedCard { get; private set; }
 
     public Action<Card> HoverEntered;
     public Action HoverExited;
+
+    private void Awake()
+    {
+        flame.SetActive(false);
+    }
 
     public void Assign(Card card, Color colour)
     {
@@ -20,12 +26,16 @@ public class SacrificePoint : MonoBehaviour,
 
         pointImage.color = colour;
         pointImage.enabled = true;
+
+        flame.SetActive(true);
     }
 
     public void Clear()
     {
         AssignedCard = null;
+
         pointImage.enabled = false;
+        flame.SetActive(false);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
