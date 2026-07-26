@@ -5,17 +5,21 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject helpScreen;
+    [SerializeField] private GameObject settingsScreen;
 
     private void Start()
     {
         helpScreen.transform.localScale = Vector2.zero;
+        settingsScreen.transform.localScale = Vector2.zero;
 
         InputManager.Instance.OnCancelAction += CloseHelpScreen;
+        InputManager.Instance.OnCancelAction += CloseSettingsScreen;
     }
 
     private void OnDestroy()
     {
         InputManager.Instance.OnCancelAction -= CloseHelpScreen;
+        InputManager.Instance.OnCancelAction -= CloseSettingsScreen;
     }
 
     public void StartGame()
@@ -32,5 +36,16 @@ public class MainMenuManager : MonoBehaviour
     public void CloseHelpScreen()
     {
         Tween.Scale(helpScreen.transform, Vector2.zero, 0.1f);
+    }
+
+    public void OpenSettingsScreen()
+    {
+        settingsScreen.SetActive(true);
+        Tween.Scale(settingsScreen.transform, Vector2.one, 0.2f);
+    }
+
+    public void CloseSettingsScreen()
+    {
+        Tween.Scale(settingsScreen.transform, Vector2.zero, 0.1f);
     }
 }
