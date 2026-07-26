@@ -1,4 +1,5 @@
 using System;
+using NUnit.Framework;
 using PrimeTween;
 using TMPro;
 using UnityEngine;
@@ -37,7 +38,13 @@ public class Deck : Zone
             OnClickCardInDeck?.Invoke(card);
         } else
         {
-            UIManager.Instance.OpenBrowser(this);
+            if (card is MajorArcana)
+            {
+                UIManager.Instance.OpenTarotBrowser();
+            } else
+            {
+                UIManager.Instance.OpenBrowser(this);
+            }
         }
     }
 
@@ -79,6 +86,22 @@ public class Deck : Zone
         }
 
         UpdateVisuals();
+    }
+
+    public bool ContainsTarotCard(MajorArcana arcana)
+    {
+        foreach (Card card in Cards)
+        {
+            if (card is MajorArcana ma)
+            {
+                if (ma.GetType() == arcana.GetType())
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     public int DeathCardPosition()
