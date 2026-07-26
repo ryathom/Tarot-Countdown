@@ -53,7 +53,6 @@ public class TarotBrowser : Zone
             cardContainer.SetScale(normalScale);
             AddCard(arcana);
             arcana.SetFaceUp(true);
-            cardContainer.gameObject.SetActive(false);
         }
     }
 
@@ -63,10 +62,10 @@ public class TarotBrowser : Zone
         {
             if (GameManager.Instance.TarotDeck.ContainsTarotCard((MajorArcana)card))
             {
-                card.Container.gameObject.SetActive(true);
+                card.Container.SetColor(Color.white);
             } else
             {
-                card.Container.gameObject.SetActive(false);
+                card.Container.SetColor(Color.gray);
             }
         }
     }
