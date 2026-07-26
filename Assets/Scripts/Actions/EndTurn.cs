@@ -36,8 +36,6 @@ public class EndTurn : IAction
 
             yield return GameManager.Actions.ExecuteImmediate(new GainDoom(1));
 
-            yield return ScoreRun(playArea);
-
             playArea.isScoring = true;
             while (!IsValidRun(playArea.Cards))
             {
@@ -50,7 +48,7 @@ public class EndTurn : IAction
 
             ResetAceNumber(playArea.Cards);
 
-        } else if (!HasValidPlays(playArea.Cards, handArea.Cards))
+        } else if (playArea.Cards.Count >= maximumRunSize)
         {
             yield return ScoreRun(playArea);
 
@@ -64,8 +62,6 @@ public class EndTurn : IAction
             playArea.isScoring = false;
             playArea.UpdateVisuals();
         }
-
-        
 
         GameManager.Instance.IncrementScore();
     }
@@ -143,24 +139,6 @@ public class EndTurn : IAction
             3 => 3,
             _ => 0
         };
-    }
-
-    public bool HasValidPlays(List<Card> playArea, List<Card> handArea)
-    {
-        if (playArea.Count == 0) return true;
-        if (playArea.Count >= maximumRunSize) return false;
-
-        Card lastPlayedCard = playArea[^1];
-
-        foreach(Card card in handArea)
-        {
-            if (card.EffectiveNumber < lastPlayedCard.EffectiveNumber)
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     public bool IsValidRun(List<Card> cards)
